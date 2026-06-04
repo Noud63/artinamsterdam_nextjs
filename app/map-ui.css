@@ -350,8 +350,8 @@ html {
   flex-direction: row;
   justify-content: space-between;
   padding-left: 15px;
-  padding-right: 0px;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #pic,
@@ -359,7 +359,6 @@ html {
   width: 30%;
   height: auto;
   margin-right: 15px;
-
 }
 
 .info {
