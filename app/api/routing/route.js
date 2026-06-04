@@ -1,21 +1,33 @@
+function isValidLat(v) {
+  return Number.isFinite(v) && v >= -90 && v <= 90;
+}
+
+function isValidLng(v) {
+  return Number.isFinite(v) && v >= -180 && v <= 180;
+}
+
 export async function POST(request) {
   let body;
   try {
     body = await request.json();
   } catch {
-    return Response.json({ error: "Invalid request body" }, { status: 400 });
+    return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
-  const { userLat, userLng, venueLat, venueLng, venueName } = body;
+  const userLat = Number(body.userLat);
+  const userLng = Number(body.userLng);
+  const venueLat = Number(body.venueLat);
+  const venueLng = Number(body.venueLng);
+  const venueName = typeof body.venueName === "string" ? body.venueName : "";
 
   if (
-    userLat == null ||
-    userLng == null ||
-    venueLat == null ||
-    venueLng == null
+    !isValidLat(userLat) ||
+    !isValidLng(userLng) ||
+    !isValidLat(venueLat) ||
+    !isValidLng(venueLng)
   ) {
     return Response.json(
-      { error: "Missing required coordinates" },
+      { error: "Invalid coordinates: latitude must be -90..90, longitude -180..180" },
       { status: 400 },
     );
   }
