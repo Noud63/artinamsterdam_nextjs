@@ -7,6 +7,7 @@ export default function ArtMarkersLayer({
   features,
   onVenueSelect,
   markersRef,
+  geoJsonKey,
 }) {
   // useEffect(() => {
   //   markersRef.current = {};
@@ -19,16 +20,19 @@ export default function ArtMarkersLayer({
 
   const pointToLayer = (feature, latlng) => {
     const marker = createBouncingMarker(latlng, () => onVenueSelect(feature));
+    marker.bindTooltip(feature.properties.name, {
+      className: "font-semibold text-xs",
+      direction: "top", // top | bottom | left | right | auto
+      offset: [0, -38], // [x, y] pixel offset
+      permanent: false, // true = always visible, false = only on hover
+      opacity: 1,
+    });
     markersRef.current[feature.id] = marker;
     return marker;
   };
 
   return (
-    <GeoJSON
-      key={features.map((feature) => feature.id).join(",")}
-      data={geoJsonData}
-      pointToLayer={pointToLayer}
-    />
+    <GeoJSON key={geoJsonKey} data={geoJsonData} pointToLayer={pointToLayer} />
   );
 }
 

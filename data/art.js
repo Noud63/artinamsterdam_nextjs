@@ -942,7 +942,7 @@
 		"type": "Feature",
 		"cat": "gallery",
 		"properties": {
-			"name": "MadÃ© van Krimpen",
+			"name": "Made van Krimpen",
 			"image": "madevankrimpen.jpg",
 			"extra": "MadÃ© van Krimpen is an Amsterdam based gallery dedicated to contemporary art, with a program that moves fluidly between experimentation and established practices. Founded in 2021, the gallery embraces a wide range of media, from painting to performance and sound, photography, and installation, fostering projects that are curious, tactile, and sometimes unexpected.\n\nWith a base in Amsterdam and projects that extend through international collaborations, MadÃ© van Krimpen maintains an approach that is open and playful committed to creating meaningful encounters with art across disciplines.",
 			"link": "https://madevankrimpen.com",

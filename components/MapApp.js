@@ -324,7 +324,7 @@ export default function MapApp() {
             attribution="Tiles &copy; Esri"
           />
           <ArtMarkersLayer
-            key={geoJsonKey}
+            geoJsonKey={geoJsonKey}
             features={filteredFeatures}
             onVenueSelect={handleVenueSelect}
             markersRef={markersRef}
