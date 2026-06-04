@@ -22,9 +22,9 @@ export default function ArtMarkersLayer({
     const marker = createBouncingMarker(latlng, () => onVenueSelect(feature));
     marker.bindTooltip(feature.properties.name, {
       className: "font-semibold text-xs",
-      direction: "top", // top | bottom | left | right | auto
-      offset: [0, -38], // [x, y] pixel offset
-      permanent: false, // true = always visible, false = only on hover
+      direction: "top",
+      offset: [0, -38],
+      permanent: false,
       opacity: 1,
     });
     markersRef.current[feature.id] = marker;
