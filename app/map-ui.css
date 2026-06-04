@@ -253,16 +253,20 @@ html {
   z-index: 5;
 }
 
+/* Shared scrollbar styles for sidebar panels */
+.custom-scrollbar::-webkit-scrollbar,
 .infowindow::-webkit-scrollbar {
   width: 7px;
   height: 0px;
   border-left: 0;
 }
 
+.custom-scrollbar::-webkit-scrollbar-track,
 .infowindow::-webkit-scrollbar-track {
   background: none;
 }
 
+.custom-scrollbar::-webkit-scrollbar-thumb,
 .infowindow::-webkit-scrollbar-thumb {
   background: #53310a;
   border-radius: 7px;
@@ -558,34 +562,7 @@ html {
 }
 
 /* ------------ CUSTOM SCROLLBAR ------------- */
-
-.listings::-webkit-scrollbar {
-  width: 7px;
-  height: 0px;
-  border-left: 0;
-}
-
-.listings::-webkit-scrollbar-track {
-  background: none;
-}
-
-.listings::-webkit-scrollbar-thumb {
-  background: #53310a;
-  border-radius: 7px;
-  min-height: 40px;
-  background-color: #fff;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    #53310a 0%,
-    #b47630 35%,
-    transparent 100%,
-    #b47630 65%,
-    transparent
-  );
-  -webkit-box-shadow: inset 0px 0px 5px #53310a;
-  box-shadow: inset 0px 0px 5px #53310a;
-  background-color: #cf9451;
-}
+/* .listings scrollbar now uses the shared .custom-scrollbar class */
 
 .clearfix {
   display: block;
@@ -822,31 +799,7 @@ hr {
   cursor: pointer;
 }
 
-/* Chrome, Safari, Edge */
-.popUpContent::-webkit-scrollbar {
-  width: 7px;
-}
-
-.popUpContent::-webkit-scrollbar-track {
-  background: none;
-}
-
-.popUpContent:hover::-webkit-scrollbar-thumb {
-  border-radius: 7px;
-  min-height: 40px;
-  background-color: #fff;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    #c4aa8d 10%,
-    #ffffff 35%,
-    transparent 100%,
-    #ffffff 65%,
-    transparent
-  );
-  -webkit-box-shadow: inset 0px 0px 5px #53310a;
-  box-shadow: inset 0px 0px 5px #a17a4e;
-  background-color: #ffffff;
-}
+/* .popUpContent scrollbar now uses the shared .custom-scrollbar class */
 
 /* Location */
 

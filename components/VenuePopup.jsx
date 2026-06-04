@@ -4,8 +4,9 @@ import {
   estimateWalkingTime,
   getDistanceToVenue,
 } from "@/lib/distance";
-import { formatCategoryLabel, isVenueOpen } from "@/lib/venue";
+import { formatCategoryLabel, isVenueOpen, getVenueImageSrc } from "@/lib/venue";
 import Image from "next/image";
+import CloseButton from "@/components/CloseButton";
 
 export default function VenuePopup({
   feature,
@@ -22,6 +23,7 @@ export default function VenuePopup({
 
   const props = feature.properties;
   const [lng, lat] = feature.geometry.coordinates;
+  const imageSrc = getVenueImageSrc(feature);
   const distance = getDistanceToVenue(userLocation, lat, lng);
   const showOpenStatus =
     feature.cat !== "public" && props.name !== "Van Gogh Museum";
@@ -34,7 +36,7 @@ export default function VenuePopup({
     >
       <div className="pic">
         <Image
-          src={`/images/${props.image}`}
+          src={imageSrc}
           alt={props.name}
           width={350}
           height={200}
@@ -42,7 +44,7 @@ export default function VenuePopup({
         />
       </div>
 
-      <div className="popUpContent">
+      <div className="popUpContent custom-scrollbar">
         {distance ? (
           <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2 pt-2">
             <div>📍{formatDistance(distance)}</div>
@@ -127,17 +129,12 @@ export default function VenuePopup({
           ) : null}
         </div>
 
-        <div className="close">
-          <button type="button" className="border-0 bg-transparent p-0" onClick={onClose}>
-            <Image
-              src="/images/close.png"
-              className="closeIcon"
-              alt="Close popup"
-              width={26}
-              height={26}
-            />
-          </button>
-        </div>
+        <CloseButton
+          icon="/images/close.png"
+          className="closeIcon"
+          alt="Close popup"
+          onClick={onClose}
+        />
       </div>
     </div>
   );

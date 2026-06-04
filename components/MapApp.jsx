@@ -6,6 +6,7 @@ import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import { art } from "@/data/art";
 import { L, AMSTERDAM_CENTER, DEFAULT_ZOOM } from "@/lib/leaflet-setup";
 import { filterFeatures, sortFeaturesByName } from "@/lib/venue";
+import { isMobileViewport } from "@/lib/media";
 import ArtMarkersLayer from "@/components/map/ArtMarkersLayer";
 import UserLocationLayer from "@/components/map/UserLocationLayer";
 import RouteLayer from "@/components/map/RouteLayer";
@@ -14,6 +15,7 @@ import Sidebar from "@/components/Sidebar";
 import Menu from "@/components/Menu";
 import InfoWindow from "@/components/InfoWindow";
 import VenuePopup from "@/components/VenuePopup";
+import AmsterdamLogo from "@/components/AmsterdamLogo";
 import "leaflet/dist/leaflet.css";
 
 export default function MapApp() {
@@ -49,11 +51,15 @@ export default function MapApp() {
     setSelectedFeature(null);
   }, []);
 
-  useEffect(() => {
-    closePopup();
+  const clearRoute = useCallback(() => {
     setRouteLatLngs(null);
     setRouteBounds(null);
-  }, [category, closePopup]);
+  }, []);
+
+  useEffect(() => {
+    closePopup();
+    clearRoute();
+  }, [category, closePopup, clearRoute]);
 
   const closeInfo = useCallback(() => {
     setInfoOpen(false);
@@ -100,7 +106,7 @@ export default function MapApp() {
         setOpenUserPopup(openPopup);
         setLocating(false);
 
-        if (window.matchMedia("(max-width: 430px)").matches) {
+        if (isMobileViewport()) {
           setInfoOpen(false);
           setSidebarHidden(true);
           setMobileMenuOpen(false);
@@ -181,14 +187,13 @@ export default function MapApp() {
 
   const handleReset = useCallback(() => {
     setCategory(null);
-    setRouteLatLngs(null);
-    setRouteBounds(null);
+    clearRoute();
     closePopup();
     closeInfo();
     setMobileMenuOpen(false);
     setResetToken((value) => value + 1);
     markersRef.current = {};
-  }, [closePopup, closeInfo]);
+  }, [closePopup, closeInfo, clearRoute]);
 
   const handleInfoClick = useCallback(() => {
     if (infoOpen) {
@@ -199,7 +204,7 @@ export default function MapApp() {
     setInfoOpen(true);
     setMobileMenuOpen(false);
 
-    if (window.matchMedia("(max-width: 430px)").matches) {
+    if (isMobileViewport()) {
       setSidebarHidden(true);
     }
   }, [infoOpen, closeInfo]);
@@ -245,26 +250,8 @@ export default function MapApp() {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <div className="amsterdam_logo">
-        <Image
-          src="/images/amsterdam_logo_wit.png"
-          alt=""
-          width={70}
-          height={18}
-          aria-hidden="true"
-          style={{ width: "70px", height: "auto" }}
-        />
-      </div>
-      <div className="amsterdam_logo_right">
-        <Image
-          src="/images/amsterdam_logo_wit.png"
-          alt=""
-          width={70}
-          height={18}
-          aria-hidden="true"
-          style={{ width: "70px", height: "auto" }}
-        />
-      </div>
+      <AmsterdamLogo className="amsterdam_logo" />
+      <AmsterdamLogo className="amsterdam_logo_right" />
       <div className="artinamsterdam">
         <Image
           src="/images/artinamsterdam_black_2.png"
