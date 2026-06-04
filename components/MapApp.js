@@ -153,6 +153,11 @@ export default function MapApp() {
           }),
         });
 
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `Request failed (${response.status})`);
+        }
+
         const data = await response.json();
 
         if (data.paths?.[0]?.points?.coordinates) {
