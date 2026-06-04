@@ -9,7 +9,7 @@ Leaflet OpenStreetMap<br />
 Graphhopper api<br />
 Mapbox tiles<br /><br />
 
-Demo: https://amsterdam-art.vercel.app/ <br/><br />
+Demo: https://artinamsterdam-nextjs.vercel.app<br/><br />
 
 <div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/68b2c3d5-fca2-4158-8b65-d2025bc10e32" /></div><br />
 
