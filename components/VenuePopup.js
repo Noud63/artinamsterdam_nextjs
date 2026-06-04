@@ -44,7 +44,7 @@ export default function VenuePopup({
 
       <div className="popUpContent">
         {distance ? (
-          <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2">
+          <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2 pt-2">
             <div>📍{formatDistance(distance)}</div>
             <div className="flex gap-1">
               <Image
