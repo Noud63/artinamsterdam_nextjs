@@ -4,6 +4,7 @@ Find Galleries, Museums, Art Centres and public Art in Amsterdam.<br /><br />
 Nextjs Application:<br /> 
 Nextjs 16 <br />
 React 19 <br />
+Tailwind 4<br />
 Leaflet OpenStreetMap<br />
 Graphhopper api<br />
 Mapbox tiles<br /><br />
