@@ -35,7 +35,9 @@ export default function UserLocationLayer({ userLocation, openPopup }) {
             : undefined
         }
       >
-         <Tooltip><span className="font-semibold text-xs">Your current location</span></Tooltip>
+        <Tooltip>
+          <span className="font-semibold text-xs">Your current location</span>
+        </Tooltip>
         <Popup>
           <div className="location-popup text-center text-[#8b4c11] leading-snug pb-1">
             <div className="location-popup__title inline-block text-xs font-bold mb-1 underline decoration-[#8b4c11]">
@@ -49,7 +51,6 @@ export default function UserLocationLayer({ userLocation, openPopup }) {
             Accuracy: ~{Math.round(accuracy)} meters
           </div>
         </Popup>
-       
       </Marker>
     </>
   );

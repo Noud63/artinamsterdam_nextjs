@@ -421,14 +421,15 @@
 				"The gallery represents a highly curated selection of artists from around the world, with a particular focus on photography of the second half of the 20th century and contemporary artistic positions of the 21st century.\n",
 				"In addition to showcasing internationally established artists, Bildhalle's ambitious program also provides space for innovative young and upcoming artists who are pushing the boundaries of the medium of photography by creating a crossover to other visual art forms and are thereby bringing new perspectives to the discourse."
 			],
+			"address": "Singel 272h",
 			"link": "https://www.bildhalle.ch",
 			"open": ["Wednesday:12:00 - 18:30","Thursday:12:00 - 18:30","Friday:12:00 - 18:30","Saturday:11:00 - 16:00"]
 		},
 		"geometry": {
 			"type": "Point",
 			"coordinates": [
-				4.8574,
-				52.3556
+				4.887949,
+				52.372398
 			]
 		}
 	},

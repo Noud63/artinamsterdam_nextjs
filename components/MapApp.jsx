@@ -249,8 +249,8 @@ export default function MapApp() {
         <Image
           src="/images/amsterdam_logo_wit.png"
           alt=""
-          width={100}
-          height={20}
+          width={70}
+          height={18}
           aria-hidden="true"
           style={{ width: "70px", height: "auto" }}
         />
@@ -259,8 +259,8 @@ export default function MapApp() {
         <Image
           src="/images/amsterdam_logo_wit.png"
           alt=""
-          width={100}
-          height={20}
+          width={70}
+          height={18}
           aria-hidden="true"
           style={{ width: "70px", height: "auto" }}
         />

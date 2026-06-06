@@ -61,6 +61,15 @@ function MenuButtons({
       >
         Reset
       </button>
+      <button
+        type="button"
+        className="login"
+        onClick={() => {
+          onCloseMobileMenu?.();
+        }}
+      >
+        Login
+      </button>
     </>
   );
 }

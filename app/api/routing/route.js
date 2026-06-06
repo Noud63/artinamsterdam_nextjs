@@ -1,6 +1,11 @@
+import dbConnect from "@/lib/dbConnect";
+
 export async function POST(request) {
   let body;
   try {
+    const con = await dbConnect();
+
+    console.log("Database connection established!");
     body = await request.json();
   } catch {
     return Response.json({ error: "Invalid request body" }, { status: 400 });
@@ -33,9 +38,7 @@ export async function POST(request) {
 
     if (!response.ok) {
       const errorText = await response.text().catch(() => "Unknown error");
-      console.error(
-        `GraphHopper API error (${response.status}): ${errorText}`,
-      );
+      console.error(`GraphHopper API error (${response.status}): ${errorText}`);
       return Response.json(
         { error: `Routing service error (${response.status})` },
         { status: 502 },
