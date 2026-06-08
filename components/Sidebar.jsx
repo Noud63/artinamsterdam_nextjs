@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { formatCategoryLabel } from "@/lib/venue";
+import { formatCategoryLabel, getVenueImageSrc } from "@/lib/venue";
 
 export default function Sidebar({
   features,
@@ -39,7 +39,7 @@ export default function Sidebar({
           className="h-auto w-full max-w-[350px]"
           priority
         />
-        <div id="listings" className="listings">
+        <div id="listings" className="listings custom-scrollbar">
           {features.map((feature) => (
             <div
               key={feature.id}
@@ -49,7 +49,7 @@ export default function Sidebar({
               <div className="content">
                 <div className="box">
                   <Image
-                    src={`/images/${feature.properties.image}`}
+                    src={getVenueImageSrc(feature)}
                     alt=""
                     id="pic"
                     width={100}

@@ -7,6 +7,13 @@ const MENU_BUTTONS = [
   { key: "artcentre", label: "Art Centres", className: "artcentre" },
 ];
 
+function withMobileClose(action, onCloseMobileMenu) {
+  return () => {
+    action();
+    onCloseMobileMenu?.();
+  };
+}
+
 function MenuButtons({
   onCategorySelect,
   onInfoClick,
@@ -22,10 +29,7 @@ function MenuButtons({
           key={button.key}
           type="button"
           className={button.className}
-          onClick={() => {
-            onCategorySelect(button.key);
-            onCloseMobileMenu?.();
-          }}
+          onClick={withMobileClose(() => onCategorySelect(button.key), onCloseMobileMenu)}
         >
           {button.label}
         </button>
@@ -33,20 +37,14 @@ function MenuButtons({
       <button
         type="button"
         className="informatie"
-        onClick={() => {
-          onInfoClick();
-          onCloseMobileMenu?.();
-        }}
+        onClick={withMobileClose(onInfoClick, onCloseMobileMenu)}
       >
         Info
       </button>
       <button
         type="button"
         className="locateMe"
-        onClick={() => {
-          onLocate();
-          onCloseMobileMenu?.();
-        }}
+        onClick={withMobileClose(onLocate, onCloseMobileMenu)}
         disabled={locating}
       >
         {locating ? "Locating..." : "Locate Me"}
@@ -54,10 +52,7 @@ function MenuButtons({
       <button
         type="button"
         className="reset"
-        onClick={() => {
-          onReset();
-          onCloseMobileMenu?.();
-        }}
+        onClick={withMobileClose(onReset, onCloseMobileMenu)}
       >
         Reset
       </button>
