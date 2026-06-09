@@ -1,5 +1,6 @@
 import "./globals.css";
 import "./map-ui.css";
+import AuthProvider from "@/components/AuthProvider";
 
 export const metadata = {
   title: "Art in Amsterdam",
@@ -13,7 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full">
-      <body className="h-full overflow-hidden">{children}</body>
+      <AuthProvider>
+<body className="h-full overflow-hidden">{children}</body>
+      </AuthProvider>
+      
     </html>
   );
 }

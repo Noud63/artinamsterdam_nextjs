@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
 const MENU_BUTTONS = [
   { key: "museum", label: "Museums", className: "museums" },
@@ -16,6 +18,8 @@ function MenuButtons({
   locating,
   onCloseMobileMenu,
 }) {
+  const { data: session, status } = useSession();
+
   return (
     <>
       {MENU_BUTTONS.map((button) => (
@@ -63,9 +67,20 @@ function MenuButtons({
         Reset
       </button>
 
-      <Link href="/login" className="login_button">
-        Sign In
-      </Link>
+      {session?.user ? (
+        <button
+          className="login_button"
+          onClick={() => {
+            signOut({ callbackUrl: "/", redirect: true });
+          }}
+        >
+          <span> Sign Out</span>
+        </button>
+      ) : (
+        <Link href="/login" className="login_button">
+          Sign In
+        </Link>
+      )}
     </>
   );
 }
