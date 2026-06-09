@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 const MENU_BUTTONS = [
   { key: "museum", label: "Museums", className: "museums" },
@@ -61,15 +62,10 @@ function MenuButtons({
       >
         Reset
       </button>
-      <button
-        type="button"
-        className="login"
-        onClick={() => {
-          onCloseMobileMenu?.();
-        }}
-      >
-        Login
-      </button>
+
+      <Link href="/login" className="login_button">
+        Sign In
+      </Link>
     </>
   );
 }

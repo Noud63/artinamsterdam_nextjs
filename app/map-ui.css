@@ -6,7 +6,6 @@ html {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  font-size: 62, 5%;
 }
 
 #container {
@@ -51,7 +50,7 @@ html {
   display: flex;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
   .hamburger {
     display: flex;
   }
@@ -138,7 +137,44 @@ html {
   cursor: pointer;
 }
 
-.amsterdam_logo {
+.menuTop_login {
+ width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image:
+    linear-gradient(to top, rgba(211, 142, 64, 0.8), rgba(211, 142, 64, 0.8)),
+    url("/images/sunflowers.jpg");
+  background-position: center;
+  height: 45px;
+  z-index: 10;
+  box-shadow: 0 2px 2px #69503a;
+}
+
+.login_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #b47732, transparent);
+  width: 120px;
+  padding: 6px;
+  border-radius: 25px;
+  border: none;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.07rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 1px 1px #492910;
+  border-top: 1px solid #eeb472;
+  cursor: pointer;
+}
+
+.amsterdam_logo, .amsterdam_logo_login_l {
   display: flex;
   position: absolute;
   top: 0;
@@ -147,7 +183,7 @@ html {
   padding: 14px 20px;
 }
 
-.amsterdam_logo_right {
+.amsterdam_logo_right, .amsterdam_logo_login_r {
   display: flex;
   position: absolute;
   top: 0;
@@ -180,7 +216,7 @@ html {
   width: 240px;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1240px) {
   .amsterdam_logo,
   .amsterdam_logo_right {
     display: none;
@@ -190,12 +226,22 @@ html {
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 450px) {
+  .amsterdam_logo_login_l,
+  .amsterdam_logo_login_r {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
   .menuTop button {
     display: none;
   }
   .artinamsterdam {
     display: flex;
+  }
+  .login_button {
+    display: none;
   }
 }
 
@@ -457,7 +503,7 @@ html {
   }
 }
 
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 1000px) {
   .menubar.active {
     display: none;
   }

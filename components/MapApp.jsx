@@ -71,7 +71,11 @@ export default function MapApp() {
       setSelectedFeature(feature);
       setPopupActive(true);
 
-      if (typeof window !== "undefined" && window.innerWidth <= 540 && !sidebarHidden) {
+      if (
+        typeof window !== "undefined" &&
+        window.innerWidth <= 540 &&
+        !sidebarHidden
+      ) {
         setSidebarHidden(true);
       }
 
@@ -155,7 +159,9 @@ export default function MapApp() {
 
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));
-          throw new Error(errorData.error || `Request failed (${response.status})`);
+          throw new Error(
+            errorData.error || `Request failed (${response.status})`,
+          );
         }
 
         const data = await response.json();
@@ -270,8 +276,8 @@ export default function MapApp() {
           src="/images/artinamsterdam_black_2.png"
           alt="Art in Amsterdam"
           width={240}
-          height={60}
-          priority
+          height={20}
+          style={{ width: "240px", height: "auto" }}
         />
       </div>
 
