@@ -19,6 +19,7 @@ function MenuButtons({
   onCloseMobileMenu,
 }) {
   const { data: session, status } = useSession();
+  // console.log("Data:", session?.user)
 
   return (
     <>
