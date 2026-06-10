@@ -1,4 +1,5 @@
 "use client";
+import React,{useState} from "react";
 import {
   formatDistance,
   estimateWalkingTime,
@@ -6,6 +7,7 @@ import {
 } from "@/lib/distance";
 import { formatCategoryLabel, isVenueOpen } from "@/lib/venue";
 import Image from "next/image";
+import StarRating from "./StarRating";
 
 export default function VenuePopup({
   feature,
@@ -15,10 +17,14 @@ export default function VenuePopup({
   routing,
   onClose,
   onRoute,
+  session,
+  avatar,
 }) {
   if (!feature || !active) {
     return null;
   }
+
+   const [rating, setRating] = useState(0);
 
   const props = feature.properties;
   const [lng, lat] = feature.geometry.coordinates;
@@ -42,9 +48,9 @@ export default function VenuePopup({
         />
       </div>
 
-      <div className="popUpContent">
+      <div className="popUpContent pt-2">
         {distance ? (
-          <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2 pt-2">
+          <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2">
             <div>📍{formatDistance(distance)}</div>
             <div className="flex gap-1">
               <Image
@@ -54,18 +60,31 @@ export default function VenuePopup({
                 width={8}
                 className="walkIcon"
                 aria-hidden="true"
-                style={{width:"8px", height:"16px"}}
+                style={{ width: "8px", height: "16px" }}
               />
               <span>{estimateWalkingTime(distance)} (5 km/h)</span>
             </div>
-            
           </div>
         ) : (
           <div className="distance">📍 Location unavailable</div>
         )}
 
-        <div className="puName">{props.name}</div>
-        {props.title ? <div className="puTitle">&quot;{props.title}&quot;</div> : null}
+        <div className="puName flex justify-between mt-2 text-lg font-bold">
+          <div>{props.name}</div>
+
+          <button type="button" className="" onClick={onClose}>
+            <Image
+              src="/images/close.png"
+              alt="Close popup"
+              className="cursor-pointer"
+              width={18}
+              height={18}
+            />
+          </button>
+        </div>
+        {props.title ? (
+          <div className="puTitle">&quot;{props.title}&quot;</div>
+        ) : null}
         {props.extra ? <div className="extra3">{props.extra}</div> : null}
         {props.address ? (
           <div className="address">
@@ -126,18 +145,16 @@ export default function VenuePopup({
             </button>
           ) : null}
         </div>
-
-        <div className="close">
-          <button type="button" className="border-0 bg-transparent p-0" onClick={onClose}>
-            <Image
-              src="/images/close.png"
-              className="closeIcon"
-              alt="Close popup"
-              width={26}
-              height={26}
-            />
-          </button>
-        </div>
+          {session?.user && (<div className="flex flex-col mt-8">
+          <span className="font-semibold mb-2">Asses and Review</span>
+            <div className="flex flex-row gap-2">
+            <button type="button" className="" onClick={onClose}>
+              <Image src={avatar} alt="avatar" width={30} height={30} />
+            </button>
+          <StarRating value={rating} onChange={setRating}/>
+          </div>
+        </div>)}
+        
       </div>
     </div>
   );

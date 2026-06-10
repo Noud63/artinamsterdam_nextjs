@@ -14,6 +14,7 @@ import Sidebar from "@/components/Sidebar";
 import Menu from "@/components/Menu";
 import InfoWindow from "@/components/InfoWindow";
 import VenuePopup from "@/components/VenuePopup";
+import { useSession } from "next-auth/react";
 import "leaflet/dist/leaflet.css";
 
 export default function MapApp() {
@@ -33,6 +34,10 @@ export default function MapApp() {
   const [routeBounds, setRouteBounds] = useState(null);
   const [routing, setRouting] = useState(false);
   const [resetToken, setResetToken] = useState(0);
+
+  const { data: session } = useSession();
+
+  const avatar = session?.user?.avatar
 
   const filteredFeatures = useMemo(() => {
     const filtered = filterFeatures(art.features, category);
@@ -261,22 +266,36 @@ export default function MapApp() {
           style={{ width: "70px", height: "auto" }}
         />
       </div>
-      <div className="amsterdam_logo_right">
-        <Image
-          src="/images/amsterdam_logo_wit.png"
-          alt=""
-          width={70}
-          height={18}
-          aria-hidden="true"
-          style={{ width: "70px", height: "auto" }}
-        />
-      </div>
+
+       
+        <div className="amsterdam_logo_right">
+          <Image
+            src="/images/amsterdam_logo_wit.png"
+            alt=""
+            width={70}
+            height={18}
+            aria-hidden="true"
+            style={{ width: "70px", height: "auto" }}
+          />
+        </div>
+    
+        {session?.user && <div className="absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full">
+          <Image
+            src={avatar}
+            alt=""
+            width={24}
+            height={24}
+            aria-hidden="true"
+            style={{ width: "24px", height: "auto", borderRadius: "50%" }}
+          />
+        </div>}
+    
       <div className="artinamsterdam">
         <Image
           src="/images/artinamsterdam_black_2.png"
           alt="Art in Amsterdam"
           width={240}
-          height={20}
+          height={19}
           style={{ width: "240px", height: "auto" }}
         />
       </div>
@@ -314,6 +333,8 @@ export default function MapApp() {
         routing={routing}
         onClose={closePopup}
         onRoute={showRoute}
+        session={session}
+        avatar={avatar}
       />
 
       <div id="container" className="absolute inset-0 z-[1]">

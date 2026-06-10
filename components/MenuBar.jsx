@@ -20,7 +20,7 @@ const MenuBar = () => {
           src="/images/artinamsterdam_black_2.png"
           alt="Art in Amsterdam"
           width={240}
-          height={20}
+          height={19}
           style={{ width: "240px", height: "auto" }}
         />
       </Link>

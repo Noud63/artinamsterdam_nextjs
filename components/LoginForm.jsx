@@ -17,7 +17,7 @@ const LoginForm = () => {
           src="/images/google_icon.png"
           alt="Google logo"
           width={35}
-          height={30}
+          height={35}
           style={{ width: "35px", height: "auto", marginRight: "10px" }}
         />
         Google Sign In
@@ -31,7 +31,7 @@ const LoginForm = () => {
           src="/images/magiclink_3.png"
           alt="Google logo"
           width={35}
-          height={30}
+          height={35}
           style={{ width: "35px", height: "auto", marginRight: "10px" }}
         />
           Send login link
