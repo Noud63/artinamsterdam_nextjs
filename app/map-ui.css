@@ -155,12 +155,12 @@ html {
   box-shadow: 0 2px 2px #69503a;
 }
 
-.login_button {
+.login_button, .logout_button {
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to top, #b47732, transparent);
-  width: 120px;
+  width: 110px;
   padding: 6px;
   border-radius: 25px;
   border: none;
@@ -240,7 +240,7 @@ html {
   .artinamsterdam {
     display: flex;
   }
-  .login_button {
+  .menuTop .login_button {
     display: none;
   }
 }

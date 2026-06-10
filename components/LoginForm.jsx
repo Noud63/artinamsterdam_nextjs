@@ -11,7 +11,7 @@ const LoginForm = () => {
       <button
         type="button"
         onClick={() => signIn("google", { callbackUrl: "/" })}
-        className="flex w-[240px] h-[60px] items-center justify-center rounded-full text-lg text-white font-semibold border-t border-t-yellow-200 border-b-2 border-b-yellow-900 bg-linear-to-t from-yellow-700 to-transparent"
+        className="flex w-[240px] h-[60px] items-center justify-center rounded-full text-lg text-white font-semibold border-t border-t-yellow-200 border-b-2 border-b-yellow-900 bg-linear-to-t from-yellow-700 to-transparent cursor-pointer"
       >
         <Image
           src="/images/google_icon.png"
@@ -25,7 +25,7 @@ const LoginForm = () => {
       <button
         type="button"
         onClick={() => signIn("email", { callbackUrl: "/" })}
-        className="mt-4 flex w-[240px] h-[60px] items-center justify-center rounded-full text-lg text-white font-semibold border-t border-t-yellow-200 border-b-2 border-b-yellow-900 bg-linear-to-t from-yellow-700 to-transparent"
+        className="mt-4 flex w-[240px] h-[60px] items-center justify-center rounded-full text-lg text-white font-semibold border-t border-t-yellow-200 border-b-2 border-b-yellow-900 bg-linear-to-t from-yellow-700 to-transparent cursor-pointer"
       >
         <Image
           src="/images/magiclink_3.png"

@@ -70,7 +70,7 @@ function MenuButtons({
 
       {session?.user ? (
         <button
-          className="login_button"
+          className="logout_button"
           onClick={() => {
             signOut({ callbackUrl: "/", redirect: true });
           }}
