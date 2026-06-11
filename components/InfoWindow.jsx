@@ -50,7 +50,7 @@ export default function InfoWindow({ open, onClose, venueCount }) {
         You can also click and hold the left mouse button to drag the map in any
         direction to view additional markers.
       </div>
-      <div className="close">
+      <div className="close w-full flex justify-center">
         <button
           type="button"
           className="border-0 bg-transparent p-0"

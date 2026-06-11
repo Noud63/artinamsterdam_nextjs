@@ -39,7 +39,7 @@ export default function MapApp({venues}) {
   const avatar = session?.user?.avatar
 
   const filteredFeatures = useMemo(() => {
-    const filtered = filterFeatures(venues.features, category);
+    const filtered = filterFeatures(venues.features, category); // category comes from onCategorySelect => Menu.jsx
     return sortFeaturesByName(filtered);
   }, [category]);
 
