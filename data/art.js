@@ -49,7 +49,7 @@
         title: "",
         image: "deappel.jpg",
         extra:
-          "de Appel is een instelling opgericht in 1975. Het werd al snel internationaal bekend als een alternatief institutioneel model, geboren uit de behoefte van kunstenaars om performance- en videokunst te presenteren. Vandaag de dag fungeert de Appel nog steeds als host voor artistieke en curatoriÃ«le experimenten. Door middel van een programma van ingebedde kunst in scholen en de samenleving, een dertig jaar oud Curatorial Programme en een actief archief, brengt de Appel mensen samen om een wederzijdse uitwisseling van kennis te beoefenen door middel van tentoonstellingen en live activaties.",
+          "de Appel is een instelling opgericht in 1975. Het werd al snel internationaal bekend als een alternatief institutioneel model, geboren uit de behoefte van kunstenaars om performance- en videokunst te presenteren. Vandaag de dag fungeert de Appel nog steeds als host voor artistieke en curatoriale experimenten. Door middel van een programma van ingebedde kunst in scholen en de samenleving, een dertig jaar oud Curatorial Programme en een actief archief, brengt de Appel mensen samen om een wederzijdse uitwisseling van kennis te beoefenen door middel van tentoonstellingen en live activaties.",
         "address:": "Tolstraat 160",
         link: "https://www.deappel.nl/",
         open: [
@@ -75,7 +75,7 @@
         image: "w139a.jpg",
         address: "Warmoesstraat 139",
         extra:
-          "W139 is a leading production and presentation space for contemporary art in the centre of Amsterdam that has been paving the way for experimentation and new modes of autonomy, self-organisation, and collectivity within the arts for 44 years.\n\nAs an artist-driven organisation, W139 puts experimentation at the forefrontâ€”providing space for artists to take risks and realise experimental, urgent, and ambitious projects.",
+          "W139 is a leading production and presentation space for contemporary art in the centre of Amsterdam that has been paving the way for experimentation and new modes of autonomy, self-organisation, and collectivity within the arts for 44 years.\n\nAs an artist-driven organisation, W139 puts experimentation at the forefront providing space for artists to take risks and realise experimental, urgent, and ambitious projects.",
         link: "https://www.w139.nl",
         open: [
           "Wednesday:12:00 - 18:00",
@@ -100,7 +100,7 @@
         image: "arti.jpg",
         address: "Rokin 112",
         extra:
-          "Arti is the oldest visual artist society in the Netherlands where the artists themselves determine policy.\n\nArtiâ€™s policies embrace unity coupled with diversity.\nOur identity as a medium transcending platform leads us to embrace the inherent fruitful characteristics.\n\nTradition is coupled with the experimental, the parochial with the cosmopolitan, the inclusive with the exclusive. As a lively and stable factor in an unstable (art) world, curiosity, friendship and connecting are key issues for Arti.",
+          "Arti is the oldest visual artist society in the Netherlands where the artists themselves determine policy.\n\nArti's policies embrace unity coupled with diversity.\nOur identity as a medium transcending platform leads us to embrace the inherent fruitful characteristics.\n\nTradition is coupled with the experimental, the parochial with the cosmopolitan, the inclusive with the exclusive. As a lively and stable factor in an unstable (art) world, curiosity, friendship and connecting are key issues for Arti.",
         link: "https://www.arti.nl/",
         open: [
           "Tuesday:12:00 - 18:00",
@@ -197,7 +197,7 @@
         name: "Droog",
         image: "droog.jpg",
         extra:
-          "Was Droog Design a generation of young designers? Thatâ€™s what it appeared to be. Or was it a movement? Not really. A collective, perhaps? A label? A manifesto? It was none of the above and all of them at once, but never at the same moment â€“ certainly not for the long term.",
+          "Was Droog Design a generation of young designers? That's what it appeared to be. Or was it a movement? Not really. A collective, perhaps? A label? A manifesto? It was none of the above and all of them at once, but never at the same moment â€“ certainly not for the long term.",
         link: "https://www.droog.com",
         address: "Staalstraat 7-B",
         open: [
@@ -269,7 +269,7 @@
         name: "On The Inside",
         image: "ontheinside.jpg",
         extra:
-          "'On The Inside' is an independent and international platform for contemporary art situated within the cultural landscape of Amsterdamâ€™s NDSM wharf, just 10 minutes from Central Station via the free ferry.\n\nFounded by Annemarie Galani and Henk Stallinga, â€˜On The Insideâ€™ operates as a non-profit, artist-driven exhibition space. The platform showcases curated exhibitions programmed by â€˜On The Insideâ€™ and its rotating advisory board.",
+          "'On The Inside' is an independent and international platform for contemporary art situated within the cultural landscape of Amsterdamâ€™s NDSM wharf, just 10 minutes from Central Station via the free ferry.\n\nFounded by Annemarie Galani and Henk Stallinga, â€˜On The Insideâ€™ operates as a non-profit, artist-driven exhibition space. The platform showcases curated exhibitions programmed by 'On The Inside'and its rotating advisory board.",
         link: "https://www.projectspaceontheinside.org",
         address: "Melaniaweg 1",
         open: [
@@ -370,7 +370,7 @@
         image: "fons.jpg",
         adress: "Bloemstraat 140",
         extra:
-          "Galerie Fons Welters was a gallery presenting exhibitions by emerging and mid-career contemporary artists. Located in the center of Amsterdam, the gallery presented both national and international artists. The galleryâ€™s origin dates back to 1984 when Fons Welters opened a gallery space in the Jordaan area. Opening Galerie Fons Welters in 1989 in a former garage in Amsterdamâ€™s Bloemstraat, the gallery has been praised for its distinctive quality of showing young, talented artists when they are still relatively unknown. Since its start, the gallery established itself nationally and internationally with its particular focus on installation art and sculptural approaches, a presence still strongly embedded in the program. Maintaining a diverse exhibition programme, Galerie Fons Welters presented solo exhibitions and group shows of gallery artists as well as special projects. The gallery had a dual exhibition format with its front and back space; often presenting two shows simultaneously.\n\nThroughout the years, the gallery has worked with different generations of artists, always by starting to work with each one of them in an early and precious moment of their careers. ",
+          "Galerie Fons Welters was a gallery presenting exhibitions by emerging and mid-career contemporary artists.\nLocated in the center of Amsterdam, the gallery presented both national and international artists.\nThe gallery's origin dates back to 1984 when Fons Welters opened a gallery space in the Jordaan area.\nOpening Galerie Fons Welters in 1989 in a former garage in Amsterdamâ€™s Bloemstraat, the gallery has been praised for its distinctive quality of showing young, talented artists when they are still relatively unknown.\nSince its start, the gallery established itself nationally and internationally with its particular focus on installation art and sculptural approaches, a presence still strongly embedded in the program. Maintaining a diverse exhibition programme, Galerie Fons Welters presented solo exhibitions and group shows of gallery artists as well as special projects.\nThe gallery had a dual exhibition format with its front and back space; often presenting two shows simultaneously.\n\nThroughout the years, the gallery has worked with different generations of artists, always by starting to work with each one of them in an early and precious moment of their careers. ",
         link: "https://www.fonswelters.nl",
       },
       geometry: {
@@ -389,7 +389,7 @@
         address:
           "Keizersgracht 241, Amsterdam\n43a Duke Street, St James's London,\n54 White Street New York",
         extra:
-          "GRIMM is a contemporary art gallery representing over thirty international artists.\nSince its establishment in 2005, it has been the galleryâ€™s mission to represent and support the work of emerging and mid-career artists working in all media. Grimm Gallery is located in Amsterdam, London and New York City.",
+          "GRIMM is a contemporary art gallery representing over thirty international artists.\nSince its establishment in 2005, it has been the gallery's mission to represent and support the work of emerging and mid-career artists working in all media. Grimm Gallery is located in Amsterdam, London and New York City.",
         link: "https://grimmgallery.com/",
         open: [
           "Tuesday:11:00 - 18:00",
@@ -478,11 +478,8 @@
       properties: {
         name: "Bildhalle",
         image: "bildhalle.jpg",
-        extra: [
-          "Bildhalle is a gallery dedicated to classic and contemporary photography and photo-based art located in Zurich and Amsterdam.\n",
-          "The gallery represents a highly curated selection of artists from around the world, with a particular focus on photography of the second half of the 20th century and contemporary artistic positions of the 21st century.\n",
-          "In addition to showcasing internationally established artists, Bildhalle's ambitious program also provides space for innovative young and upcoming artists who are pushing the boundaries of the medium of photography by creating a crossover to other visual art forms and are thereby bringing new perspectives to the discourse.",
-        ],
+        extra: 
+          "Bildhalle is a gallery dedicated to classic and contemporary photography and photo-based art located in Zurich and Amsterdam.\n\n The gallery represents a highly curated selection of artists from around the world, with a particular focus on photography of the second half of the 20th century and contemporary artistic positions of the 21st century.\n\nIn addition to showcasing internationally established artists, Bildhalle's ambitious program also provides space for innovative young and upcoming artists who are pushing the boundaries of the medium of photography by creating a crossover to other visual art forms and are thereby bringing new perspectives to the discourse.",
         address: "Singel 272h",
         link: "https://www.bildhalle.ch",
         open: [
@@ -545,11 +542,8 @@
       properties: {
         name: "Depth Of Field (DOF)",
         image: "depthoffield.jpg",
-        extra: [
-          "Depth Of Field (DOF) is an Amsterdam based gallery dealing in nineteenth and early twentieth century photographs. The gallery is founded by Wendela Hubrecht and Joris Jansen. They studied arts and art-history focused on photography.\n",
-          "\n",
-          "DOF is specialised in authentic historical and fine art photography. We offer remarkable - and exclusively verified original - prints in genres that vary from the beginning of photography, to family albums, and from landscapes to advertising.",
-        ],
+        extra: 
+          "Depth Of Field (DOF) is an Amsterdam based gallery dealing in nineteenth and early twentieth century photographs. The gallery is founded by Wendela Hubrecht and Joris Jansen. They studied arts and art-history focused on photography.\n\n DOF is specialised in authentic historical and fine art photography. We offer remarkable - and exclusively verified original - prints in genres that vary from the beginning of photography, to family albums, and from landscapes to advertising.",
         link: "https://www.dof.amsterdam",
         address: "Hazenstraat 28",
         open: [],
@@ -654,7 +648,7 @@
         name: "Jaski Art Gallery",
         image: "jaski.jpg",
         extra:
-          "Jaski Gallery is situated in the heart of Amsterdamâ€™s Art & Antiques district, where weâ€™ve been since 1988. We specialise in work from the CoBrA movement and contemporary art. The gallery regularly stages exhibitions and takes part in major art fairs such as TEFAF in Maastricht and PAN Amsterdam.",
+          "Jaski Gallery is situated in the heart of Amsterdam's Art & Antiques district, where we have been since 1988. We specialise in work from the CoBrA movement and contemporary art. The gallery regularly stages exhibitions and takes part in major art fairs such as TEFAF in Maastricht and PAN Amsterdam.",
         link: "https://www.jaski.nl",
         address: "Nieuwe Spiegelstraat 29",
         open: [
@@ -679,7 +673,7 @@
         name: "Kers gallery",
         image: "kers.jpg",
         extra:
-          "Kers gallery is a contemporary art gallery based in Amsterdam, dedicated to artists whose practices are conceptually rigorous, materially attentive, and grounded in lived experience.\nThe galleryâ€™s program brings together poetic, political, and sensorial approaches as interconnected modes of artistic inquiry.",
+          "Kers gallery is a contemporary art gallery based in Amsterdam, dedicated to artists whose practices are conceptually rigorous, materially attentive, and grounded in lived experience.\nThe gallery's program brings together poetic, political, and sensorial approaches as interconnected modes of artistic inquiry.",
         link: "https://www.kersgallery.com",
         address: "Lindengracht 148",
         open: ["Everyday by appointment", "Saturday: 12:00 - 17:00"],
@@ -897,7 +891,7 @@
         name: "Andriesse-Eyck Gallery",
         image: "andriesseeyck.jpg",
         extra:
-          "Andriesse Eyck Gallery werkt samen met een breed spectrum van kunstenaars met als doel een ruimte te creÃ«ren waar professionele verzamelaars, academici en curatoren elkaar ontmoeten en van elkaar leren. De galerie werkt voornamelijk met kunstenaars die aan het begin van hun carriÃ¨re staan, maar ook met internationaal gevestigde kunstenaars om uitzonderlijke programmaâ€™s te bieden die de hedendaagse kunst inspireren en promoten.",
+          "Andriesse Eyck Gallery werkt samen met een breed spectrum van kunstenaars met als doel een ruimte te creÃ«ren waar professionele verzamelaars, academici en curatoren elkaar ontmoeten en van elkaar leren. De galerie werkt voornamelijk met kunstenaars die aan het begin van hun carriÃ¨re staan, maar ook met internationaal gevestigde kunstenaars om uitzonderlijke programma's te bieden die de hedendaagse kunst inspireren en promoten.",
         link: "https://andriesse-eyck.com",
         address: "Leliegracht 47",
         open: [
@@ -942,7 +936,7 @@
         name: "Gerhard Hofland",
         image: "gerhardhofland.jpg",
         extra:
-          "Throughout the years, Gerhard Hofland has grown to become one of the largest galleries in Amsterdam, representing a wide variety of art and artists. The gallery both exhibits and represents international artists that work from abstraction, such as Koen Delaere, Koen Doodeman, Thomas Trum and Janine van Oene, as well as those who rather find expression in figuration, such as Marjolijn de Wit, Michael Kirkham, Johan Tahon, Damien Cadio and Robert Seidel. Or artists that use large installations as their medium like Henk Stallinga. Also Gerhard Hofland holds a great interest in â€˜Photo Brutâ€™ artists and therefore presents collections of artists Type 42 (Anonymous) and Horst Ademeit.",
+          "Throughout the years, Gerhard Hofland has grown to become one of the largest galleries in Amsterdam, representing a wide variety of art and artists. The gallery both exhibits and represents international artists that work from abstraction, such as Koen Delaere, Koen Doodeman, Thomas Trum and Janine van Oene, as well as those who rather find expression in figuration, such as Marjolijn de Wit, Michael Kirkham, Johan Tahon, Damien Cadio and Robert Seidel. Or artists that use large installations as their medium like Henk Stallinga. Also Gerhard Hofland holds a great interest in Photo Brut artists and therefore presents collections of artists Type 42 (Anonymous) and Horst Ademeit.",
         link: "https://gerhardhofland.com",
         address: "Bilderdijkstraat 165-C",
         open: [
@@ -1055,7 +1049,7 @@
         name: "Made van Krimpen",
         image: "madevankrimpen.jpg",
         extra:
-          "MadÃ© van Krimpen is an Amsterdam based gallery dedicated to contemporary art, with a program that moves fluidly between experimentation and established practices. Founded in 2021, the gallery embraces a wide range of media, from painting to performance and sound, photography, and installation, fostering projects that are curious, tactile, and sometimes unexpected.\n\nWith a base in Amsterdam and projects that extend through international collaborations, MadÃ© van Krimpen maintains an approach that is open and playful committed to creating meaningful encounters with art across disciplines.",
+          "Made van Krimpen is an Amsterdam based gallery dedicated to contemporary art, with a program that moves fluidly between experimentation and established practices. Founded in 2021, the gallery embraces a wide range of media, from painting to performance and sound, photography, and installation, fostering projects that are curious, tactile, and sometimes unexpected.\n\nWith a base in Amsterdam and projects that extend through international collaborations, Made van Krimpen maintains an approach that is open and playful committed to creating meaningful encounters with art across disciplines.",
         link: "https://madevankrimpen.com",
         address: "Prinsengracht 615 H",
         open: [
@@ -1179,7 +1173,7 @@
         name: "H'ART Museum",
         image: "hart.jpg",
         extra:
-          "Hâ€™ART Museum is a an art museum where famous works of art and stories from around the world are brought together in one-of-a-kind exhibitions.Our exhibitions are always temporarily on show but will stay with you forever. The museum is located in a historical landmark, at the heart of the Dutch capital. A cultural oasis â€“ with a unique indoor garden and a bustling Grand CafÃ© â€“ where constantly many interesting things are going on, from concerts, lectures and movie nights to art education for children and young adults.",
+          "H'ART Museum is a an art museum where famous works of art and stories from around the world are brought together in one-of-a-kind exhibitions.Our exhibitions are always temporarily on show but will stay with you forever. The museum is located in a historical landmark, at the heart of the Dutch capital. A cultural oasis â€“ with a unique indoor garden and a bustling Grand Cafe where constantly many interesting things are going on, from concerts, lectures and movie nights to art education for children and young adults.",
         link: "https://www.hartmuseum.nl",
         address: "Amstel 51",
         open: [
@@ -1205,7 +1199,7 @@
         name: "Moco Museum",
         image: "mocomuseum.jpg",
         extra:
-          "Step into the world of Moco. See iconic works from Warhol, Haring, Banksy, Basquiat, Kusama, and many more.\n\nDiscover one of Amsterdamâ€™s most visited modern art museums showcasing contemporary, immersive, and digital art experiences, offering visitors a unique perspective on global and local artists.\n\nSince opening its doors in 2016, this art museum in Amsterdam has become a cultural hotspot, showcasing iconic masterpieces from renowned modern and contemporary artists alongside cutting-edge works by emerging talents. ",
+          "Step into the world of Moco. See iconic works from Warhol, Haring, Banksy, Basquiat, Kusama, and many more.\n\nDiscover one of Amsterdam's most visited modern art museums showcasing contemporary, immersive, and digital art experiences, offering visitors a unique perspective on global and local artists.\n\nSince opening its doors in 2016, this art museum in Amsterdam has become a cultural hotspot, showcasing iconic masterpieces from renowned modern and contemporary artists alongside cutting-edge works by emerging talents. ",
         address: "Honthorststraat 20",
         link: "https://mocomuseum.com/",
         open: [
@@ -1231,7 +1225,7 @@
         name: "Rembrandt House",
         image: "rembrandthuis.jpg",
         extra:
-          " (Dutch: Museum Het Rembrandthuis) is a historic house and art museum in Amsterdam. Here, in the heart of Amsterdam,Painter Rembrandt lived and worked in the house between 1639 and 1656. The house where he started full of ambition, but which he had to leave due to financial problems.\n\n Nearly 400 years later, The Rembrandt House Museum is the only museum in the world entirely dedicated to Rembrandt. Each room in Rembrandtâ€™s house has its own story. Here he experienced joy and sorrow. Here he collected art and rarities from all over the world, educated his students and received his customers. Here he looked out over a rapidly changing city. Here he made his masterpieces. Here he became the greatest.",
+          " (Dutch: Museum Het Rembrandthuis) is a historic house and art museum in Amsterdam. Here, in the heart of Amsterdam,Painter Rembrandt lived and worked in the house between 1639 and 1656. The house where he started full of ambition, but which he had to leave due to financial problems.\n\n Nearly 400 years later, The Rembrandt House Museum is the only museum in the world entirely dedicated to Rembrandt. Each room in Rembrandt's house has its own story. Here he experienced joy and sorrow. Here he collected art and rarities from all over the world, educated his students and received his customers. Here he looked out over a rapidly changing city. Here he made his masterpieces. Here he became the greatest.",
         address: "Jodenbreestraat 4",
         link: "https://www.rembrandthuis.nl",
         open: [
@@ -1392,10 +1386,10 @@
       type: "Feature",
       cat: "museum",
       properties: {
-        name: "Fabrique des LumiÃ¨res ",
+        name: "Fabrique des Lumieres ",
         image: "fdl.jpg",
         extra:
-          "Noem het een modern museum, of een meeslepende, zinnenprikkelende, audiovisuele totaalervaring. Maar hoe je het ook noemt: Fabrique des LumiÃ¨res is een belevenis die draait om kunst. Bedoeld om te prikkelen, te raken en overdonderen. Toegankelijk voor iedereen en uniek in zâ€™n soort.",
+          "Noem het een modern museum, of een meeslepende, zinnenprikkelende, audiovisuele totaalervaring. Maar hoe je het ook noemt: Fabrique des LumiÃ¨res is een belevenis die draait om kunst. Bedoeld om te prikkelen, te raken en overdonderen. Toegankelijk voor iedereen en uniek in z'n soort.",
         link: "https://www.fabrique-lumieres.com",
         address: "Pazzanistraat 37",
         open: [
@@ -1441,7 +1435,7 @@
         name: "Museum Van De Geest",
         image: "museumvandegeest.jpg",
         extra:
-          "Museum of the Mind: discover the artwork between your ears\nWe are the Museum of the Mind. We are fascinated by the artwork between your ears. Nothing is as diverse, unique, powerful, and at the same time as vulnerable as the human mind. Anyone who has had a poor nightâ€™s sleep can tell you how thin the line is between feeling normal and feeling different.",
+          "Museum of the Mind: discover the artwork between your ears\nWe are the Museum of the Mind. We are fascinated by the artwork between your ears. Nothing is as diverse, unique, powerful, and at the same time as vulnerable as the human mind. Anyone who has had a poor night's sleep can tell you how thin the line is between feeling normal and feeling different.",
         address: "Amstel 51",
         link: "https://museumvandegeest.nl/amsterdam",
         open: [
@@ -1610,7 +1604,7 @@
         image: "tunnel.jpg",
         title: "Cuypers Passage",
         extra:
-          "Dutch 17th century seascape, made out of 70.000 hand painted ceramic tiles in traditional dutch Delfts Blue style.\nAlong the footpath, the entire wall of the Cuypers passage is covered with a tile tableau designed by Irma Boom Office. Itâ€™s inspired by a tile panel from the collection at the Rijksmuseum by Cornelis Boumeester (1652-1733).",
+          "Dutch 17th century seascape, made out of 70.000 hand painted ceramic tiles in traditional dutch Delfts Blue style.\nAlong the footpath, the entire wall of the Cuypers passage is covered with a tile tableau designed by Irma Boom Office. It's inspired by a tile panel from the collection at the Rijksmuseum by Cornelis Boumeester (1652-1733).",
         address: "Amsterdam Central Station-West",
         link: "https://irmaboom.nl",
       },
@@ -1712,7 +1706,7 @@
         image: "haring.jpg",
         address: "Food Center Amsterdam",
         extra:
-          "A monumental 12-metre-high mural by the late New York artist Keith Haring, itâ€™s the largest of its kind in Europe",
+          "A monumental 12-metre-high mural by the late New York artist Keith Haring, it's the largest of its kind in Europe",
         link: "",
       },
       geometry: {
@@ -1728,7 +1722,7 @@
         name: "The London Police",
         image: "londonpolice_2.jpg",
         extra:
-          "The London Police started in 1998 when big English geezers headed to Amsterdam to help rejuvenate thestreets of Hollandâ€™s capital. They were part of a small group of artists at the end of the last century that helped pioneer a new street art movement. After a few years of mixing traveling and making art in the street TLP began to receive worldwide recognition for their contribution to the graffiti/street art movement.",
+          "The London Police started in 1998 when big English geezers headed to Amsterdam to help rejuvenate thestreets of Holland's capital. They were part of a small group of artists at the end of the last century that helped pioneer a new street art movement. After a few years of mixing traveling and making art in the street TLP began to receive worldwide recognition for their contribution to the graffiti/street art movement.",
         link: "https://www.thelondonpolice.com",
         address: "Zeeburgerdijk",
       },
@@ -1745,7 +1739,7 @@
         name: "The London Police",
         image: "londonpolice.jpg",
         extra:
-          "The London Police started in 1998 when big English geezers headed to Amsterdam to help rejuvenate thestreets of Hollandâ€™s capital. They were part of a small group of artists at the end of the last century that helped pioneer a new street art movement. After a few years of mixing traveling and making art in the street TLP began to receive worldwide recognition for their contribution to the graffiti/street art movement.",
+          "The London Police started in 1998 when big English geezers headed to Amsterdam to help rejuvenate thestreets of Holland's capital. They were part of a small group of artists at the end of the last century that helped pioneer a new street art movement. After a few years of mixing traveling and making art in the street TLP began to receive worldwide recognition for their contribution to the graffiti/street art movement.",
         link: "https://www.thelondonpolice.com",
         address: "Prinsengracht/Tuinstraat",
       },

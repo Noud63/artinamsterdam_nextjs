@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed:venues": "node scripts/seedVenues.js"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.2",
+    "dotenv": "^17.4.2",
     "leaflet": "^1.9.4",
     "mongodb": "^6.21.0",
     "mongoose": "^9.6.3",

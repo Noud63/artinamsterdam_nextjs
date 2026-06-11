@@ -26,22 +26,22 @@ export default function VenuePopup({
 
    const [rating, setRating] = useState(0);
 
-  const props = feature.properties;
+  // const feature = feature.properties;
   const [lng, lat] = feature.geometry.coordinates;
   const distance = getDistanceToVenue(userLocation, lat, lng);
   const showOpenStatus =
-    feature.cat !== "public" && props.name !== "Van Gogh Museum";
+    feature.properties.category !== "public" && feature.properties.name !== "Van Gogh Museum";
   const openNow = isVenueOpen(feature);
 
   return (
     <div
       className={`wrapper${sidebarHidden ? " left" : ""} active`}
       onClick={(event) => event.stopPropagation()}
-    >
+       >
       <div className="pic">
         <Image
-          src={`/images/${props.image}`}
-          alt={props.name}
+          src={`/images/${feature.properties.image}`}
+          alt={feature.properties.name}
           width={350}
           height={200}
           className="puImage h-[200px] w-full object-cover"
@@ -69,8 +69,8 @@ export default function VenuePopup({
           <div className="distance">📍 Location unavailable</div>
         )}
 
-        <div className="puName flex justify-between mt-2 text-lg font-bold">
-          <div>{props.name}</div>
+        <div className="puName flex justify-between mt-2 text-lg font-bold pl-1">
+          <div>{feature.properties.name}</div>
 
           <button type="button" className="" onClick={onClose}>
             <Image
@@ -82,39 +82,39 @@ export default function VenuePopup({
             />
           </button>
         </div>
-        {props.title ? (
-          <div className="puTitle">&quot;{props.title}&quot;</div>
+        {feature.properties.title ? (
+          <div className="puTitle">&quot;{feature.properties.title}&quot;</div>
         ) : null}
-        {props.extra ? <div className="extra3">{props.extra}</div> : null}
-        {props.address ? (
+        {feature.properties.extra ? <div className="extra3">{feature.properties.extra}</div> : null}
+        {feature.properties.address ? (
           <div className="address">
-            <span className="popupSectionTitle">Address:</span> {props.address}
+            <span className="popupSectionTitle">Address:</span> {feature.properties.address}
           </div>
         ) : null}
 
         {showOpenStatus ? (
           <div className="openOrClosed">
             <span className="category">
-              {formatCategoryLabel(feature.cat)} is:
+              {formatCategoryLabel(feature.properties.category)} is:
             </span>{" "}
             <span className="closedOpen">{openNow ? "Open" : "Closed"}</span>
           </div>
         ) : null}
 
-        {props.open ? (
+        {feature.properties.open ? (
           <div className="openingHours">
             <span className="popupSectionTitle">Opening hours:</span>
-            {props.open.map((day) => (
+            {feature.properties.open.map((day) => (
               <div key={day}>{day}</div>
             ))}
           </div>
         ) : null}
 
         <div className="links">
-          {props.link ? (
+          {feature.properties.link ? (
             <a
               className="websiteLink"
-              href={props.link}
+              href={feature.properties.link}
               target="_blank"
               rel="noopener noreferrer"
             >

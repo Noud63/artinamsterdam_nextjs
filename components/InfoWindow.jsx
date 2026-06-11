@@ -22,7 +22,7 @@ export default function InfoWindow({ open, onClose, venueCount }) {
       
       <div>
         This interactive map highlights{" "}
-        <span className="listLength">{venueCount}</span> locations across
+        <span className="listLength">{venueCount} </span> locations across
         Amsterdam, including art galleries, museums, art centres, and public
         artworks. It focuses primarily on modern and contemporary art, offering
         an overview of the city&apos;s diverse and vibrant artistic landscape.

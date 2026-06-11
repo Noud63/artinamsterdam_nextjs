@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
-import { art } from "@/data/art";
 import { L, AMSTERDAM_CENTER, DEFAULT_ZOOM } from "@/lib/leaflet-setup";
 import { filterFeatures, sortFeaturesByName } from "@/lib/venue";
 import ArtMarkersLayer from "@/components/map/ArtMarkersLayer";
@@ -17,7 +16,7 @@ import VenuePopup from "@/components/VenuePopup";
 import { useSession } from "next-auth/react";
 import "leaflet/dist/leaflet.css";
 
-export default function MapApp() {
+export default function MapApp({venues}) {
   const markersRef = useRef({});
   const [category, setCategory] = useState(null);
   const [sidebarHidden, setSidebarHidden] = useState(false);
@@ -40,12 +39,12 @@ export default function MapApp() {
   const avatar = session?.user?.avatar
 
   const filteredFeatures = useMemo(() => {
-    const filtered = filterFeatures(art.features, category);
+    const filtered = filterFeatures(venues.features, category);
     return sortFeaturesByName(filtered);
   }, [category]);
 
   const geoJsonKey = useMemo(
-    () => filteredFeatures.map((feature) => feature.id).join(","),
+    () => filteredFeatures.map((venue) => venue.id).join(","),
     [filteredFeatures],
   );
 
@@ -84,7 +83,7 @@ export default function MapApp() {
         setSidebarHidden(true);
       }
 
-      markersRef.current[feature.id]?.bounce(1);
+      markersRef.current[feature.legacyId]?.bounce(1);
     },
     [sidebarHidden],
   );
@@ -158,7 +157,7 @@ export default function MapApp() {
             userLng: userLocation.lng,
             venueLat: lat,
             venueLng: lng,
-            venueName: feature.properties.name,
+            venueName: feature.name,
           }),
         });
 
@@ -315,7 +314,7 @@ export default function MapApp() {
       <InfoWindow
         open={infoOpen}
         onClose={closeInfo}
-        venueCount={art.features.length}
+        venueCount={venues.features.length}
       />
 
       <Sidebar

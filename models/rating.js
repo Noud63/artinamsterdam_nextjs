@@ -7,8 +7,9 @@ const RatingSchema = new Schema(
       ref: "User",
       required: true,
     },
-    itemId: {
-      type: String,
+    venueId: {
+      type: Schema.Types.ObjectId,
+      ref: "Venue",
       required: true,
       index: true,
     },

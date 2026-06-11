@@ -59,7 +59,7 @@ export default function Sidebar({
                   <div className="info">
                     <div className="space">{feature.properties.name}</div>
                     <span className="extra">
-                      {formatCategoryLabel(feature.cat)}
+                      {formatCategoryLabel(feature.properties.category)}
                     </span>
                   </div>
                 </div>

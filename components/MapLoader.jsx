@@ -11,6 +11,6 @@ const MapApp = dynamic(() => import("@/components/MapApp"), {
   ),
 });
 
-export default function MapLoader() {
-  return <MapApp />;
+export default function MapLoader({venues}) {
+  return <MapApp venues={venues} />;
 }
