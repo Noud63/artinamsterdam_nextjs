@@ -50,7 +50,7 @@ html {
   display: flex;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width:1165px) {
   .hamburger {
     display: flex;
   }
@@ -85,6 +85,12 @@ html {
 
 .menubar.active {
   transform: translateX(0px);
+}
+
+@media only screen and (min-width: 1165px) {
+  .menubar.active {
+    display: none;
+  }
 }
 
 .menubar button {
@@ -174,53 +180,6 @@ html {
   cursor: pointer;
 }
 
-/* .welcome_user {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to top, #b47732, transparent);
-  width: 110px;
-  padding: 6px;
-  border-radius: 25px;
-  border: none;
-  font-family: "Google Sans", Roboto, Arial, sans-serif;
-  font-size: 0.875rem;
-  letter-spacing: 0.07rem;
-  font-weight: 600;
-  color: #ffffff;
-  box-shadow: 0 1px 1px #492910;
-  border-top: 1px solid #eeb472;
-  cursor: pointer;
-} */
-
-.amsterdam_logo, .amsterdam_logo_login_l {
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 12;
-  padding: 14px 20px;
-}
-
-.amsterdam_logo_right, .amsterdam_logo_login_r {
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 12;
-  padding: 14px 20px;
-}
-
-.amsterdam_logo img {
-  display: flex;
-  width: 70px;
-}
-
-.amsterdam_logo_right img {
-  display: flex;
-  width: 70px;
-}
-
 .artinamsterdam {
   display: none;
   position: absolute;
@@ -231,10 +190,6 @@ html {
 }
 
 @media only screen and (max-width: 1240px) {
-  .amsterdam_logo,
-  .amsterdam_logo_right {
-    display: none;
-  }
   .menuTop {
      padding: 0 5px
   }
@@ -247,7 +202,7 @@ html {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1165px) {
   .menuTop button {
     display: none;
   }
@@ -513,12 +468,6 @@ html {
 
 @media only screen and (max-width: 768px) {
   #pic {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .menubar.active {
     display: none;
   }
 }

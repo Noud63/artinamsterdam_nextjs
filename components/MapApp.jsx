@@ -256,7 +256,7 @@ export default function MapApp() {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <div className="amsterdam_logo">
+      <div className="amsterdam_logo max-xl:hidden">
         <Image
           src="/images/amsterdam_logo_wit.png"
           alt=""
@@ -268,7 +268,7 @@ export default function MapApp() {
       </div>
 
        
-        <div className="amsterdam_logo_right">
+        <div className="amsterdam_logo_right max-xl:hidden">
           <Image
             src="/images/amsterdam_logo_wit.png"
             alt=""
@@ -279,7 +279,7 @@ export default function MapApp() {
           />
         </div>
     
-        {session?.user && <div className="absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full">
+        {session?.user && <div className="absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-xl:right-0 max-xlg:right-10">
           <Image
             src={avatar}
             alt=""

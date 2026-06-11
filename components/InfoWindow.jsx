@@ -33,6 +33,10 @@ export default function InfoWindow({ open, onClose, venueCount }) {
         see nearby art locations.
       </div>
 
+      <div>
+       Sign in to leave a review and rate a venue.
+      </div>
+
        <div>
         Use the Reset button from the menu to clear the Route and return the map to its default centered view of Amsterdam.
       </div>

@@ -146,7 +146,7 @@ export default function VenuePopup({
           ) : null}
         </div>
           {session?.user && (<div className="flex flex-col mt-8">
-          <span className="font-semibold mb-2">Asses and Review</span>
+          <span className="font-semibold mb-2">Assess and Review</span>
             <div className="flex flex-row gap-2">
             <button type="button" className="" onClick={onClose}>
               <Image src={avatar} alt="avatar" width={30} height={30} />
