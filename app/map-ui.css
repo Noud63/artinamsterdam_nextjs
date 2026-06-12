@@ -371,7 +371,7 @@ html {
 
 #pic,
 .pic {
-  width: 30%;
+  width: 100px;
   height: auto;
   margin-right: 15px;
 }
@@ -472,7 +472,7 @@ html {
   }
 }
 
-@media only screen and (max-width: 975px) {
+@media only screen and (max-width: 768px) {
   .sidebar {
     width: 270px;
   }
@@ -516,9 +516,6 @@ html {
 
 @media only screen and (max-width: 800px) {
   #adam {
-    width: 270px;
-    height: 170px;
-    position: fixed;
     display: none;
   }
   .listings {

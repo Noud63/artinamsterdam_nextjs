@@ -7,13 +7,14 @@ export default async function Home() {
   
    const data = await Venue.find({}).lean();
    
-//Convert DB data to GeoJSON
+//Convert data to GeoJSON
 const venues = {
   type: "FeatureCollection",
   features: data.map((venue) => ({
     type: "Feature",
 
-    id: venue.legacyId,
+    id: venue._id.toString(),
+    legacy: venue.legacyId,
 
     geometry: {
       type: "Point",
@@ -32,6 +33,8 @@ const venues = {
     },
   })),
 };
+
+
   
   return (
     <main className="relative h-full w-full overflow-hidden">

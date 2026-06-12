@@ -1,56 +1,67 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function StarRating({
-  max = 5,
-  value = 0,
-  onChange,
-  size = 24,
-}) {
-  const [hoverValue, setHoverValue] = useState(0);
+export default function StarRating({ venueId }) {
+  console.log("ID:", venueId);
+  const [rating, setRating] = useState(0);
+  const [average, setAverage] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const handleClick = (starValue) => {
-    if (!onChange) return;
+  // load existing rating
+  useEffect(() => {
+    const fetchRating = async () => {
+      const res = await fetch(`/api/rating?venueId=${venueId}`);
+      const data = await res.json();
+      setRating(data.value);
+      setAverage(data.average);
+      setLoading(false);
+    };
 
-    // toggle off if same value clicked
-    if (starValue === value) {
-      onChange(0);
-    } else {
-      onChange(starValue);
-    }
+    fetchRating();
+  }, [venueId]);
+
+  const handleClick = async (value) => {
+    const newValue = value === rating ? 0 : value;
+
+    setRating(newValue); // optimistic UI
+
+    await fetch("/api/rating", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        venueId,
+        value: newValue,
+      }),
+    });
   };
 
+  // if (loading) return null;
+
   return (
-    <div style={{ display: "flex", gap: 4 }}>
-      {Array.from({ length: max }).map((_, i) => {
-        const starValue = i + 1;
+    <div className="flex gap-1 items-center w-full justify-between">
+      <div>
+        {Array.from({ length: 5 }).map((_, i) => {
+          const starValue = i + 1;
+          const active = starValue <= rating;
 
-        const active = hoverValue
-          ? starValue <= hoverValue
-          : starValue <= value;
+          return (
+            <span
+              key={i}
+              onClick={() => handleClick(starValue)}
+              style={{
+                cursor: "pointer",
+                fontSize: 24,
+                color: active ? "#f5b301" : "#ccc",
+              }}
+            >
+              ★
+            </span>
+          );
+        })}
+      </div>
 
-        return (
-          <span
-            key={i}
-            style={{
-              cursor: onChange ? "pointer" : "default",
-              fontSize: size,
-              color: active ? "#f5b301" : "#ccc",
-              transition: "color 0.15s ease",
-            }}
-            // onMouseEnter={() =>
-            //   onChange && setHoverValue(starValue)
-            // }
-            // onMouseLeave={() =>
-            //   onChange && setHoverValue(0)
-            // }
-            onClick={() => handleClick(starValue)}
-          >
-            ★
-          </span>
-        );
-      })}
+      <div className="">Average: {rating}</div>
     </div>
   );
 }

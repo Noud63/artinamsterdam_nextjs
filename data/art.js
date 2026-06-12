@@ -1488,7 +1488,7 @@
         image: "ufo.jpg",
         extra:
           "Visit the website of the Amsterdam based dutch visual artist and web developer Noud van Dun",
-        link: "http://www.noudvandun.nl\nWebdev:https://appcollection.netlify.app",
+        link: "https://mywebsite-zeta-peach.vercel.app/",
       },
       geometry: {
         type: "Point",

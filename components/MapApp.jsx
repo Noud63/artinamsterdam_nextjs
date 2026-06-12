@@ -41,7 +41,7 @@ export default function MapApp({venues}) {
   const filteredFeatures = useMemo(() => {
     const filtered = filterFeatures(venues.features, category); // category comes from onCategorySelect => Menu.jsx
     return sortFeaturesByName(filtered);
-  }, [category]);
+  }, [venues.features, category]);
 
   const geoJsonKey = useMemo(
     () => filteredFeatures.map((venue) => venue.id).join(","),

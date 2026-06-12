@@ -52,9 +52,9 @@ export default function Sidebar({
                     src={`/images/${feature.properties.image}`}
                     alt=""
                     id="pic"
-                    width={100}
-                    height={0}
-                    className="pic h-auto w-[30%]"
+                    width={350}
+                    height={200}
+                    className="pic h-auto w-[350px]"
                   />
                   <div className="info">
                     <div className="space">{feature.properties.name}</div>

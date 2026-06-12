@@ -1,5 +1,5 @@
 "use client";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   formatDistance,
   estimateWalkingTime,
@@ -24,20 +24,25 @@ export default function VenuePopup({
     return null;
   }
 
-   const [rating, setRating] = useState(0);
+  //  const [rating, setRating] = useState(0);
 
   // const feature = feature.properties;
   const [lng, lat] = feature.geometry.coordinates;
   const distance = getDistanceToVenue(userLocation, lat, lng);
   const showOpenStatus =
-    feature.properties.category !== "public" && feature.properties.name !== "Van Gogh Museum";
+    feature.properties.category !== "public" &&
+    feature.properties.name !== "Van Gogh Museum";
   const openNow = isVenueOpen(feature);
+
+  console.log("Id:", feature);
+  // console.log("User:", session?.user?.id)
+  // console.log("Rating:", rating)
 
   return (
     <div
       className={`wrapper${sidebarHidden ? " left" : ""} active`}
       onClick={(event) => event.stopPropagation()}
-       >
+    >
       <div className="pic">
         <Image
           src={`/images/${feature.properties.image}`}
@@ -85,10 +90,13 @@ export default function VenuePopup({
         {feature.properties.title ? (
           <div className="puTitle">&quot;{feature.properties.title}&quot;</div>
         ) : null}
-        {feature.properties.extra ? <div className="extra3">{feature.properties.extra}</div> : null}
+        {feature.properties.extra ? (
+          <div className="extra3">{feature.properties.extra}</div>
+        ) : null}
         {feature.properties.address ? (
           <div className="address">
-            <span className="popupSectionTitle">Address:</span> {feature.properties.address}
+            <span className="popupSectionTitle">Address:</span>{" "}
+            {feature.properties.address}
           </div>
         ) : null}
 
@@ -145,16 +153,17 @@ export default function VenuePopup({
             </button>
           ) : null}
         </div>
-          {session?.user && (<div className="flex flex-col mt-8">
-          <span className="font-semibold mb-2">Assess and Review</span>
-            <div className="flex flex-row gap-2">
-            <button type="button" className="" onClick={onClose}>
-              <Image src={avatar} alt="avatar" width={30} height={30} />
-            </button>
-          <StarRating value={rating} onChange={setRating}/>
+        {session?.user && (
+          <div className="flex flex-col mt-8 ">
+            <span className="font-semibold mb-2">Assess and Review</span>
+            <div className="flex w-full flex-row gap-2 items-center">
+              <button type="button" className="" onClick={onClose}>
+                <Image src={avatar} alt="avatar" width={30} height={30} />
+              </button>
+              <StarRating venueId={feature.id} />
+            </div>
           </div>
-        </div>)}
-        
+        )}
       </div>
     </div>
   );
