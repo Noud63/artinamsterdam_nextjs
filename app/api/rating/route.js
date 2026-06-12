@@ -26,7 +26,7 @@ export async function GET(req) {
 
   return Response.json({
     value: rating?.value ?? 0,
-    average: average < 0 ? 0 : average,
+    average: average <= 0 ? 0 : average,
   });
 }
 
