@@ -21,6 +21,8 @@ function MenuButtons({
   
   const { data: session, status } = useSession();
 
+  console.log("Avatar:", session?.user?.avatar)
+
   return (
     <>
       {MENU_BUTTONS.map((button) => (
