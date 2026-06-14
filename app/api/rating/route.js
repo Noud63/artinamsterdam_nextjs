@@ -1,6 +1,7 @@
 import dbConnect from "@/lib/dbConnect";
 import Rating from "@/models/rating";
 import { auth } from "@/auth";
+import mongoose from "mongoose";
 
 export async function GET(req) {
   await dbConnect();
@@ -18,15 +19,30 @@ export async function GET(req) {
     venueId,
   });
 
-  const ratings = await Rating.find({ venueId });
-  const total = ratings.reduce((sum, r) => sum + r.value, 0);
-  const average = total / ratings.length;
+  const result = await Rating.aggregate([
+  {
+    $match: {
+      venueId: new mongoose.Types.ObjectId(venueId),
+    },
+  },
+  {
+    $group: {
+      _id: null,
+      averageRating: { $avg: "$value" },
+      count: { $sum: 1 },
+    },
+  },
+]);
 
-  console.log("Average:", average);
+const average = result[0]?.averageRating || 0;
+const count = result[0]?.count || 0;
+
+console.log("Average:", average);
+console.log("Count:", count);
 
   return Response.json({
     value: rating?.value ?? 0,
-    average: average <= 0 ? 0 : average,
+    average: average,
   });
 }
 

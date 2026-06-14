@@ -61,7 +61,7 @@ export default function StarRating({ venueId }) {
         })}
       </div>
 
-      <div className="">Average: {rating}</div>
+      <div className="">Average: {average}</div>
     </div>
   );
 }
