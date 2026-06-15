@@ -34,7 +34,7 @@ export default function VenuePopup({
     feature.properties.name !== "Van Gogh Museum";
   const openNow = isVenueOpen(feature);
 
-  console.log("Id:", feature);
+  // console.log("Id:", feature);
   // console.log("User:", session?.user?.id)
   // console.log("Rating:", rating)
 
@@ -157,8 +157,8 @@ export default function VenuePopup({
           <div className="flex flex-col mt-8 ">
             <span className="font-semibold mb-2">Assess and Review</span>
             <div className="flex w-full flex-row gap-2 items-center">
-              <button type="button" className="" onClick={onClose}>
-                <Image src={avatar} alt="avatar" width={30} height={30} />
+              <button type="button" onClick={onClose}>
+                <Image src={avatar || "/images/profilepic.png"} alt="avatar" width={30} height={30} className="rounded-full"/>
               </button>
               <StarRating venueId={feature.id} />
             </div>

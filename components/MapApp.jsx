@@ -280,7 +280,7 @@ export default function MapApp({venues}) {
     
         {session?.user && <div className="absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-xl:right-0 max-xlg:right-10">
           <Image
-            src={avatar}
+            src={avatar || "/images/profilepic.png"}
             alt=""
             width={24}
             height={24}

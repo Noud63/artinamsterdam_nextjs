@@ -1,51 +1,53 @@
+// app/api/rating/route.js (GET)
 import dbConnect from "@/lib/dbConnect";
 import Rating from "@/models/rating";
-import { auth } from "@/auth";
 import mongoose from "mongoose";
+import { auth } from "@/auth";
 
 export async function GET(req) {
   await dbConnect();
 
   const session = await auth();
-  if (!session?.user?.id) {
-    return Response.json({ value: 0 });
-  }
+  const userId = session?.user?.id;
 
   const { searchParams } = new URL(req.url);
   const venueId = searchParams.get("venueId");
 
-  const rating = await Rating.findOne({
-    userId: session.user.id,
-    venueId,
-  });
+  if (!venueId) {
+    return Response.json({ error: "venueId required" }, { status: 400 });
+  }
 
-  const result = await Rating.aggregate([
-  {
-    $match: {
-      venueId: new mongoose.Types.ObjectId(venueId),
-    },
-  },
+  const objectId = new mongoose.Types.ObjectId(venueId);
+
+  // user rating
+  const userRating = userId
+    ? await Rating.findOne({ userId, venueId: objectId })
+    : null;
+
+  // aggregation (fast, single pass)
+  const stats = await Rating.aggregate([
+  { $match: { venueId: new mongoose.Types.ObjectId(venueId) } },
   {
     $group: {
       _id: null,
-      averageRating: { $avg: "$value" },
+      average: { $avg: "$value" },
       count: { $sum: 1 },
+      total: { $sum: "$value" }, // optional if you want it
     },
   },
 ]);
 
-const average = result[0]?.averageRating || 0;
-const count = result[0]?.count || 0;
-
-console.log("Average:", average);
-console.log("Count:", count);
+const result = stats[0] || { average: 0, count: 0, total: 0 };
+  console.log("Result:", result)
 
   return Response.json({
-    value: rating?.value ?? 0,
-    average: average,
+    userValue: userRating?.value ?? 0,
+    average: result.average,
+    count: result.count
   });
 }
 
+// POST
 export async function POST(req) {
   await dbConnect();
 
@@ -55,21 +57,35 @@ export async function POST(req) {
   }
 
   const { venueId, value } = await req.json();
-  console.log("V:", venueId);
+  const userId = session.user.id;
 
-  const rating = await Rating.findOneAndUpdate(
-    {
-      userId: session.user.id,
-      venueId,
-    },
-    {
-      $set: { value },
-    },
-    {
-      upsert: true,
-      returnDocument: "after",
-    },
-  );
+  if (value === 0) {
+    await Rating.deleteOne({ userId, venueId });
+  } else {
+    await Rating.findOneAndUpdate(
+      { userId, venueId },
+      { $set: { value } },
+      { upsert: true, new: true }
+    );
+  }
 
-  return Response.json(rating);
+  // 🔥 recompute fresh stats AFTER update
+  const stats = await Rating.aggregate([
+    { $match: { venueId: new mongoose.Types.ObjectId(venueId) } },
+    {
+      $group: {
+        _id: null,
+        average: { $avg: "$value" },
+        count: { $sum: 1 },
+      },
+    },
+  ]);
+
+  const result = stats[0] || { average: 0, count: 0 };
+
+  return Response.json({
+    value,
+    average: result.average,
+    count: result.count,
+  });
 }

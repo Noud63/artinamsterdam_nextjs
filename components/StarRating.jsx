@@ -1,49 +1,56 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export default function StarRating({ venueId }) {
-  console.log("ID:", venueId);
-  const [rating, setRating] = useState(0);
+  const [userValue, setUserValue] = useState(0);
   const [average, setAverage] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [count, setCount] = useState(0);
 
-  // load existing rating
+  const displayedAverage = useMemo(() => {
+    return count === 0
+      ? 0
+      : average;
+  }, [average, count]);
+
+  // initial load
   useEffect(() => {
-    const fetchRating = async () => {
+    const load = async () => {
       const res = await fetch(`/api/rating?venueId=${venueId}`);
       const data = await res.json();
-      setRating(data.value);
+      
+      setUserValue(data.userValue);
       setAverage(data.average);
-      setLoading(false);
+      setCount(data.count);
     };
 
-    fetchRating();
+    load();
   }, [venueId]);
 
   const handleClick = async (value) => {
-    const newValue = value === rating ? 0 : value;
+  const newValue = value === userValue ? 0 : value;
 
-    setRating(newValue); // optimistic UI
+  setUserValue(newValue); // optimistic
 
-    await fetch("/api/rating", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        venueId,
-        value: newValue,
-      }),
-    });
-  };
+  const res = await fetch("/api/rating", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ venueId, value: newValue }),
+  });
 
-  // if (loading) return null;
+  const data = await res.json();
+
+  // 🔥 sync server truth immediately
+  setAverage(data.average);
+  setCount(data.count);
+};
 
   return (
-    <div className="flex gap-1 items-center w-full justify-between">
+    <div className="flex justify-between w-full items-center">
       <div>
         {Array.from({ length: 5 }).map((_, i) => {
           const starValue = i + 1;
-          const active = starValue <= rating;
+          const active = starValue <= userValue;
 
           return (
             <span
@@ -61,7 +68,12 @@ export default function StarRating({ venueId }) {
         })}
       </div>
 
-      <div className="">Average: {average}</div>
+      <div>
+        Average:{" "}
+        {Number.isInteger(displayedAverage)
+          ? displayedAverage
+          : displayedAverage.toFixed(1)}
+      </div>
     </div>
   );
 }
