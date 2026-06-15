@@ -65,7 +65,7 @@ export async function POST(req) {
     await Rating.findOneAndUpdate(
       { userId, venueId },
       { $set: { value } },
-      { upsert: true, new: true }
+      { upsert: true, returnDocument: "after", }
     );
   }
 
