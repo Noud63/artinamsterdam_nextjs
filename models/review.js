@@ -3,19 +3,20 @@ import { Schema, model, models } from "mongoose";
 const ReviewSchema = new Schema(
   {
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "User",
+    },
+    venueId: {
+      type: Schema.Types.ObjectId,
+      ref: "Venue",
+      required: true,
+      index: true,
     },
     text: {
       type: String,
       required: true,
-    },
-    rating: {
-      type: Number,
-      min: 1,
-      max: 5,
-    },
+    }
   },
   { timestamps: true },
 );

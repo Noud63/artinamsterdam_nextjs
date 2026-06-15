@@ -8,6 +8,7 @@ import {
 import { formatCategoryLabel, isVenueOpen } from "@/lib/venue";
 import Image from "next/image";
 import StarRating from "./StarRating";
+import ReviewForm from "./ReviewForm";
 
 export default function VenuePopup({
   feature,
@@ -162,6 +163,7 @@ export default function VenuePopup({
               </button>
               <StarRating venueId={feature.id} />
             </div>
+            <ReviewForm venueId={feature.id} userId={session?.user.id}/>
           </div>
         )}
       </div>

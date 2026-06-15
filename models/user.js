@@ -22,14 +22,7 @@ const UserSchema = new Schema(
     avatar: 
       {
         type: String,
-      },
-    
-    reviews: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Review",
-      },
-    ],
+      }
   },
   {
     timestamps: true,
