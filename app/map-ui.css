@@ -823,15 +823,10 @@ hr {
 .popUpContent:hover::-webkit-scrollbar-thumb {
   border-radius: 7px;
   min-height: 40px;
-  background-color: #fff;
-  background-image: -webkit-linear-gradient(
-    90deg,
-    #c4aa8d 10%,
-    #ffffff 35%,
-    transparent 100%,
-    #ffffff 65%,
-    transparent
-  );
+  /* background-color: #fff; */
+  background-image:
+    #c4aa8d
+  ;
   -webkit-box-shadow: inset 0px 0px 5px #53310a;
   box-shadow: inset 0px 0px 5px #a17a4e;
   background-color: #ffffff;

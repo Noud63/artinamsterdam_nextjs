@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 
-export default function StarRating({ venueId }) {
+export default function StarRating({ venueId, userId }) {
   const [userValue, setUserValue] = useState(0);
   const [average, setAverage] = useState(0);
   const [count, setCount] = useState(0);
@@ -55,7 +55,7 @@ export default function StarRating({ venueId }) {
           return (
             <span
               key={i}
-              onClick={() => handleClick(starValue)}
+              onClick={userId ? () => handleClick(starValue) : undefined}
               style={{
                 cursor: "pointer",
                 fontSize: 24,

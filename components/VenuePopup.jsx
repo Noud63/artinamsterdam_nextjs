@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   formatDistance,
   estimateWalkingTime,
@@ -9,6 +9,7 @@ import { formatCategoryLabel, isVenueOpen } from "@/lib/venue";
 import Image from "next/image";
 import StarRating from "./StarRating";
 import ReviewForm from "./ReviewForm";
+import { formatDate } from "@/lib/formatDate";
 
 export default function VenuePopup({
   feature,
@@ -21,11 +22,56 @@ export default function VenuePopup({
   session,
   avatar,
 }) {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    if (!feature?.id) return;
+
+    const getReviews = async () => {
+      const res = await fetch(`/api/review?venueId=${feature.id}`);
+      const data = await res.json();
+      console.log(data.reviews);
+      setReviews(data.reviews || []);
+    };
+
+    getReviews();
+  }, [feature?.id]);
+
+  const deleteReview = async (reviewId) => {
+  // keep a copy in case we need to rollback
+  const previousReviews = reviews;
+
+  // optimistic update
+  setReviews((current) =>
+    current.filter((review) => review._id !== reviewId)
+  );
+
+  try {
+    const res = await fetch(`/api/review?reviewId=${reviewId}`, {
+      method: "DELETE",
+    });
+
+    if (!res.ok) {
+      throw new Error("Delete failed");
+    }
+
+    
+  } catch (error) {
+    console.error(error);
+
+    // rollback
+    setReviews(previousReviews);
+  }
+};
+
+  const editReview = (reviewId) => {
+     console.log(reviewId) 
+  }
+
+  // SAFE GUARD FIRST
   if (!feature || !active) {
     return null;
   }
-
-  //  const [rating, setRating] = useState(0);
 
   // const feature = feature.properties;
   const [lng, lat] = feature.geometry.coordinates;
@@ -34,10 +80,6 @@ export default function VenuePopup({
     feature.properties.category !== "public" &&
     feature.properties.name !== "Van Gogh Museum";
   const openNow = isVenueOpen(feature);
-
-  // console.log("Id:", feature);
-  // console.log("User:", session?.user?.id)
-  // console.log("Rating:", rating)
 
   return (
     <div
@@ -154,18 +196,59 @@ export default function VenuePopup({
             </button>
           ) : null}
         </div>
-        {session?.user && (
-          <div className="flex flex-col mt-8 ">
-            <span className="font-semibold mb-2">Assess and Review</span>
-            <div className="flex w-full flex-row gap-2 items-center">
-              <button type="button" onClick={onClose}>
-                <Image src={avatar || "/images/profilepic.png"} alt="avatar" width={30} height={30} className="rounded-full"/>
-              </button>
-              <StarRating venueId={feature.id} />
-            </div>
-            <ReviewForm venueId={feature.id} userId={session?.user.id}/>
+
+        <div className="flex flex-col mt-8 ">
+          <span className="font-semibold mb-2">Assess and Review </span>
+          <div className="flex w-full flex-row gap-2 items-center">
+            <Image
+              src={avatar || "/images/avatarRembrandt.png"}
+              alt="avatar"
+              width={30}
+              height={30}
+              className="rounded-full"
+            />
+
+            <StarRating venueId={feature.id} userId={session?.user.id} />
           </div>
-        )}
+          <ReviewForm venueId={feature.id} user={session?.user} />
+        </div>
+
+        <div className="mt-4 text-[16px] font-semibold">
+          Reviews{" "}
+          <span className="text-sm font-normal">({reviews.length})</span>
+        </div>
+        {reviews &&
+          reviews.map((review, i) => (
+            <div
+              key={review._id}
+              className="flex flex-col mt-4 border-b border-yellow-800 pb-2 mb-4"
+            >
+              <div className="w-full flex justify-between flex-row border-b border-dotted mb-2">
+                <div className="text-lg font-semibold flex flex-row">
+                  <Image
+                    src={review.avatar}
+                    width={28}
+                    height={28}
+                    alt="avatar"
+                    className="rounded-full"
+                    style={{
+                      width: "28px",
+                      height: "auto",
+                      marginBottom: "5px",
+                    }}
+                  />
+                  <span className="ml-2">{review?.username}</span>
+                </div>
+                <div className="flex items-center text-[12px] text-yellow-800/57">{formatDate(review.createdAt)}</div>
+              </div>
+
+              <div className="mb-2">{review.text}</div>
+             {review.userId === session?.user.id && <div className="w-full flex flex-row justify-end items-center gap-2 my-2">
+                <div className="cursor-pointer border border-yllow-800 rounded-full px-2" onClick={() => editReview(review._id)}>Edit</div>
+                <div className="cursor-pointer  border border-yllow-800 rounded-full px-2" onClick={() => deleteReview(review._id)}>Delete</div>
+              </div>}
+            </div>
+          ))}
       </div>
     </div>
   );

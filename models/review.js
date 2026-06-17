@@ -13,10 +13,17 @@ const ReviewSchema = new Schema(
       required: true,
       index: true,
     },
+    username: {
+      type: String,
+      required: true,
+    },
+    avatar: {
+      type: String,
+    },
     text: {
       type: String,
       required: true,
-    }
+    },
   },
   { timestamps: true },
 );
