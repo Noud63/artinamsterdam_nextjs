@@ -541,6 +541,10 @@ html {
   .sidebar.hidden {
     transform: translateX(-200px);
   }
+  .box {
+    padding-top: 8px;
+  padding-bottom: 1px;
+  }
 }
 
 @media only screen and (max-width: 360px) {

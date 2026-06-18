@@ -10,6 +10,7 @@ import Image from "next/image";
 import StarRating from "./StarRating";
 import ReviewForm from "./ReviewForm";
 import { formatDate } from "@/lib/formatDate";
+import EditReviewForm from "./EditReviewForm";
 
 export default function VenuePopup({
   feature,
@@ -23,6 +24,8 @@ export default function VenuePopup({
   avatar,
 }) {
   const [reviews, setReviews] = useState([]);
+  const [editingReviewId, setEditingReviewId] = useState(null);
+  const [editingText, setEditingText] = useState("");
 
   useEffect(() => {
     if (!feature?.id) return;
@@ -30,43 +33,48 @@ export default function VenuePopup({
     const getReviews = async () => {
       const res = await fetch(`/api/review?venueId=${feature.id}`);
       const data = await res.json();
-      console.log(data.reviews);
+      // console.log(data.reviews);
       setReviews(data.reviews || []);
     };
 
     getReviews();
   }, [feature?.id]);
 
-  const deleteReview = async (reviewId) => {
-  // keep a copy in case we need to rollback
-  const previousReviews = reviews;
 
-  // optimistic update
-  setReviews((current) =>
-    current.filter((review) => review._id !== reviewId)
+  const updateReview = (reviewId, newText) => {
+  setReviews((prev) =>
+    prev.map((r) =>
+      r._id === reviewId
+        ? { ...r, text: newText }
+        : r
+    )
   );
-
-  try {
-    const res = await fetch(`/api/review?reviewId=${reviewId}`, {
-      method: "DELETE",
-    });
-
-    if (!res.ok) {
-      throw new Error("Delete failed");
-    }
-
-    
-  } catch (error) {
-    console.error(error);
-
-    // rollback
-    setReviews(previousReviews);
-  }
 };
 
-  const editReview = (reviewId) => {
-     console.log(reviewId) 
-  }
+  const deleteReview = async (reviewId) => {
+    // keep a copy in case we need to rollback
+    const previousReviews = reviews;
+
+    // optimistic update
+    setReviews((current) =>
+      current.filter((review) => review._id !== reviewId),
+    );
+
+    try {
+      const res = await fetch(`/api/review?reviewId=${reviewId}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok) {
+        throw new Error("Delete failed");
+      }
+    } catch (error) {
+      console.error(error);
+
+      // rollback
+      setReviews(previousReviews);
+    }
+  };
 
   // SAFE GUARD FIRST
   if (!feature || !active) {
@@ -239,14 +247,40 @@ export default function VenuePopup({
                   />
                   <span className="ml-2">{review?.username}</span>
                 </div>
-                <div className="flex items-center text-[12px] text-yellow-800/57">{formatDate(review.createdAt)}</div>
+                <div className="flex items-center text-[12px] text-yellow-800/57">
+                  {formatDate(review.createdAt)}
+                </div>
               </div>
 
-              <div className="mb-2">{review.text}</div>
-             {review.userId === session?.user.id && <div className="w-full flex flex-row justify-end items-center gap-2 my-2">
-                <div className="cursor-pointer border border-yllow-800 rounded-full px-2" onClick={() => editReview(review._id)}>Edit</div>
-                <div className="cursor-pointer  border border-yllow-800 rounded-full px-2" onClick={() => deleteReview(review._id)}>Delete</div>
-              </div>}
+              {editingReviewId === review._id ? (
+                <EditReviewForm
+                  reviewId={review._id}
+                  text={editingText}
+                  onUpdate={updateReview}
+                  setEditingReviewId={setEditingReviewId}
+                />
+              ) : (
+                <div className="mb-2">{review.text}</div>
+              )}
+              {review.userId === session?.user.id && editingReviewId !== review._id && (
+                <div className="w-full flex flex-row justify-end items-center gap-2 my-2">
+                  <div
+                    className="cursor-pointer border border-yllow-800 rounded-full px-2"
+                    onClick={() => {
+                      setEditingReviewId(review._id);
+                      setEditingText(review.text);
+                    }}
+                  >
+                    Edit
+                  </div>
+                  <div
+                    className="cursor-pointer  border border-yllow-800 rounded-full px-2"
+                    onClick={() => deleteReview(review._id)}
+                  >
+                    Delete
+                  </div>
+                </div>
+              )}
             </div>
           ))}
       </div>

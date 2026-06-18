@@ -36,11 +36,11 @@ export async function GET(req) {
   try {
     const con = await dbConnect();
 
-    const session = await auth();
+    // const session = await auth();
 
-    if (!session?.user?.id) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 });
-    }
+    // if (!session?.user?.id) {
+    //   return Response.json({ error: "Unauthorized" }, { status: 401 });
+    // }
 
     const { searchParams } = new URL(req.url);
     const venueId = searchParams.get("venueId");
@@ -94,4 +94,31 @@ export async function DELETE(req) {
 
     return Response.json({ error: "Server error" }, { status: 500 });
   }
+}
+
+export async function PATCH(req) {
+try {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return Response.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const { reviewId, text } = await req.json();
+  console.log("ID:", text)
+
+  const updated = await Review.findOneAndUpdate(
+    {
+      _id: reviewId,
+      userId: session.user.id, // security
+    },
+    { $set: { text } },
+    { returnDocument: 'after' }
+  );
+
+  return Response.json({ review: updated });
+} catch (error) {
+  console.error(error);
+
+    return Response.json({ error: "Server error" }, { status: 500 });
+}
 }
