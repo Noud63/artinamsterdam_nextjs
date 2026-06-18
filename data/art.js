@@ -872,10 +872,10 @@
         link: "https://www.stigtervandoesburg.com",
         address: "Elandsstraat 90",
         open: [
-          "Wednesday:12:00-18:00",
-          "Thursday:12:00-18:00",
-          "Friday:12:00-18:00",
-          "Saturday:13:00-18:00",
+          "Wednesday:12:00 - 18:00",
+          "Thursday:12:00 - 18:00",
+          "Friday:12:00 - 18:00",
+          "Saturday:13:00 - 18:00",
         ],
       },
       geometry: {
@@ -895,9 +895,9 @@
         link: "https://andriesse-eyck.com",
         address: "Leliegracht 47",
         open: [
-          "Thursday:12:00-18:00",
-          "Friday:12:00-18:00",
-          "Saturday:13:00-18:00",
+          "Thursday:12:00 - 18:00",
+          "Friday:12:00 - 18:00",
+          "Saturday:13:00 - 18:00",
         ],
       },
       geometry: {
@@ -917,10 +917,10 @@
         link: "https://www.edbprojects.com",
         address: "Singel 372",
         open: [
-          "Wednesday:11:00-18:00",
-          "Thursday:11:00-18:00",
-          "Friday:11:00-18:00",
-          "Saturday:13:00-18:00",
+          "Wednesday:11:00 - 18:00",
+          "Thursday:11:00 - 18:00",
+          "Friday:11:00 - 18:00",
+          "Saturday:13:00 - 18:00",
         ],
       },
       geometry: {

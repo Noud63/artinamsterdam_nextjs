@@ -27,8 +27,6 @@ export default function VenuePopup({
   const [editingReviewId, setEditingReviewId] = useState(null);
   const [editingText, setEditingText] = useState("");
 
-  console.log("R:", reviews)
-
   useEffect(() => {
     if (!feature?.id) return;
 
@@ -90,6 +88,8 @@ export default function VenuePopup({
     feature.properties.category !== "public" &&
     feature.properties.name !== "Van Gogh Museum";
   const openNow = isVenueOpen(feature);
+
+  console.log(feature)
 
   return (
     <div
