@@ -11,7 +11,7 @@ Mapbox tiles<br /><br />
 
 Demo: https://artinamsterdam-nextjs.vercel.app<br/><br />
 
-<div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/68b2c3d5-fca2-4158-8b65-d2025bc10e32" /></div><br />
+<div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/ba5c2d9e-9440-4987-be39-a9154241a911" /></div><br />
 
 <div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/43187a96-2495-429c-a20e-18dc920abe22" /></div><br />
 
