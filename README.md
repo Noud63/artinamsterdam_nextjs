@@ -4,13 +4,13 @@ Find Galleries, Museums, Art Centres and public Art in Amsterdam.<br /><br />
 Nextjs Application:<br /> 
 Nextjs 16 <br />
 React 19 <br />
-Auth.js v5 <br /><br />
+Auth.js v5 <br />
 Tailwind 4<br />
 Leaflet OpenStreetMap<br />
 Graphhopper api<br />
-Mapbox tiles<br /><br />
-Resend Magic link<br /><br />
-OAuth 2.0 Authentication<br /><br />
+Mapbox tiles<br />
+Resend Magic link<br />
+OAuth 2.0 Authentication<br />
 MongoDB <br /><br />
 
 Interactive map highlights 80 locations across Amsterdam, including art galleries, museums, art centres, and public artworks.<br /><br />
