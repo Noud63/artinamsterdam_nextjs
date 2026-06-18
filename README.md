@@ -22,4 +22,4 @@ Demo: https://artinamsterdam-nextjs.vercel.app<br/><br />
 
 <div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/7024d3f6-12be-475f-b629-3769d0652314" /></div><br />
 
-<div><img width="1600" height="903" alt="Image" src="https://github.com/user-attachments/assets/265fa9c1-b0d7-4a78-93ad-324859c66ea3" /></div>
+<div><img width="1230" height="1704" alt="Image" src="https://github.com/user-attachments/assets/85db5ece-3587-4dda-bea2-7bc2775d3abb" /></div>
