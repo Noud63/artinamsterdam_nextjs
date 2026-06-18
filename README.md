@@ -13,7 +13,7 @@ Resend Magic link<br />
 OAuth 2.0 Authentication<br />
 MongoDB <br /><br />
 
-Interactive map highlights 80 locations across Amsterdam, including art galleries, museums, art centres, and public artworks.<br /><br />
+Interactive map highlights 80 art-locations across Amsterdam, including art galleries, museums, art centres, and public artworks.<br /><br />
 
 
 Demo: https://artinamsterdam-nextjs.vercel.app<br/><br />
