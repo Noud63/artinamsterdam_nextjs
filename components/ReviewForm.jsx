@@ -1,17 +1,33 @@
 "use client";
 import React, { useState } from "react";
 
-const ReviewForm = ({ venueId, user }) => {
+const ReviewForm = ({ venueId, user, setReviews }) => {
   const [text, setText] = useState("");
-  const [review, setReview] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const tempId = crypto.randomUUID();
+
+    const optimisticReview = {
+      _id: tempId,
+      text,
+      userId: user.id,
+      username: user.username,
+      avatar: user.avatar,
+      createdAt: new Date().toISOString(),
+      optimistic: true,
+    };
+
+    // 1. INSTANT UI UPDATE
+    setReviews((prev) => [optimisticReview, ...prev]);
+
+    setText("");
+
     try {
       const res = await fetch("/api/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ venueId, text}),
+        body: JSON.stringify({ venueId, text }),
       });
 
       if (!res.ok) {
@@ -20,16 +36,20 @@ const ReviewForm = ({ venueId, user }) => {
 
       const data = await res.json();
 
-      if (res.ok) {
-        console.log("Data:", data);
-        setReview(data.text);
-        setText("");
-      }
+ // 2. REPLACE TEMP REVIEW WITH REAL ONE FROM DB
+      setReviews((prev) =>
+        prev.map((r) => (r._id === tempId ? data.newReview : r)),
+      );
+
+      setText("");
+
     } catch (error) {
-      console.error(error);
+      // 3. ROLLBACK if failed
+      setReviews((prev) => prev.filter((r) => r._id !== tempId));
+
+      console.error(err);
     }
   };
-
 
   return (
     <div className="w-full mt-4">
@@ -51,7 +71,6 @@ const ReviewForm = ({ venueId, user }) => {
           Send
         </button>
       </form>
-
     </div>
   );
 };

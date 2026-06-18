@@ -3,6 +3,7 @@ import { IoSendSharp } from "react-icons/io5";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 
 const EditReviewForm = ({ reviewId, text, setEditingReviewId, onUpdate }) => {
+  
   const [currentText, setCurrentText] = useState(text);
 
   const handleEditReview = async (e) => {
@@ -40,16 +41,22 @@ const EditReviewForm = ({ reviewId, text, setEditingReviewId, onUpdate }) => {
           className="w-full min-h-[80px] border border-gray-400 rounded-lg p-2 outline-none mb-1"
         />
         <div className="w-full flex flex-row justify-between">
-<div><IoMdCloseCircleOutline size={24} color={"#854d0e"} onClick={() => setEditingReviewId(null)} className="cursor-pointer"/></div>
-        <button
-          type="submit"
+          <div>
+            <IoMdCloseCircleOutline
+              size={24}
+              color={"#854d0e"}
+              onClick={() => setEditingReviewId(null)}
+              className="cursor-pointer"
+            />
+          </div>
+          <button
+            type="submit"
             className="flex flex-row gap-1 font-normal text-yellow-800 cursor-pointer"
-        >
-            
-          <IoSendSharp color="#854d0e" size={22}/><span>Send </span>
-        </button>
+          >
+            <IoSendSharp color="#854d0e" size={22} />
+            <span>Send </span>
+          </button>
         </div>
-        
       </form>
     </div>
   );

@@ -27,6 +27,8 @@ export default function VenuePopup({
   const [editingReviewId, setEditingReviewId] = useState(null);
   const [editingText, setEditingText] = useState("");
 
+  console.log("R:", reviews)
+
   useEffect(() => {
     if (!feature?.id) return;
 
@@ -218,7 +220,7 @@ export default function VenuePopup({
 
             <StarRating venueId={feature.id} userId={session?.user.id} />
           </div>
-          <ReviewForm venueId={feature.id} user={session?.user} />
+          <ReviewForm venueId={feature.id} user={session?.user} setReviews={setReviews} />
         </div>
 
         <div className="mt-4 text-[16px] font-semibold">
