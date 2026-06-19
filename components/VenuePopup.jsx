@@ -11,6 +11,7 @@ import StarRating from "./StarRating";
 import ReviewForm from "./ReviewForm";
 import { formatDate } from "@/lib/formatDate";
 import EditReviewForm from "./EditReviewForm";
+import LoaderColorCircle from "./LoaderColorCircle";
 
 export default function VenuePopup({
   feature,
@@ -26,30 +27,30 @@ export default function VenuePopup({
   const [reviews, setReviews] = useState([]);
   const [editingReviewId, setEditingReviewId] = useState(null);
   const [editingText, setEditingText] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!feature?.id) return;
 
+    setLoading(true);
+
     const getReviews = async () => {
       const res = await fetch(`/api/review?venueId=${feature.id}`);
       const data = await res.json();
-      // console.log(data.reviews);
+      if (!res.ok) {
+        console.log("Failed to fetch reviews!");
+      }
       setReviews(data.reviews || []);
+      setLoading(false);
     };
-
     getReviews();
   }, [feature?.id]);
 
-
   const updateReview = (reviewId, newText) => {
-  setReviews((prev) =>
-    prev.map((r) =>
-      r._id === reviewId
-        ? { ...r, text: newText }
-        : r
-    )
-  );
-};
+    setReviews((prev) =>
+      prev.map((r) => (r._id === reviewId ? { ...r, text: newText } : r)),
+    );
+  };
 
   const deleteReview = async (reviewId) => {
     // keep a copy in case we need to rollback
@@ -88,8 +89,6 @@ export default function VenuePopup({
     feature.properties.category !== "public" &&
     feature.properties.name !== "Van Gogh Museum";
   const openNow = isVenueOpen(feature);
-
-  console.log(feature)
 
   return (
     <div
@@ -220,14 +219,21 @@ export default function VenuePopup({
 
             <StarRating venueId={feature.id} userId={session?.user.id} />
           </div>
-          <ReviewForm venueId={feature.id} user={session?.user} setReviews={setReviews} />
+          <ReviewForm
+            venueId={feature.id}
+            user={session?.user}
+            setReviews={setReviews}
+          />
         </div>
 
         <div className="mt-4 text-[16px] font-semibold">
           Reviews{" "}
           <span className="text-sm font-normal">({reviews.length})</span>
         </div>
-        {reviews &&
+
+        {loading ? (
+          <LoaderColorCircle />
+        ) : (
           reviews.map((review, i) => (
             <div
               key={review._id}
@@ -264,27 +270,29 @@ export default function VenuePopup({
               ) : (
                 <div className="mb-2">{review.text}</div>
               )}
-              {review.userId === session?.user.id && editingReviewId !== review._id && (
-                <div className="w-full flex flex-row justify-end items-center gap-2 my-2">
-                  <div
-                    className="cursor-pointer border border-yllow-800 rounded-full px-2"
-                    onClick={() => {
-                      setEditingReviewId(review._id);
-                      setEditingText(review.text);
-                    }}
-                  >
-                    Edit
+              {review.userId === session?.user.id &&
+                editingReviewId !== review._id && (
+                  <div className="w-full flex flex-row justify-end items-center gap-2 my-2">
+                    <div
+                      className="cursor-pointer border border-yllow-800 rounded-full px-2"
+                      onClick={() => {
+                        setEditingReviewId(review._id);
+                        setEditingText(review.text);
+                      }}
+                    >
+                      Edit
+                    </div>
+                    <div
+                      className="cursor-pointer  border border-yllow-800 rounded-full px-2"
+                      onClick={() => deleteReview(review._id)}
+                    >
+                      Delete
+                    </div>
                   </div>
-                  <div
-                    className="cursor-pointer  border border-yllow-800 rounded-full px-2"
-                    onClick={() => deleteReview(review._id)}
-                  >
-                    Delete
-                  </div>
-                </div>
-              )}
+                )}
             </div>
-          ))}
+          ))
+        )}
       </div>
     </div>
   );
