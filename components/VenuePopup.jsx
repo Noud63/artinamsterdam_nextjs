@@ -29,8 +29,6 @@ export default function VenuePopup({
   const [editingText, setEditingText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  console.log(reviews[0])
-
   useEffect(() => {
     if (!feature?.id) return;
 

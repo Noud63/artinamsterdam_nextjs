@@ -490,9 +490,9 @@ html {
   .sidebar.hidden {
     transform: translateX(-270px);
   }
-  .space {
-    font-size: 12px;
-  }
+  /* .space {
+    font-size: 14px;
+  } */
   .extra {
     font-size: 0.65rem;
   }
@@ -520,6 +520,10 @@ html {
   }
   .listings {
     margin-top: 0px;
+    width: 270px;
+  }
+  .sidebar {
+    width: 270px
   }
 }
 
