@@ -38,7 +38,7 @@ export async function GET(req) {
 ]);
 
 const result = stats[0] || { average: 0, count: 0, total: 0 };
-  console.log("Result:", result)
+  // console.log("Result:", result)
 
   return Response.json({
     userValue: userRating?.value ?? 0,

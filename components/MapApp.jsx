@@ -278,7 +278,7 @@ export default function MapApp({venues}) {
           />
         </div>
     
-        {session?.user && <div className="absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-xl:right-0 max-xlg:right-10">
+        {session?.user && <div className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-xl:right-0 max-xlg:right-10">
           <Image
             src={avatar || "/images/profilepic.png"}
             alt=""
@@ -287,6 +287,9 @@ export default function MapApp({venues}) {
             aria-hidden="true"
             style={{ width: "24px", height: "auto", borderRadius: "50%" }}
           />
+          <div className="absolute hidden group-hover:flex whitespace-nowrap bg-[linear-gradient(to_top,rgba(73,39,0,0.7),rgba(211,142,64,0.5)),url(/images/sunflowers_small.jpg)] bg-no-repeat bg-cover bg-center text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-9">
+    Welcome, {session?.user.username}
+  </div>
         </div>}
     
       <div className="artinamsterdam">

@@ -29,6 +29,8 @@ export default function VenuePopup({
   const [editingText, setEditingText] = useState("");
   const [loading, setLoading] = useState(false);
 
+  console.log(reviews[0])
+
   useEffect(() => {
     if (!feature?.id) return;
 
@@ -46,9 +48,10 @@ export default function VenuePopup({
     getReviews();
   }, [feature?.id]);
 
+
   const updateReview = (reviewId, newText) => {
     setReviews((prev) =>
-      prev.map((r) => (r._id === reviewId ? { ...r, text: newText } : r)),
+      prev.map((review) => (review._id === reviewId ? { ...review, text: newText } : review)),
     );
   };
 
@@ -223,6 +226,7 @@ export default function VenuePopup({
             venueId={feature.id}
             user={session?.user}
             setReviews={setReviews}
+            showAverage={true}
           />
         </div>
 
@@ -253,7 +257,12 @@ export default function VenuePopup({
                       marginBottom: "5px",
                     }}
                   />
-                  <span className="ml-2">{review?.username}</span>
+                  <div className="ml-2 flex flex-row items-center gap-2">
+                    <div>{review?.username}</div>
+                     <StarRating venueId={feature.id} userId={session?.user.id} showAverage={false} value={review.value} />
+
+                  </div>
+                
                 </div>
                 <div className="flex items-center text-[12px] text-yellow-800/57">
                   {formatDate(review.createdAt)}
