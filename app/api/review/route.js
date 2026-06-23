@@ -25,10 +25,20 @@ export async function POST(req) {
       avatar: user.avatar,
     });
 
-    return Response.json({
-      newReview,
+    const rating = await Rating.findOne({
+      venueId,
+      userId: session.user.id,
     });
-  } catch (error) {}
+
+    return Response.json({
+      newReview: {
+        ...newReview.toObject(),
+        value: rating?.value || 0,
+      },
+    });
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export async function GET(req) {

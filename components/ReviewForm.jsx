@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const ReviewForm = ({ venueId, user, setReviews }) => {
+const ReviewForm = ({ venueId, user, setReviews, updateReview }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = async (e) => {
@@ -35,6 +35,8 @@ const ReviewForm = ({ venueId, user, setReviews }) => {
       }
 
       const data = await res.json();
+
+      console.log('Data:', data)
 
  // 2. REPLACE TEMP REVIEW WITH REAL ONE FROM DB
       setReviews((prev) =>

@@ -7,6 +7,7 @@ export default function StarRating({
   userId,
   showAverage = true,
   value = 0,
+  onRatingChange,
 }) {
   const [userValue, setUserValue] = useState(0);
   const [average, setAverage] = useState(0);
@@ -30,12 +31,14 @@ export default function StarRating({
 
     load();
   }, [venueId]);
-  
+
 
   const handleClick = async (value) => {
     const newValue = value === userValue ? 0 : value;
 
     setUserValue(newValue); // optimistic
+
+    onRatingChange?.(userId, newValue); // optimistic update reviews list
 
     const res = await fetch("/api/rating", {
       method: "POST",

@@ -15,6 +15,8 @@ import LoaderColorCircle from "./LoaderColorCircle";
 import WebsiteRouting from "./WebsiteRouting";
 import OpeningHours from "./OpeningHours";
 import OpenClosedStatus from "./OpenClosedStatus";
+import WalkingDistance from "./WalkingDistance";
+import TitleContentAddress from "./TitleContentAddress";
 
 export default function VenuePopup({
   feature,
@@ -43,6 +45,7 @@ export default function VenuePopup({
       if (!res.ok) {
         console.log("Failed to fetch reviews!");
       }
+      console.log("Reviews:", data)
       setReviews(data.reviews || []);
       setLoading(false);
     };
@@ -55,6 +58,16 @@ export default function VenuePopup({
       prev.map((review) => (review._id === reviewId ? { ...review, text: newText } : review)),
     );
   };
+
+  const updateReviewRating = (userId, newValue) => {
+  setReviews((prev) =>
+    prev.map((review) =>
+      review.userId === userId
+        ? { ...review, value: newValue }
+        : review
+    )
+  );
+};
 
   const deleteReview = async (reviewId) => {
     // keep a copy in case we need to rollback
@@ -110,25 +123,7 @@ export default function VenuePopup({
       </div>
 
       <div className="popUpContent pt-2">
-        {distance ? (
-          <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2">
-            <div>📍{formatDistance(distance)}</div>
-            <div className="flex gap-1">
-              <Image
-                src="/images/walk.png"
-                alt=""
-                height={16}
-                width={8}
-                className="walkIcon"
-                aria-hidden="true"
-                style={{ width: "8px", height: "16px" }}
-              />
-              <span>{estimateWalkingTime(distance)} (5 km/h)</span>
-            </div>
-          </div>
-        ) : (
-          <div className="distance">📍 Location unavailable</div>
-        )}
+        <WalkingDistance distance={distance} />
 
         <div className="puName flex justify-between mt-2 text-lg font-bold pl-1">
           <div>{feature.properties.name}</div>
@@ -143,18 +138,8 @@ export default function VenuePopup({
             />
           </button>
         </div>
-        {feature.properties.title ? (
-          <div className="puTitle">&quot;{feature.properties.title}&quot;</div>
-        ) : null}
-        {feature.properties.extra ? (
-          <div className="extra3">{feature.properties.extra}</div>
-        ) : null}
-        {feature.properties.address ? (
-          <div className="address">
-            <span className="popupSectionTitle">Address:</span>{" "}
-            {feature.properties.address}
-          </div>
-        ) : null}
+       
+        <TitleContentAddress featureProps={feature.properties} />
 
         <OpenClosedStatus
           showOpenStatus={showOpenStatus}
@@ -183,13 +168,14 @@ export default function VenuePopup({
               className="rounded-full"
             />
 
-            <StarRating venueId={feature.id} userId={session?.user.id} />
+            <StarRating venueId={feature.id} userId={session?.user.id} onRatingChange={updateReviewRating} />
           </div>
           <ReviewForm
             venueId={feature.id}
             user={session?.user}
             setReviews={setReviews}
             showAverage={true}
+            updateReview={updateReview}
           />
         </div>
 
