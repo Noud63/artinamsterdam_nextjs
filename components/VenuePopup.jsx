@@ -12,6 +12,9 @@ import ReviewForm from "./ReviewForm";
 import { formatDate } from "@/lib/formatDate";
 import EditReviewForm from "./EditReviewForm";
 import LoaderColorCircle from "./LoaderColorCircle";
+import WebsiteRouting from "./WebsiteRouting";
+import OpeningHours from "./OpeningHours";
+import OpenClosedStatus from "./OpenClosedStatus";
 
 export default function VenuePopup({
   feature,
@@ -155,59 +158,21 @@ export default function VenuePopup({
           </div>
         ) : null}
 
-        {showOpenStatus ? (
-          <div className="openOrClosed">
-            <span className="category">
-              {formatCategoryLabel(feature.properties.category)} is:
-            </span>{" "}
-            <span className="closedOpen">{openNow ? "Open" : "Closed"}</span>
-          </div>
-        ) : null}
+        <OpenClosedStatus
+          showOpenStatus={showOpenStatus}
+          openNow={openNow}
+          category={feature.properties.category}
+        />
 
-        {feature.properties.open ? (
-          <div className="openingHours">
-            <span className="popupSectionTitle">Opening hours:</span>
-            {feature.properties.open.map((day) => (
-              <div key={day}>{day}</div>
-            ))}
-          </div>
-        ) : null}
+        <OpeningHours open={feature.properties?.open} />
 
-        <div className="links">
-          {feature.properties.link ? (
-            <a
-              className="websiteLink"
-              href={feature.properties.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/images/globe.png"
-                alt=""
-                className="linkIcon"
-                aria-hidden="true"
-              />
-              <span>Website</span>
-            </a>
-          ) : null}
-
-          {userLocation ? (
-            <button
-              type="button"
-              className="routeLink"
-              onClick={() => onRoute(feature)}
-              disabled={routing}
-            >
-              <img
-                src="/images/route.png"
-                alt=""
-                className="linkIcon"
-                aria-hidden="true"
-              />
-              {routing ? "Routing..." : "Route"}
-            </button>
-          ) : null}
-        </div>
+         <WebsiteRouting
+          link={feature.properties.link}
+          onRoute={onRoute}
+          feature={feature}
+          userLocation={userLocation}
+          routing={routing}
+        />
 
         <div className="flex flex-col mt-8 ">
           <span className="font-semibold mb-2">Assess and Review </span>

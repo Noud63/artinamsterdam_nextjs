@@ -1,4 +1,222 @@
-﻿ * {
+ return (
+    <div
+      className={`wrapper${sidebarHidden ? " left" : ""} active`}
+      onClick={(event) => event.stopPropagation()}
+    >
+      <div className="pic">
+        <Image
+          src={`/images/${feature.properties.image}`}
+          alt={feature.properties.name}
+          width={350}
+          height={200}
+          className="puImage h-[200px] w-full object-cover"
+        />
+      </div>
+
+      <div className="popUpContent pt-2">
+        <WalkingDistance distance={distance} />
+
+        <div className="puName flex justify-between mt-2 text-lg font-bold pl-1">
+          <div>{feature.properties.name}</div>
+
+          <button type="button" className="" onClick={onClose}>
+            <Image
+              src="/images/close.png"
+              alt="Close popup"
+              className="cursor-pointer"
+              width={18}
+              height={18}
+            />
+          </button>
+        </div>
+        {feature.properties.title ? (
+          <div className="puTitle">&quot;{feature.properties.title}&quot;</div>
+        ) : null}
+        {feature.properties.extra ? (
+          <div className="extra3">{feature.properties.extra}</div>
+        ) : null}
+        {feature.properties.address ? (
+          <div className="address">
+            <span className="popupSectionTitle">Address:</span>{" "}
+            {feature.properties.address}
+          </div>
+        ) : null}
+
+        <OpenClosedStatus
+          showOpenStatus={showOpenStatus}
+          openNow={openNow}
+          category={feature.properties.category}
+        />
+
+        <OpeningHours open={feature.properties?.open} />
+
+        <WebsiteRouting
+          link={feature.properties.link}
+          onRoute={onRoute}
+          feature={feature}
+          userLocation={userLocation}
+          routing={routing}
+        />
+
+        <div className="flex flex-col mt-8 ">
+          <span className="font-semibold mb-2">Assess and Review </span>
+          <div className="flex w-full flex-row gap-2 items-center">
+            <Image
+              src={avatar || "/images/avatarRembrandt.png"}
+              alt="avatar"
+              width={30}
+              height={30}
+              className="rounded-full"
+            />
+
+            <StarRating venueId={feature.id} userId={session?.user.id} setUserRating={setUserRating} userRating={userRating}/>
+          </div>
+          <ReviewForm
+            venueId={feature.id}
+            user={session?.user}
+            setReviews={setReviews}
+            showAverage={true}
+            userRating={userRating}
+          />
+        </div>
+
+        <div className="mt-4 text-[16px] font-semibold">
+          Reviews{" "}
+          <span className="text-sm font-normal">({reviews.length})</span>
+        </div>
+
+        {loading ? (
+          <LoaderColorCircle />
+        ) : (
+          <Reviews
+            reviews={reviews}
+            feature={feature}
+            onUpdate={updateReview}
+            userId={session?.user.id}
+            deleteReview={deleteReview}
+          />
+        )}
+      </div>
+    </div>
+  );
+
+
+  import React from 'react'
+  import { formatCategoryLabel } from '@/lib/venue'
+  
+  const OpenClosedStatus = ({showOpenStatus, openNow, category }) => {
+    return (
+      <div> {showOpenStatus ? (
+                <div className="openOrClosed">
+                  <span className="category">
+                    {formatCategoryLabel(category)} is:
+                  </span>{" "}
+                  <span className="closedOpen">{openNow ? "Open" : "Closed"}</span>
+                </div>
+              ) : null}</div>
+    )
+  }
+  
+  export default OpenClosedStatus
+
+  import React from "react";
+  
+  const OpeningHours = ({open}) => {
+    return (
+      <div>
+        {" "}
+        {open ? (
+          <div className="openingHours">
+            <span className="popupSectionTitle">Opening hours:</span>
+            {open.map((day) => (
+              <div key={day}>{day}</div>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    );
+  };
+  
+  export default OpeningHours;
+
+  import React from 'react'
+  import { formatDistance } from '@/lib/distance'
+  import { estimateWalkingTime } from '@/lib/distance'
+  import Image from 'next/image'
+  
+  const WalkingDistance = ({distance}) => {
+    return (
+      <>
+      {distance ? (
+                <div className="w-full flex flex-row items-center justify-between gap-2 border-b border-dotted pb-1 mb-2">
+                  <div>📍{formatDistance(distance)}</div>
+                  <div className="flex gap-1">
+                    <Image
+                      src="/images/walk.png"
+                      alt=""
+                      height={16}
+                      width={8}
+                      className="walkIcon"
+                      aria-hidden="true"
+                      style={{ width: "8px", height: "16px" }}
+                    />
+                    <span>{estimateWalkingTime(distance)} (5 km/h)</span>
+                  </div>
+                </div>
+              ) : (
+                <div className="distance">📍 Location unavailable</div>
+              )}</>
+    )
+  }
+  
+  export default WalkingDistance
+
+  import React from 'react'
+  
+  const WebsiteRouting = ({userLocation, onRoute, feature, routing}) => {
+    return (
+      <div className="links">
+            {feature.properties.link ? (
+              <a
+                className="websiteLink"
+                href={feature.properties.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/images/globe.png"
+                  alt=""
+                  className="linkIcon"
+                  aria-hidden="true"
+                />
+                <span>Website</span>
+              </a>
+            ) : null}
+  
+            {userLocation ? (
+              <button
+                type="button"
+                className="routeLink"
+                onClick={() => onRoute(feature)}
+                disabled={routing}
+              >
+                <img
+                  src="/images/route.png"
+                  alt=""
+                  className="linkIcon"
+                  aria-hidden="true"
+                />
+                {routing ? "Routing..." : "Route"}
+              </button>
+            ) : null}
+          </div>
+    )
+  }
+  
+  export default WebsiteRouting
+
+  //CSS
+  * {
   box-sizing: border-box;
 }
 body,
@@ -880,3 +1098,30 @@ hr {
   height: auto;
   margin-right: 4px;
 }
+
+//Readme
+<h1>Art in Amsterdam</h1>
+
+Find Galleries, Museums, Art Centres and public Art in Amsterdam.<br /><br />
+Nextjs Application:<br /> 
+Nextjs 16 <br />
+React 19 <br />
+Auth.js v5 <br />
+Tailwind 4<br />
+Leaflet OpenStreetMap<br />
+Graphhopper api<br />
+Mapbox tiles<br />
+Resend Magic link<br />
+OAuth 2.0 Authentication<br />
+MongoDB <br /><br />
+
+Interactive map highlights 80 art-locations across Amsterdam, including art galleries, museums, art centres, and public artworks.<br /><br />
+
+
+Demo: https://artinamsterdam-nextjs.vercel.app<br/><br />
+
+<div><img width="1920" height="1080" alt="artinamsterdam" src="https://github.com/user-attachments/assets/4f7edf3e-38d1-4431-b476-acbea575aeba" /></div><br />
+
+<div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/7024d3f6-12be-475f-b629-3769d0652314" /></div><br />
+
+<div><img width="1600" height="903" alt="Image" src="https://github.com/user-attachments/assets/db983b50-f1a6-432d-be41-e0823dd96f05" /></div>

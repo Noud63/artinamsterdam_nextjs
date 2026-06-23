@@ -30,6 +30,7 @@ export default function StarRating({
 
     load();
   }, [venueId]);
+  
 
   const handleClick = async (value) => {
     const newValue = value === userValue ? 0 : value;
