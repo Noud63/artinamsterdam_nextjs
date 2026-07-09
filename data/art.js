@@ -378,6 +378,31 @@
         coordinates: [4.87876, 52.37378],
       },
     },
+     {
+      id: "serieuze-zaken",
+      type: "Feature",
+      cat: "gallery",
+      properties: {
+        name: "Serieuze Zaken",
+        title: "",
+        image: "serieuzezaken.jpg",
+        adress: "Tweede Rozendwarsstraat 24",
+        extra:
+          "Serieuze Zaken, opgericht door galeriehouder Rob Malasch, is al meer dan twintig jaar een excentrieke speler in de Amsterdamse kunstscene. Bezoekers waarderen de unieke, intieme sfeer en de toegang tot grensverleggende hedendaagse kunst, variërend van Brit-Art tot jonge Chinese schilders.",
+        link: "https://serieuzezaken.art",
+      },
+      open: [
+          "Wednesday:14:00 - 18:00",
+          "Thursday:14:00 - 18:00",
+          "Friday:14:00 - 18:00",
+          "Saturday:14:00 - 18:00",
+          "visits by appointment"
+        ],
+      geometry: {
+        type: "Point",
+        coordinates: [4.878722, 52.372250],
+      },
+    },
     {
       id: "grimm-gallery",
       type: "Feature",

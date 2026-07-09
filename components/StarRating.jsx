@@ -34,6 +34,7 @@ export default function StarRating({
 
 
   const handleClick = async (value) => {
+       
     const newValue = value === userValue ? 0 : value;
 
     setUserValue(newValue); // optimistic
@@ -62,11 +63,11 @@ export default function StarRating({
     return showAverage ? (
       <span
         key={i}
-        onClick={userId ? () => handleClick(starValue) : undefined}
+        onClick={userId ? () => handleClick(starValue) : undefined}  // Each click => handleClick(1), handleClick(2) etc.
         style={{
           cursor: "pointer",
           fontSize: 24,
-          color: starValue <= userValue ? "#f5b301" : "#ccc",
+          color: starValue <= userValue ? "#f5b301" : "#ccc",//#f5b301 yellow
         }}
       >
         ★
@@ -76,7 +77,7 @@ export default function StarRating({
         key={i}
         style={{
           fontSize: 16,
-          color: starValue <= value ? "#f5b301" : "#ccc",
+          color: starValue <= value ? "#f5b301" : "#ccc", 
         }}
       >
         ★

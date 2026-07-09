@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import { L, AMSTERDAM_CENTER, DEFAULT_ZOOM } from "@/lib/leaflet-setup";
-import { filterFeatures, sortFeaturesByName } from "@/lib/venue";
+import { filterFeatures, sortFeaturesByCategory } from "@/lib/venue";
 import ArtMarkersLayer from "@/components/map/ArtMarkersLayer";
 import UserLocationLayer from "@/components/map/UserLocationLayer";
 import RouteLayer from "@/components/map/RouteLayer";
@@ -17,6 +17,8 @@ import { useSession } from "next-auth/react";
 import "leaflet/dist/leaflet.css";
 
 export default function MapApp({venues}) {
+
+
   const markersRef = useRef({});
   const [category, setCategory] = useState(null);
   const [sidebarHidden, setSidebarHidden] = useState(false);
@@ -40,7 +42,7 @@ export default function MapApp({venues}) {
 
   const filteredFeatures = useMemo(() => {
     const filtered = filterFeatures(venues.features, category); // category comes from onCategorySelect => Menu.jsx
-    return sortFeaturesByName(filtered);
+    return sortFeaturesByCategory(filtered);
   }, [venues.features, category]);
 
   const geoJsonKey = useMemo(
@@ -199,6 +201,7 @@ export default function MapApp({venues}) {
     setResetToken((value) => value + 1);
     markersRef.current = {};
   }, [closePopup, closeInfo]);
+
 
   const handleInfoClick = useCallback(() => {
     if (infoOpen) {
