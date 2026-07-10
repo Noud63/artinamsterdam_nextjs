@@ -6,6 +6,7 @@
   --breakpoint-lg: 64rem; /* 1024px */
   --breakpoint-xlg: 73rem; /* 1165px */
   --breakpoint-xl: 80rem; /* 1280px */
+  --breakpoint-1xl: 80.25rem; /* 1300px */
   --breakpoint-2xl: 96rem; /* 1536px */
 }
 

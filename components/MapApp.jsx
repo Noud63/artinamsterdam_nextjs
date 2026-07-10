@@ -16,9 +16,7 @@ import VenuePopup from "@/components/VenuePopup";
 import { useSession } from "next-auth/react";
 import "leaflet/dist/leaflet.css";
 
-export default function MapApp({venues}) {
-
-
+export default function MapApp({ venues }) {
   const markersRef = useRef({});
   const [category, setCategory] = useState(null);
   const [sidebarHidden, setSidebarHidden] = useState(false);
@@ -38,7 +36,7 @@ export default function MapApp({venues}) {
 
   const { data: session } = useSession();
 
-  const avatar = session?.user?.avatar
+  const avatar = session?.user?.avatar;
 
   const filteredFeatures = useMemo(() => {
     const filtered = filterFeatures(venues.features, category); // category comes from onCategorySelect => Menu.jsx
@@ -202,7 +200,6 @@ export default function MapApp({venues}) {
     markersRef.current = {};
   }, [closePopup, closeInfo]);
 
-
   const handleInfoClick = useCallback(() => {
     if (infoOpen) {
       closeInfo();
@@ -258,7 +255,7 @@ export default function MapApp({venues}) {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <div className="amsterdam_logo max-xl:hidden">
+      <div className="amsterdam_logo max-1xl:hidden">
         <Image
           src="/images/amsterdam_logo_wit.png"
           alt=""
@@ -269,19 +266,19 @@ export default function MapApp({venues}) {
         />
       </div>
 
-       
-        <div className="amsterdam_logo_right max-xl:hidden">
-          <Image
-            src="/images/amsterdam_logo_wit.png"
-            alt=""
-            width={70}
-            height={18}
-            aria-hidden="true"
-            style={{ width: "70px", height: "auto" }}
-          />
-        </div>
-    
-        {session?.user && <div className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-xl:right-0 max-xlg:right-10">
+      <div className="amsterdam_logo_right max-1xl:hidden">
+        <Image
+          src="/images/amsterdam_logo_wit.png"
+          alt=""
+          width={70}
+          height={18}
+          aria-hidden="true"
+          style={{ width: "70px", height: "auto" }}
+        />
+      </div>
+
+      {session?.user && (
+        <div className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-1xl:right-0 max-xlg:right-10">
           <Image
             src={avatar || "/images/profilepic.png"}
             alt=""
@@ -290,11 +287,13 @@ export default function MapApp({venues}) {
             aria-hidden="true"
             style={{ width: "24px", height: "auto", borderRadius: "50%" }}
           />
-          <div className="absolute hidden group-hover:flex whitespace-nowrap bg-[linear-gradient(to_top,rgba(73,39,0,0.7),rgba(211,142,64,0.5)),url(/images/sunflowers_small.jpg)] bg-no-repeat bg-cover bg-center text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-9">
-    Welcome, {session?.user.username}
-  </div>
-        </div>}
-    
+          <div className="absolute opacity-0 transition duration-500 ease-in-out group-hover:opacity-100 whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14">
+            Welcome, {session?.user.username}
+            <div className="absolute -top-[12px] right-16 h-0 w-0 border-b-[12px] border-l-[10px] border-r-[10px] border-b-yellow-500 border-l-transparent border-r-transparent max-1xl:right-5 max-xlg:right-14" />
+          </div>
+        </div>
+      )}
+
       <div className="artinamsterdam">
         <Image
           src="/images/artinamsterdam_black_2.png"
