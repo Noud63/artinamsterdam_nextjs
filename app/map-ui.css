@@ -1,4 +1,4 @@
-﻿ * {
+﻿* {
   box-sizing: border-box;
 }
 body,
@@ -50,7 +50,7 @@ html {
   display: flex;
 }
 
-@media only screen and (max-width:1165px) {
+@media only screen and (max-width: 1165px) {
   .hamburger {
     display: flex;
   }
@@ -65,8 +65,8 @@ html {
   top: 45px;
   right: 0px;
   width: 145px;
+  align-items: center;
   height: calc(100vh - 45px);
-  overflow: scroll;
   background-image:
     linear-gradient(to top, rgba(73, 39, 0, 0.8), rgba(211, 142, 64, 0.8)),
     url("/images/sunflowers.jpg");
@@ -97,7 +97,7 @@ html {
 
 .menubar button {
   background: linear-gradient(to top, #b47732, transparent);
-  width: 110px;
+  width: 105px;
   padding: 6px;
   border-radius: 25px;
   border: none;
@@ -146,7 +146,7 @@ html {
 }
 
 .menuTop_login {
- width: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,7 +163,8 @@ html {
   box-shadow: 0 2px 2px #69503a;
 }
 
-.login_button, .logout_button {
+.login_button,
+.logout_button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,7 +194,7 @@ html {
 
 @media only screen and (max-width: 1240px) {
   .menuTop {
-     padding: 0 5px
+    padding: 0 5px;
   }
 }
 
@@ -525,7 +526,7 @@ html {
     width: 270px;
   }
   .sidebar {
-    width: 270px
+    width: 270px;
   }
 }
 
@@ -549,7 +550,7 @@ html {
   }
   .box {
     padding-top: 8px;
-  padding-bottom: 1px;
+    padding-bottom: 1px;
   }
 }
 
@@ -781,7 +782,7 @@ html {
 .routeLink a {
   color: #804400;
   text-decoration: none;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -834,9 +835,7 @@ hr {
   border-radius: 7px;
   min-height: 40px;
   /* background-color: #fff; */
-  background-image:
-    #c4aa8d
-  ;
+  background-image: #c4aa8d;
   -webkit-box-shadow: inset 0px 0px 5px #53310a;
   box-shadow: inset 0px 0px 5px #a17a4e;
   background-color: #ffffff;

@@ -10,21 +10,21 @@ const  SignInWithEmail = () =>  {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signIn("email", {
-      email,
-      callbackUrl: "/",
-    });
+    await signIn("nodemailer", {
+  email,
+  redirectTo: "/",
+});
   };
 
   return (
     <form onSubmit={handleSubmit} className="w-[240px]">
-      {/* <input
+      <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="example@domain.com"
         className="flex pl-6 border-2 border-white w-full rounded-full h-[60px] outline-none placeholder-white/80 caret-white"
-      /> */}
+      />
 
       <button type="submit" className="mt-1 flex w-full h-[60px] items-center justify-center rounded-full text-lg text-white  border-t border-t-yellow-200 
       border-b-2 border-b-yellow-950/50 bg-linear-to-t from-yellow-800 to-transparent cursor-pointer" disabled={true}>
