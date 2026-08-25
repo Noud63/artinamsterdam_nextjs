@@ -147,7 +147,7 @@ export default function VenuePopup({
           category={feature.properties.category}
         />
 
-        <OpeningHours open={feature.properties?.open} />
+        <OpeningHours open={feature.properties?.open} cat={feature.properties.category} />
 
          <WebsiteRouting
           link={feature.properties.link}

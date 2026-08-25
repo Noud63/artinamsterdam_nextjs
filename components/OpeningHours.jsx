@@ -1,12 +1,12 @@
 import React from "react";
 
-const OpeningHours = ({open}) => {
+const OpeningHours = ({open, cat}) => {
   return (
     <div>
       {" "}
       {open ? (
         <div className="openingHours">
-          <span className="popupSectionTitle">Opening hours:</span>
+          <span className="popupSectionTitle">{cat === "public" ? "" : "Opening hours:"}</span>
           {open.map((day) => (
             <div key={day}>{day}</div>
           ))}

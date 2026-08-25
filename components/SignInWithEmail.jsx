@@ -6,15 +6,25 @@ import { useState } from "react";
 
 const  SignInWithEmail = () =>  {
   const [email, setEmail] = useState("");
+   const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signIn("nodemailer", {
+    await signIn("email", {
   email,
   redirectTo: "/",
 });
+setSent(true);
   };
+
+   if (sent) {
+    return (
+      <p>
+        Check your email for a login link.
+      </p>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit} className="w-[240px]">

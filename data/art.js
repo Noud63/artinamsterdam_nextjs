@@ -1773,5 +1773,22 @@
         coordinates: [4.885495, 52.377699],
       },
     },
+    {
+      id: "arjen-lancel",
+      type: "Feature",
+      cat: "public",
+      properties: {
+        name: "Morgenster",
+        image: "arjenlancel.jpg",
+        extra:
+          "The artistic practice of Arjen Lancel consists of making sculptures and installations, often for the public space (commissions). At the same time, he curates exhibitions and art events like the Amsterdam Museum night art manifestation.Themes in his work are also the basis for contriving art events and ultimately influence each other again.",
+        link: "https://www.arjenlancel.nl",
+        address: "Nieuwpoortkade 1",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [4.859438, 52.384829],
+      },
+    }
   ],
 };
