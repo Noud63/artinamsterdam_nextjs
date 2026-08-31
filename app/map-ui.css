@@ -129,7 +129,7 @@ html {
   box-shadow: 0 2px 2px #69503a;
 }
 
-.menuTop button {
+.menuTop button, .backButton a  {
   background: linear-gradient(to top, #b47732, transparent);
   width: 120px;
   padding: 6px;
@@ -216,6 +216,25 @@ html {
     display: none;
   }
 }
+
+.backButton a  {
+  display:flex;
+  justify-content: center;
+  background: linear-gradient(to top, #b47732, transparent);
+  width: 120px;
+  padding: 6px;
+  border-radius: 25px;
+  border: none;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.07rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 1px 1px #492910;
+  border-top: 1px solid #eeb472;
+  cursor: pointer;
+}
+
 
 .infowindow {
   display: flex;
