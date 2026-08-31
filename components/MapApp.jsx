@@ -14,6 +14,7 @@ import Menu from "@/components/Menu";
 import InfoWindow from "@/components/InfoWindow";
 import VenuePopup from "@/components/VenuePopup";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 import "leaflet/dist/leaflet.css";
 
 export default function MapApp({ venues }) {
@@ -287,8 +288,13 @@ export default function MapApp({ venues }) {
             aria-hidden="true"
             style={{ width: "24px", height: "auto", borderRadius: "50%" }}
           />
-          <div className="absolute opacity-0 transition duration-500 ease-in-out group-hover:opacity-100 whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14">
-            Welcome, {session?.user.username}
+          <div className="flex flex-col absolute opacity-0 transition duration-500 ease-in-out group-hover:opacity-100 whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14">
+            <span>Welcome, {session?.user.username}</span>
+            {session?.user?.role === "admin" && (
+              <Link href="/admin" className="text-yellow-300 hover:underline">
+                <span>Admin</span>
+              </Link>
+            )}
             <div className="absolute -top-[12px] right-16 h-0 w-0 border-b-[12px] border-l-[10px] border-r-[10px] border-b-yellow-500 border-l-transparent border-r-transparent max-1xl:right-5 max-xlg:right-14" />
           </div>
         </div>

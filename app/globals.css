@@ -47,3 +47,31 @@ body {
 .amsterdam_logo_right img {
   width: 70px;
 }
+
+.adminPage {
+   background-image:
+    linear-gradient(to top, rgba(73, 39, 0, 0.8), rgba(211, 142, 64, 0.8)),
+    url("/images/sunflowers.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.adminHeader {
+  box-shadow: 0 2px 2px #69503a;
+}
+
+.adminMenuButton {
+  background: linear-gradient(to top, #b3732a, transparent);
+  width: 170px;
+  border-radius: 25px;
+  border: none;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.07rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 1px 1px #492910;
+  border-top: 1px solid #eeb472;
+  cursor: pointer;
+}

@@ -19,20 +19,23 @@ const UserSchema = new Schema(
     password: {
       type: String,
     },
-    avatar: 
-      {
-        type: String,
-      }
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
+    avatar: {
+      type: String,
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 // UserSchema.index({ email: 1 });       // login/sign-up
 //UserSchema.index({ username: 1 }, { unique: true });    // profile lookups
 // UserSchema.index({ createdAt: -1 });                    // sort users by newest
-
 
 const User = models.User || model("User", UserSchema);
 
