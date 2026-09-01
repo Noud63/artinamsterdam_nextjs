@@ -34,6 +34,7 @@ export default function MapApp({ venues }) {
   const [routeBounds, setRouteBounds] = useState(null);
   const [routing, setRouting] = useState(false);
   const [resetToken, setResetToken] = useState(0);
+  const [showUserTooltip, setShowUserTooltip] = useState(false);
 
   const { data: session } = useSession();
 
@@ -233,6 +234,7 @@ export default function MapApp({ venues }) {
       const menubar = document.querySelector(".menubar");
       const hamburger = document.querySelector(".hamburger");
       const infowindow = document.querySelector(".infowindow");
+      const userProfile = event.target.closest(".group");
 
       if (!menubar || !hamburger || !infowindow) {
         return;
@@ -241,9 +243,15 @@ export default function MapApp({ venues }) {
       const clickedInsideMenu = menubar.contains(event.target);
       const clickedHamburger = hamburger.contains(event.target);
       const clickedInsideInfowindow = infowindow.contains(event.target);
+      const clickedUserProfile =
+        userProfile && userProfile.classList.contains("group");
 
       if (!clickedInsideMenu && !clickedHamburger && !clickedInsideInfowindow) {
         setMobileMenuOpen(false);
+      }
+
+      if (!clickedUserProfile) {
+        setShowUserTooltip(false);
       }
     };
 
@@ -279,16 +287,28 @@ export default function MapApp({ venues }) {
       </div>
 
       {session?.user && (
-        <div className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-1xl:right-0 max-xlg:right-10">
+        <div
+          className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-1xl:right-0 max-xlg:right-10"
+          onClick={() => setShowUserTooltip(!showUserTooltip)}
+        >
           <Image
             src={avatar || "/images/profilepic.png"}
             alt=""
             width={24}
             height={24}
             aria-hidden="true"
-            style={{ width: "24px", height: "auto", borderRadius: "50%" }}
+            style={{
+              width: "24px",
+              height: "auto",
+              borderRadius: "50%",
+              cursor: "pointer",
+            }}
           />
-          <div className="flex flex-col absolute opacity-0 transition duration-500 ease-in-out group-hover:opacity-100 whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14">
+          <div
+            className={`flex flex-col absolute transition duration-500 ease-in-out whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14 ${
+              showUserTooltip ? "opacity-100" : "opacity-0 pointer-events-none"
+            } group-hover:opacity-100`}
+          >
             <span>Welcome, {session?.user.username}</span>
             {session?.user?.role === "admin" && (
               <Link href="/admin" className="text-yellow-300 hover:underline">
