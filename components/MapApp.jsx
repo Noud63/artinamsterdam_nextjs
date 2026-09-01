@@ -305,8 +305,9 @@ export default function MapApp({ venues }) {
             }}
           />
           <div
-            className={`flex flex-col absolute transition duration-500 ease-in-out whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14 ${
-              showUserTooltip ? "opacity-100" : "opacity-0 pointer-events-none"
+            className={`flex flex-col absolute transition duration-500 ease-in-out whitespace-nowrap bg-gradient-to-t from-yellow-800 to-yellow-500 text-white text-normal 
+              px-4 py-2 shadow-[0_2px_2px_#69503a] rounded-md top-12 max-1xl:-right-4 max-xlg:-right-14 
+              ${showUserTooltip ? "opacity-100" : "opacity-0 pointer-events-none"
             } group-hover:opacity-100`}
           >
             <span>Welcome, {session?.user.username}</span>
