@@ -14,9 +14,9 @@ export default async function AdminLayout({ children }) {
   }
 
   return (
-    <div className="adminPage min-h-screen flex flex-col text-white">
+    <div className="min-h-screen flex flex-col text-white">
       <AdminHeader user={session.user} />
-      <main className="flex-1 w-full px-4 py-8">{children}</main>
+      <main>{children}</main>
     </div>
   );
 }

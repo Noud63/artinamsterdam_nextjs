@@ -311,10 +311,13 @@ export default function MapApp({ venues }) {
             } group-hover:opacity-100`}
           >
             <span>Welcome, {session?.user.username}</span>
-            {session?.user?.role === "admin" && (
+            {session?.user?.role === "admin"? (
               <Link href="/admin" className="text-yellow-300 hover:underline">
                 <span>Admin</span>
-              </Link>
+              </Link>) : (
+              <Link href="/profile" className="text-yellow-300 hover:underline">
+                <span>Profile</span>
+              </Link> 
             )}
             <div className="absolute -top-[12px] right-16 h-0 w-0 border-b-[12px] border-l-[10px] border-r-[10px] border-b-yellow-500 border-l-transparent border-r-transparent max-1xl:right-5 max-xlg:right-14" />
           </div>
@@ -365,7 +368,7 @@ export default function MapApp({ venues }) {
         onClose={closePopup}
         onRoute={showRoute}
         session={session}
-        avatar={avatar}
+        avatar={avatar ? avatar : "/images/profilepic.png"}
       />
 
       <div id="container" className="absolute inset-0 z-[1]">
