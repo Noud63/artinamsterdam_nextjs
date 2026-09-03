@@ -221,8 +221,8 @@ html {
   display:flex;
   justify-content: center;
   background: linear-gradient(to top, #b47732, transparent);
-  width: 120px;
-  padding: 6px;
+  width: 160px;
+  padding: 12px;
   border-radius: 25px;
   border: none;
   font-family: "Google Sans", Roboto, Arial, sans-serif;

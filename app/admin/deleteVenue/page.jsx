@@ -8,9 +8,6 @@ export default function DeleteVenuePage() {
       <div className="flex w-full max-w-4xl justify-center">
         <DeleteVenueForm />
       </div>
-      <div className="backButton mt-8">
-        <Link href="/admin">Back</Link>
-      </div>
     </div>
   );
 }
