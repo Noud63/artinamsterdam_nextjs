@@ -34,8 +34,13 @@ export default function InfoWindow({ open, onClose, venueCount }) {
       </div>
 
       <div>
-       Sign in to leave a review and rate a venue.
+       Register and sign in to leave a review and rate a venue.
       </div>
+
+      <div>
+       Click on your avatar in the top right corner to access your profile.
+       You can add an avatar image or delete your account.
+       </div>
 
        <div>
         Use the Reset button from the menu to clear the Route and return the map to its default centered view of Amsterdam.
