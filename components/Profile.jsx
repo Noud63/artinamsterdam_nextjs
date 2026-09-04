@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { IoWarningOutline } from "react-icons/io5";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
@@ -75,23 +75,18 @@ const Profile = () => {
 
       if (res.ok) {
         const resObj = await res.json();
-
-        setTimeout(() => {
-          setMessage(resObj.message);
-          setSuccess(true);
-          setDeletingAccount(false);
-        }, 4000);
-
-        setTimeout(() => {
-          router.push("/");
-        }, 6000);
+        setMessage(resObj.message);
+        setSuccess(true);
+        await signOut({ callbackUrl: "/" });
+        return;
       }
+
+      setMessage("Failed to delete account.");
+      setDeletingAccount(false);
     } catch (err) {
       console.error(err);
       setMessage("Failed to delete account.");
       setDeletingAccount(false);
-    } finally {
-      setMessage("");
     }
   };
 
@@ -216,7 +211,7 @@ const Profile = () => {
               </div>
             )}
             <button
-              disabled={loading}
+              disabled={deletingAccount}
               type="button"
               className="w-full rounded-full py-3 border-t border-b border-t-red-700 border-b-red-950 mt-2 
                   tracking-wider text-white bg-[linear-gradient(to_top,rgba(70,0,0,0.9),rgba(140,0,0,0.8)),url(/images/sunflowers.jpg)] bg-no-repeat bg-cover bg-center p-1 cursor-pointer"

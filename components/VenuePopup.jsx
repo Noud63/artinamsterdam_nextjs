@@ -195,7 +195,7 @@ export default function VenuePopup({
               <div className="w-full flex justify-between flex-row border-b border-dotted mb-2">
                 <div className="text-lg font-semibold flex flex-row">
                   <Image
-                    src={review.avatar}
+                    src={review?.avatar || "/images/profilepic.png"}
                     width={28}
                     height={28}
                     alt="avatar"

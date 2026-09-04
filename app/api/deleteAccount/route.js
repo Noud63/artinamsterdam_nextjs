@@ -15,6 +15,17 @@ export async function DELETE(req) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const userId = session.user.id;
+
+    // Delete the user
+    await User.findByIdAndDelete(userId);
+
+    // Delete all reviews associated with the user
+    await Review.deleteMany({userId});
+
+    // Delete all ratings associated with the user
+    await Rating.deleteMany({ userId}); 
+
     return Response.json({
       message: "Account deleted!",
     });
