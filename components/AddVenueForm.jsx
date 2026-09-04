@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 const AddVenueForm = () => {
   const [venueName, setVenueName] = useState("");
@@ -54,6 +55,9 @@ const AddVenueForm = () => {
         >
           Submit
         </button>
+        <div className="backButton mt-8">
+        <Link href="/admin">Back</Link>
+      </div>
       </form>
     
   );

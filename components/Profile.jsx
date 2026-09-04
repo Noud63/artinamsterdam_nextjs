@@ -3,18 +3,22 @@ import React, { useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import { IoWarningOutline } from "react-icons/io5";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Spinner from "./Spinner";
 
 const Profile = () => {
   const { data: session } = useSession();
-
-  const userId = session?.user?.id;
 
   const avatarRef = useRef();
 
   const [avatar, setAvatar] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [deletingAccount, setDeletingAccount] = useState(false);
   const [error, setError] = useState(false);
+  const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+  const router = useRouter();
 
   const deleteSelectedImage = () => {
     setAvatar(null);
@@ -61,16 +65,34 @@ const Profile = () => {
     }
   };
 
-  const deleteAccount = async (userId) => {
-    // Implementation for deleting account
-    console.log("Deleting account for userId:", userId);
-    // try {
-    //   const res = await fetch(`/api/deleteaccount/${userId}`, {
-    //     method: "DELETE",
-    //   });
-    // }catch (err) {
-    //     console.error(err);
-    //   }
+  const deleteUserAccount = async () => {
+    setDeletingAccount(true);
+
+    try {
+      const res = await fetch(`/api/deleteAccount`, {
+        method: "DELETE",
+      });
+
+      if (res.ok) {
+        const resObj = await res.json();
+
+        setTimeout(() => {
+          setMessage(resObj.message);
+          setSuccess(true);
+          setDeletingAccount(false);
+        }, 4000);
+
+        setTimeout(() => {
+          router.push("/");
+        }, 6000);
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("Failed to delete account.");
+      setDeletingAccount(false);
+    } finally {
+      setMessage("");
+    }
   };
 
   return (
@@ -144,7 +166,7 @@ const Profile = () => {
                   <IoMdCloseCircleOutline
                     size={30}
                     color=""
-                    className="ml-3 cursor-pointer bg-yellow-600 rounded-full flex items-center justify-center w-[24px] h-[24px]"
+                    className="ml-3 cursor-pointer bg-red-800 rounded-full flex items-center justify-center w-[24px] h-[24px]"
                     onClick={() => deleteSelectedImage()}
                   />
                 </div>
@@ -166,8 +188,8 @@ const Profile = () => {
               <button
                 disabled
                 type="submit"
-                className="w-full rounded-full py-2 border-t border-b border-t-yellow-500 border-b-yellow-900 
-                  tracking-wider text-white bg-gradient-to-t from-yellow-800 via-yellow-700 to-yellow-600 cursor-pointer"
+                className="flex justify-center w-full rounded-full py-3 border-t border-b border-t-yellow-300 border-b-yellow-900 
+                    tracking-wider text-white bg-[linear-gradient(to_top,rgba(73,39,0,0.9),rgba(211,142,64,0.8)),url(/images/sunflowers.jpg)] bg-no-repeat bg-cover bg-center p-1 cursor-pointer"
               >
                 {loading ? "...just a moment!" : "Send"}
               </button>
@@ -175,27 +197,36 @@ const Profile = () => {
               <button
                 type="button"
                 onClick={() => window.location.assign("/")}
-                className="flex justify-center w-full rounded-full py-2 border-t border-b border-t-yellow-500 border-b-yellow-900 
-                    tracking-wider text-white bg-gradient-to-t from-yellow-800 via-yellow-700 to-yellow-600 p-1 cursor-pointer"
+                className="flex justify-center w-full rounded-full py-3 border-t border-b border-t-yellow-300 border-b-yellow-900 
+                    tracking-wider text-white bg-[linear-gradient(to_top,rgba(73,39,0,0.9),rgba(211,142,64,0.8)),url(/images/sunflowers.jpg)] bg-no-repeat bg-cover bg-center p-1 cursor-pointer"
               >
                 Back
               </button>
             </div>
           </form>
 
-          <div className="w-full flex flex-col mt-6 gap-2">
-            <span className="text-md">
+          <div className="mt-8 w-full flex flex-col gap-2">
+            <span className={success ? "hidden" : "block text-md"}>
               Delete your account? This action is irreversible and will
               permanently delete your account and all associated data.
             </span>
+            {message && (
+              <div className="text-lg font-semibold rounded-full bg-green-100 px-4 py-2 text-red-800">
+                {message}
+              </div>
+            )}
             <button
               disabled={loading}
               type="button"
-              className="w-full rounded-full py-2 border-t border-b border-t-red-500 border-b-red-900 mt-4 
-                  tracking-wider text-white bg-gradient-to-t from-red-900 via-red-800 to-red-700 cursor-pointer"
-              onClick={() => deleteAccount(userId)}
+              className="w-full rounded-full py-3 border-t border-b border-t-red-700 border-b-red-950 mt-2 
+                  tracking-wider text-white bg-[linear-gradient(to_top,rgba(70,0,0,0.9),rgba(140,0,0,0.8)),url(/images/sunflowers.jpg)] bg-no-repeat bg-cover bg-center p-1 cursor-pointer"
+              onClick={deleteUserAccount}
             >
-              {loading ? "...processing!" : "Delete account"}
+              {deletingAccount ? (
+                <Spinner loading={deletingAccount} height="24px" width="24px" />
+              ) : (
+                "Delete account"
+              )}
             </button>
           </div>
         </div>

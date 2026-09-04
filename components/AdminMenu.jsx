@@ -6,12 +6,12 @@ const AdminMenu = () => {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/", label: "Home" },
-    { href: "/admin/addVenue", label: "Add Venue" },
-    { href: "/admin/deleteVenue", label: "Delete Venue" },
-    { href: "/admin/removeUser", label: "Remove User" },
-    { href: "/admin/removeReview", label: "Remove Review" },
-    { href: "/admin/submitWarning", label: "Submit Warning" },
+    { href:"/", label:"Home" },
+    { href:"/admin/addVenue", label:"Add Venue" },
+    { href:"/admin/deleteVenue", label:"Delete Venue" },
+    { href:"/admin/removeUser", label:"Remove User" },
+    { href:"/admin/removeReview", label:"Remove Review" },
+    { href:"/admin/submitWarning", label:"Submit Warning" },
   ];
 
   return (

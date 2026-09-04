@@ -1,5 +1,5 @@
 import AddVenueForm from "@/components/AddVenueForm";
-import Link from "next/link";
+
 
 export default function AdminAddVenuePage() {
 
@@ -9,9 +9,7 @@ export default function AdminAddVenuePage() {
       <div className="flex w-full justify-center">
         <AddVenueForm />
       </div>
-     <div className="backButton mt-8">
-        <Link href="/admin">Back</Link>
-      </div>
+     
     </div>
   );
 }
