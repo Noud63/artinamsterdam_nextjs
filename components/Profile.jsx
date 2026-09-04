@@ -3,11 +3,12 @@ import React, { useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import { IoWarningOutline } from "react-icons/io5";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-import Link from "next/link";
 import Image from "next/image";
 
 const Profile = () => {
   const { data: session } = useSession();
+
+  const userId = session?.user?.id;
 
   const avatarRef = useRef();
 
@@ -58,6 +59,18 @@ const Profile = () => {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const deleteAccount = async (userId) => {
+    // Implementation for deleting account
+    console.log("Deleting account for userId:", userId);
+    // try {
+    //   const res = await fetch(`/api/deleteaccount/${userId}`, {
+    //     method: "DELETE",
+    //   });
+    // }catch (err) {
+    //     console.error(err);
+    //   }
   };
 
   return (
@@ -158,24 +171,29 @@ const Profile = () => {
               >
                 {loading ? "...just a moment!" : "Send"}
               </button>
-              <Link
-                href="/"
+
+              <button
+                type="button"
+                onClick={() => window.location.assign("/")}
                 className="flex justify-center w-full rounded-full py-2 border-t border-b border-t-yellow-500 border-b-yellow-900 
                     tracking-wider text-white bg-gradient-to-t from-yellow-800 via-yellow-700 to-yellow-600 p-1 cursor-pointer"
               >
                 Back
-              </Link>
+              </button>
             </div>
           </form>
+
           <div className="w-full flex flex-col mt-6 gap-2">
             <span className="text-md">
-              Delete your account? This action is irreversible and will permanently delete your account and all associated data.
+              Delete your account? This action is irreversible and will
+              permanently delete your account and all associated data.
             </span>
             <button
-              disabled
-              type="submit"
+              disabled={loading}
+              type="button"
               className="w-full rounded-full py-2 border-t border-b border-t-red-500 border-b-red-900 mt-4 
                   tracking-wider text-white bg-gradient-to-t from-red-900 via-red-800 to-red-700 cursor-pointer"
+              onClick={() => deleteAccount(userId)}
             >
               {loading ? "...processing!" : "Delete account"}
             </button>

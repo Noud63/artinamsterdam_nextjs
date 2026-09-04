@@ -19,10 +19,10 @@ const AdminMenu = () => {
       <div className="grid grid-cols-6 max-xlg:grid-cols-3 max-sm:grid-cols-2 max-xxsm:grid-cols-1 gap-4">
         {menuItems.map((item) => (
           <Link
-            key={item.href}
-            href={item.href}
+            key={item?.href}
+            href={item?.href}
             className={`adminMenuButton flex justify-center items-center py-3 px-2 rounded transition ${
-              pathname === item.href
+              pathname === item?.href
                 ? "bg-blue-600 text-white"
                 : "bg-gray-700 hover:bg-gray-600 text-white"
             }`}
