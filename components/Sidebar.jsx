@@ -10,6 +10,8 @@ export default function Sidebar({
   markersRef,
 }) {
 
+  console.log("features:", features);
+
   return (
     <aside className={`sidebar${hidden ? " hidden" : ""}`} id="sidebar">
       <div className="listPopUpWrapper">

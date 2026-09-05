@@ -12,11 +12,13 @@ const AdminMenu = () => {
     { href:"/admin/removeUser", label:"Remove User" },
     { href:"/admin/removeReview", label:"Remove Review" },
     { href:"/admin/submitWarning", label:"Submit Warning" },
+    { href:"/admin/userEmails", label:"User Emails" },
+    { href:"/admin/userInfo", label:"User Info" },
   ];
 
   return (
     <aside className="w-full flex justify-center">
-      <div className="grid grid-cols-6 max-xlg:grid-cols-3 max-sm:grid-cols-2 max-xxsm:grid-cols-1 gap-4">
+      <div className="grid grid-cols-4 max-xlg:grid-cols-3 max-sm:grid-cols-2 max-xxsm:grid-cols-1 gap-4">
         {menuItems.map((item) => (
           <Link
             key={item?.href}
