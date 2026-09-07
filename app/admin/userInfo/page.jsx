@@ -3,7 +3,6 @@ import dbConnect from "@/lib/dbConnect";
 import User from "@/models/user";
 import Review from "@/models/review";
 import Venue from "@/models/venue";
-import Link from "next/link";
 import UserInfo from "@/components/UserInfo";
 
 const UserInfoPage = async () => {
