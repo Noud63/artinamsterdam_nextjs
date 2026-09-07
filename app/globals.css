@@ -17,6 +17,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  scrollbar-width: none; /*hide scrollbar in firefox */
 }
 
 .leaflet-container {
@@ -68,4 +69,38 @@ body {
   box-shadow: 0 1px 1px #492910;
   border-top: 1px solid #eeb472;
   cursor: pointer;
+}
+
+._scroll {
+  overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; /* thumb, track invisible by default */
+}
+
+/* WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 0px; /* hide scrollbar initially */
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #583705; /* scrollbar thumb color */
+  border-radius: 4px;
+}
+
+/* Show scrollbar on hover */
+::-webkit-scrollbar {
+  width: 0px; 
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #663d00; /* thumb color on hover */
+}
+
+/* Firefox hover scrollbar */
+.sidebar_scroll:hover {
+  scrollbar-color: #6b3d00 transparent;
 }

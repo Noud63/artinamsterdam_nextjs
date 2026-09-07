@@ -2,7 +2,9 @@ import React from "react";
 import dbConnect from "@/lib/dbConnect";
 import User from "@/models/user";
 import Review from "@/models/review";
+import Venue from "@/models/venue";
 import Link from "next/link";
+import UserInfo from "@/components/UserInfo";
 
 const UserInfoPage = async () => {
   await dbConnect();
@@ -18,61 +20,37 @@ const UserInfoPage = async () => {
               $expr: { $eq: ["$userId", "$$userId"] },
             },
           },
+          {
+            $lookup: {
+              from: Venue.collection.name,
+              let: { venueId: "$venueId" },
+              pipeline: [
+                {
+                  $match: {
+                    $expr: { $eq: ["$_id", "$$venueId"] },
+                  },
+                },
+                { $project: { _id: 1, name: 1 } },
+              ],
+              as: "venue",
+            },
+          },
+          {
+            $set: {
+              venue: { $arrayElemAt: ["$venue", 0] },
+            },
+          },
           { $sort: { createdAt: -1 } },
         ],
         as: "reviews",
       },
     },
   ]);
-
-  console.log("UserInfo:", userInfo);
+  const serializedUserInfo = JSON.parse(JSON.stringify(userInfo));
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <h1 className="w-full text-xl font-bold mb-4 border-b pb-2">User Info</h1>
-
-      {userInfo.map((user) => {
-        const userReviews = user.reviews || [];
-
-        return (
-          <div key={user._id.toString()} className="text-lg border-b mb-6 pb-2">
-            <div>
-              <div>
-                <span className="font-semibold">_id:</span>
-                <span> {user._id.toString()}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Name:</span>
-                <span> {user.name}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Username:</span>
-                <span> {user.username}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Email:</span>
-                <span> {user.email}</span>
-              </div>
-              <div>
-                <span className="font-semibold">Reviews:</span>
-                <span> {userReviews.length}</span>
-              </div>
-              <ul className="list-disc list-inside">
-                {userReviews.map((review) => (
-                  <li key={review._id.toString()}>{review.text}</li>
-                ))}
-              </ul>
-              <div>
-                <span className="font-semibold">Ratings:</span>
-                <span> {3}</span>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-      <div className="backButton mt-8">
-        <Link href="/admin">Back</Link>
-      </div>
+    <div className="w-full max-w-[650px] flex flex-col items-center mt-20 px-2 min-h-screen overflow-y-auto">
+      <UserInfo userInfo={serializedUserInfo} />
     </div>
   );
 };

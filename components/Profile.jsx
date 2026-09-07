@@ -91,7 +91,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="w-full max-w-[500px] flex flex-col text-white px-4">
+    <div className="w-full max-w-[500px] flex flex-col text-white px-4 mt-20">
       <h1 className="w-full text-2xl font-bold mb-4 border-b-2 border-dotted pb-2">
         {" "}
         {session?.user?.role?.charAt(0)?.toUpperCase() +

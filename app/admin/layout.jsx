@@ -13,7 +13,7 @@ export default async function AdminLayout({ children }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col text-white">
+    <div className="flex flex-col text-white w-full flex flex-col min-h-screen items-center overflow-y-auto">
       <main>{children}</main>
     </div>
   );
