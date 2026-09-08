@@ -2,7 +2,7 @@
 import React from "react";
 import { Grid } from "react-loader-spinner";
 
-const Spinner = ({ loading, height, width }) => {
+const Spinner = ({ loading = true, height = 40, width = 40}) => {
   return (
     <>
     {loading && <Grid

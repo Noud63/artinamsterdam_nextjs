@@ -26,8 +26,8 @@ export default function Sidebar({
           <Image
             src="/images/triangle.png"
             alt=""
-            width={7}
-            height={0}
+            width={8}
+            height={13}
             aria-hidden="true"
            style={{width:"8px", height:"13px", transform: hidden ? "rotate(180deg)" : "rotate(-360deg)"}}
           />
