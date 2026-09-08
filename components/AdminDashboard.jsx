@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   return (
  <>
    <AdminHeader user={session?.user} />
-  <AdminMenu />;
+  <AdminMenu />
   </>
    
   )

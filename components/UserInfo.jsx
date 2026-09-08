@@ -6,8 +6,10 @@ import Image from "next/image";
 const UserInfo = ({ userInfo }) => {
 
 const [users, setUsers] = useState(userInfo);
+const totalReviews = users.flatMap((user) => user.reviews ?? []).length; 
 
   const deleteUserAccount = async (userId) => {
+
     // await fetch("/api/admin/deleteUser", {
     //   method: "DELETE",
     //   headers: { "Content-Type": "application/json" },
@@ -21,7 +23,7 @@ const [users, setUsers] = useState(userInfo);
   };
 
   const deleteUserReview = async (reviewId) => {
-    console.log(reviewId)
+
     // await fetch("/api/admin/deleteReview", {
     //   method: "DELETE",
     //   headers: { "Content-Type": "application/json" },
@@ -58,9 +60,24 @@ const [users, setUsers] = useState(userInfo);
         </Link>
       </div>
 
-      <h1 className="flex items-center w-full text-xl font-bold mb-2 border-b py-1 pl-2 bg-white text-yellow-800">
+      <h1 className="flex items-center w-full text-2xl font-bold mb-2 border-b py-1 pl-2 bg-white text-yellow-800">
         User Info
       </h1>
+
+      <div className="flex flex-col w-full text-lg mb-2 border border-white text-white py-1 pl-2">
+        <div><span className="font-semibold">Users total: </span>{users.length}</div>
+        <div><span className="font-semibold">Reviews total: </span>{totalReviews}</div>
+      </div>
+
+      <div className="w-full flex justify-center py-5">
+              <Image
+                src="/images/asterisk.png"
+                alt=""
+                width={20}
+                height={20}
+                style={{ width: "20px", height: "20px" }}
+              />
+            </div>
 
       {users.map((user) => {
         const userReviews = user.reviews || [];
