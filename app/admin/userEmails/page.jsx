@@ -1,14 +1,13 @@
-import React from 'react'
-import dbConnect from '@/lib/dbConnect';
-import User from '@/models/user';
-import Link from 'next/link';
+import React from "react";
+import dbConnect from "@/lib/dbConnect";
+import User from "@/models/user";
+import Link from "next/link";
 
 const UserEmailsPage = async () => {
+  await dbConnect();
 
-    await dbConnect();
-
-    const data = await User.find({}).lean();
-    const emails = data.map((user) => user.email);
+  const data = await User.find({}).lean();
+  const emails = data.map((user) => user.email);
 
   return (
     <div className="flex flex-col items-center mt-20">
@@ -22,7 +21,7 @@ const UserEmailsPage = async () => {
         <Link href="/admin">Back</Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default UserEmailsPage
+export default UserEmailsPage;

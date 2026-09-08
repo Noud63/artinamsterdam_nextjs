@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const UserInfo = ({ userInfo }) => {
 
-const [users, setUsers] = useState(userInfo);
+const [users, setUsers] = useState(userInfo || []);
 const totalReviews = users.flatMap((user) => user.reviews ?? []).length; 
 
   const deleteUserAccount = async (userId) => {
@@ -60,7 +60,7 @@ const totalReviews = users.flatMap((user) => user.reviews ?? []).length;
         </Link>
       </div>
 
-      <h1 className="flex items-center w-full text-2xl font-bold mb-2 border-b py-1 pl-2 bg-white text-yellow-800">
+      <h1 className="flex items-center w-full text-2xl font-bold mb-2 py-1 pl-2 text-white">
         User Info
       </h1>
 
@@ -102,8 +102,8 @@ const totalReviews = users.flatMap((user) => user.reviews ?? []).length;
                   <span className="font-semibold">Email:</span>
                   <span> {user.email}</span>
                 </div>
-                <div className="flex justify-between bg-white text-yellow-800 p-2 mb-1">
-                  <span className="font-semibold">Reviews:</span>
+                <div className="flex justify-center bg-white text-yellow-800 p-2 mb-1 gap-2">
+                  <span className="font-semibold">Reviews: </span>
                   <span> {userReviews.length}</span>
                 </div>
                 <div className="pl-2 flex flex-col gap-2 px-2 my-2">
@@ -140,7 +140,7 @@ const totalReviews = users.flatMap((user) => user.reviews ?? []).length;
                     </div>
                   ))}
                 </div>
-                <div className="flex px-2 my-2">
+                <div className="flex px-4 my-2">
                   <button
                     type="button"
                     className="w-full rounded-full py-2 items-center border-t border-b border-t-red-700 border-b-red-950 

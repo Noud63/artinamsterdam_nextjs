@@ -47,8 +47,6 @@ const UserInfoPage = async () => {
   ]);
   const serializedUserInfo = JSON.parse(JSON.stringify(userInfo));
 
-  console.log(serializedUserInfo)
-
   return (
     <div className="w-full max-w-[650px] flex flex-col items-center mt-20 px-2 min-h-screen overflow-y-auto">
       <UserInfo userInfo={serializedUserInfo} />

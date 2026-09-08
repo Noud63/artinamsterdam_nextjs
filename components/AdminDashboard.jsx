@@ -7,13 +7,11 @@ import AdminHeader from "./AdminHeader";
 const AdminDashboard = () => {
   const { data: session } = useSession();
   return (
- <>
-   <AdminHeader user={session?.user} />
-  <AdminMenu />
-  </>
-   
-  )
- 
+    <>
+      <AdminHeader user={session?.user} />
+      <AdminMenu />
+    </>
+  );
 };
 
 export default AdminDashboard;
