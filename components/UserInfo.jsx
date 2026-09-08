@@ -1,23 +1,40 @@
 "use client";
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const UserInfo = ({ userInfo }) => {
+
+const [users, setUsers] = useState(userInfo);
+
   const deleteUserAccount = async (userId) => {
     // await fetch("/api/admin/deleteUser", {
     //   method: "DELETE",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify({ userId: userId }),
     // });
+    setUsers((currentUsers) =>
+    currentUsers.filter(
+      (user) => user._id.toString() !== userId,
+    ),
+  );
   };
 
   const deleteUserReview = async (reviewId) => {
+    console.log(reviewId)
     // await fetch("/api/admin/deleteReview", {
     //   method: "DELETE",
     //   headers: { "Content-Type": "application/json" },
     //   body: JSON.stringify({ reviewId: reviewId }),
     // });
+    setUsers((currentUsers) =>
+    currentUsers.map((user) => ({
+      ...user,
+      reviews: (user.reviews || []).filter(
+        (review) => review._id.toString() !== reviewId,
+      ),
+    })),
+  );
   };
 
   return (
@@ -45,7 +62,7 @@ const UserInfo = ({ userInfo }) => {
         User Info
       </h1>
 
-      {userInfo.map((user) => {
+      {users.map((user) => {
         const userReviews = user.reviews || [];
 
         return (
@@ -106,7 +123,7 @@ const UserInfo = ({ userInfo }) => {
                     </div>
                   ))}
                 </div>
-                <div className="flex px-2 gap-2">
+                <div className="flex px-2 my-2">
                   <button
                     type="button"
                     className="w-full rounded-full py-2 items-center border-t border-b border-t-red-700 border-b-red-950 
