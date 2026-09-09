@@ -74,6 +74,10 @@ const UserInfo = ({ userInfo }) => {
   };
 
   const refreshPage = () => {
+    if (!name || isRefreshing) {
+      return;
+    }
+
     setName("");
     setSearchName("");
     setIsRefreshing(true);
@@ -122,7 +126,12 @@ const UserInfo = ({ userInfo }) => {
           <button
             type="button"
             aria-label="Refresh users"
-            className="absolute right-0 top-[5px]"
+            className={`absolute right-0 top-[5px] ${
+              name && !isRefreshing
+                ? "cursor-pointer"
+                : "cursor-not-allowed opacity-100"
+            }`}
+            disabled={!name || isRefreshing}
             onClick={refreshPage}
           >
             <Image
@@ -168,9 +177,9 @@ const UserInfo = ({ userInfo }) => {
         return (
           <div key={user._id.toString()} className="w-full max-w-[650px] ">
             <div className="w-full text-md border pb-2">
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col">
                 <div className="pl-4 mt-2">
-                  <span className="font-semibold">ID:</span>
+                  <span className="font-semibold">UserId:</span>
                   <span> {user._id.toString()}</span>
                 </div>
                 <div className="pl-4">
@@ -197,6 +206,10 @@ const UserInfo = ({ userInfo }) => {
                     >
                       <div className="flex flex-col">
                         <span>
+                          <span className="font-semibold">ReviewId: </span>
+                          {review._id}
+                        </span>
+                        <span>
                           {" "}
                           <span className="font-semibold">Text: </span>"
                           {review.text}"{" "}
@@ -206,10 +219,9 @@ const UserInfo = ({ userInfo }) => {
                           {review.venue?.name || "Unknown"}
                         </span>
                         <span>
-                          <span className="font-semibold">VenueId: </span>
+                          <span className="font-semibold">Category: </span>
 
-                          {review.venue?._id?.toString() ||
-                            review.venueId.toString()}
+                          {review.venue.category}
                         </span>
                       </div>
                       <button
