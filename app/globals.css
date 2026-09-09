@@ -57,8 +57,7 @@ body {
 }
 
 .adminMenuButton {
-  background: linear-gradient(to top, #b3732a, transparent);
-  width: 170px;
+  background: linear-gradient(to top, #ac6d25, transparent);
   border-radius: 25px;
   border: none;
   font-family: "Google Sans", Roboto, Arial, sans-serif;
@@ -66,7 +65,7 @@ body {
   letter-spacing: 0.07rem;
   font-weight: 600;
   color: #ffffff;
-  box-shadow: 0 1px 1px #492910;
+  box-shadow: 0 1px 2px #492910;
   border-top: 1px solid #eeb472;
   cursor: pointer;
 }
