@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-   --breakpoint-xxsm: 23.75rem; /* 380px */
-   --breakpoint-xsm: 36.25rem; /* 580px */
+  --breakpoint-xxsm: 23.75rem; /* 380px */
+  --breakpoint-xsm: 36.25rem; /* 580px */
   --breakpoint-sm: 40rem; /* 640px */
   --breakpoint-md: 48rem; /* 768px */
   --breakpoint-xmd: 53.125rem; /* 850px */
@@ -18,6 +18,21 @@ body {
   height: 100%;
   margin: 0;
   scrollbar-width: none; /*hide scrollbar in firefox */
+}
+
+.adminSearchInput:-webkit-autofill,
+.adminSearchInput:-webkit-autofill:hover,
+.adminSearchInput:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 9999s ease-out;
+  border: 1px solid white;
+  color: #ffffff;
+}
+
+.adminSearchInput::-webkit-search-cancel-button {
+  display: none;
 }
 
 .leaflet-container {
@@ -91,7 +106,7 @@ body {
 
 /* Show scrollbar on hover */
 ::-webkit-scrollbar {
-  width: 0px; 
+  width: 0px;
   display: none;
 }
 

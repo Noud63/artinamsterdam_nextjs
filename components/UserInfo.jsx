@@ -103,7 +103,7 @@ const UserInfo = ({ userInfo }) => {
 
         <div className="relative w-full max-w-[650px] mt-4">
           <input
-            className="focus:shadow-outline w-full border px-3 py-3 leading-tight focus:outline-none"
+            className="adminSearchInput focus:shadow-outline w-full border px-3 py-3 leading-tight focus:outline-none"
             id="search-db"
             type="search"
             placeholder="Enter name user"
@@ -185,7 +185,7 @@ const UserInfo = ({ userInfo }) => {
                   <span className="font-semibold">Email:</span>
                   <span> {user.email}</span>
                 </div>
-                <div className="flex justify-center bg-white text-yellow-800 p-2 mb-1 gap-2">
+                <div className="flex pl-4 justify-center bg-white text-yellow-800 p-2 mb-1 gap-2">
                   <span className="font-semibold">Reviews: </span>
                   <span> {userReviews.length}</span>
                 </div>
