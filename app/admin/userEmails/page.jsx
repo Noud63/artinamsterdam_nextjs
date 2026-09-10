@@ -10,7 +10,7 @@ const UserEmailsPage = async () => {
   const emails = data.map((user) => user.email);
 
   return (
-    <div className="flex flex-col items-center mt-20">
+    <div className="flex flex-col items-center mt-20 px-2">
       <h1 className="w-full text-xl font-bold mb-4 border-b-2 border-dotted">User Emails</h1>
       <ul className="list-disc list-inside">
         {emails.map((email, index) => (

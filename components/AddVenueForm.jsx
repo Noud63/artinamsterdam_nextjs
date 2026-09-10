@@ -91,7 +91,7 @@ const AddVenueForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mb-4 grid w-full max-w-2xl gap-4 rounded-xl border-2 border-white px-8 pb-8 pt-6 shadow-md"
+      className="mb-4 grid w-full max-w-2xl gap-4 rounded-xl border-2 border-white px-8 pb-8 pt-6 shadow-md max-sm:px-4"
     >
       {fields.map(([name, label, type, required, placeholder]) => (
         <label

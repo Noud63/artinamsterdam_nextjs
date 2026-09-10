@@ -51,7 +51,7 @@ const UserInfoPage = async () => {
   console.log("Data:", serializedUserInfo);
 
   return (
-    <main className="w-full max-w-[650px] flex flex-col items-center mt-20 px-2 min-h-screen overflow-y-auto mx-auto">
+    <main className="w-full max-w-[650px] flex flex-col items-center mt-20 min-h-screen overflow-y-auto mx-auto">
       <UserInfo userInfo={serializedUserInfo} />
     </main>
   );
