@@ -85,7 +85,7 @@ export default function MapApp({ venues }) {
         setSidebarHidden(true);
       }
 
-      markersRef.current[feature.legacyId]?.bounce(1);
+      markersRef.current[feature.id]?.bounce(1);
     },
     [sidebarHidden],
   );

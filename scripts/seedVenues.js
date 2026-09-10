@@ -13,18 +13,13 @@ async function seed() {
   console.log("Seeding venues...");
 
   for (const feature of art.features) {
-    const {
-      id,
-      cat,
-      properties,
-      geometry,
-    } = feature;
+    const { id, category, properties, geometry } = feature;
 
     await Venue.findOneAndUpdate(
       { legacyId: id }, // id = name of venue, prevents duplicates
       {
         legacyId: id,
-        category: cat,
+        category,
 
         name: properties.name,
         title: properties.title,
@@ -39,7 +34,7 @@ async function seed() {
           coordinates: geometry.coordinates,
         },
       },
-      { upsert: true, returnDocument: "after" }
+      { upsert: true, returnDocument: "after" },
     );
   }
 
@@ -51,4 +46,3 @@ seed().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-

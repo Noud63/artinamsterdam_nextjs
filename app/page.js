@@ -10,28 +10,33 @@ export default async function Home() {
   //Convert data to GeoJSON
   const venues = {
     type: "FeatureCollection",
-    features: data.map((venue) => ({
-      type: "Feature",
+    features: data
+      .filter(
+        (venue) =>
+          Array.isArray(venue.location?.coordinates) &&
+          venue.location.coordinates.length === 2,
+      )
+      .map((venue) => ({
+        type: "Feature",
+        id: venue._id.toString(),
+        legacyId: venue.legacyId,
 
-      id: venue._id.toString(),
-      legacy: venue.legacyId,
+        geometry: {
+          type: "Point",
+          coordinates: venue.location.coordinates,
+        },
 
-      geometry: {
-        type: "Point",
-        coordinates: venue.location.coordinates,
-      },
-
-      properties: {
-        name: venue.name,
-        title: venue.title,
-        image: venue.image,
-        address: venue.address,
-        extra: venue.extra,
-        link: venue.link,
-        open: venue.open,
-        category: venue.category,
-      },
-    })),
+        properties: {
+          name: venue.name,
+          title: venue.title,
+          image: venue.image,
+          address: venue.address,
+          extra: venue.extra,
+          link: venue.link,
+          open: venue.open,
+          category: venue.category,
+        },
+      })),
   };
 
   return (

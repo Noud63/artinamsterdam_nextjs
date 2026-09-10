@@ -1,10 +1,10 @@
-﻿export const art = {
+export const art = {
   type: "FeatureCollection",
   features: [
     {
       id: "hethem",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Het Hem",
         title: "",
@@ -25,7 +25,7 @@
     {
       id: "wow",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "WOW",
         title: "",
@@ -43,7 +43,7 @@
     {
       id: "de-appel",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "De Appel",
         title: "",
@@ -68,7 +68,7 @@
     {
       id: "w139",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "W139",
         title: "",
@@ -93,7 +93,7 @@
     {
       id: "arti-et-amicitiae",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Arti et Amicitiae",
         title: "",
@@ -119,7 +119,7 @@
     {
       id: "corridor-project-space",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Corridor Project Space",
         title: "",
@@ -140,7 +140,7 @@
     {
       id: "huis-marseille",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Huis Marseille",
         title: "",
@@ -167,7 +167,7 @@
     {
       id: "oscam",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "OSCAM",
         title: "",
@@ -192,7 +192,7 @@
     {
       id: "droog",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Droog",
         image: "droog.jpg",
@@ -218,7 +218,7 @@
     {
       id: "kochxbos",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "KochXBos Gallery",
         image: "kochxbox.jpg",
@@ -241,7 +241,7 @@
     {
       id: "pakt",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "P/////akt",
         image: "pakt.jpg",
@@ -264,7 +264,7 @@
     {
       id: "ontheinside",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "On The Inside",
         image: "ontheinside.jpg",
@@ -288,7 +288,7 @@
     {
       id: "ndsm-fuse",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "NDSM-Fuse",
         image: "ndsmfuse.jpg",
@@ -311,7 +311,7 @@
     {
       id: "straat-museum",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Straat Museum",
         image: "straatmuseum.jpg",
@@ -337,7 +337,7 @@
     {
       id: "museum-villa",
       type: "Feature",
-      cat: "artcentre",
+      category: "artcentre",
       properties: {
         name: "Museum Villa",
         image: "museumvilla.jpg",
@@ -363,7 +363,7 @@
     {
       id: "fons-welters",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Gallery Fons Welters",
         title: "",
@@ -378,10 +378,10 @@
         coordinates: [4.87876, 52.37378],
       },
     },
-     {
+    {
       id: "serieuze-zaken",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Serieuze Zaken",
         title: "",
@@ -392,21 +392,21 @@
         link: "https://serieuzezaken.art",
       },
       open: [
-          "Wednesday:14:00 - 18:00",
-          "Thursday:14:00 - 18:00",
-          "Friday:14:00 - 18:00",
-          "Saturday:14:00 - 18:00",
-          "visits by appointment"
-        ],
+        "Wednesday:14:00 - 18:00",
+        "Thursday:14:00 - 18:00",
+        "Friday:14:00 - 18:00",
+        "Saturday:14:00 - 18:00",
+        "visits by appointment",
+      ],
       geometry: {
         type: "Point",
-        coordinates: [4.878722, 52.372250],
+        coordinates: [4.878722, 52.37225],
       },
     },
     {
       id: "grimm-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Grimm Gallery",
         title: "",
@@ -432,7 +432,7 @@
     {
       id: "akinci-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Akinci Gallery",
         image: "akinci.jpg",
@@ -455,7 +455,7 @@
     {
       id: "art-singel-100",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Art Singel 100",
         image: "artsingel100.jpg",
@@ -476,7 +476,7 @@
     {
       id: "beeldend-gesproken",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Beeldend Gesproken",
         image: "beeldendgesproken.jpg",
@@ -499,11 +499,11 @@
     {
       id: "bildhalle",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Bildhalle",
         image: "bildhalle.jpg",
-        extra: 
+        extra:
           "Bildhalle is a gallery dedicated to classic and contemporary photography and photo-based art located in Zurich and Amsterdam.\n\n The gallery represents a highly curated selection of artists from around the world, with a particular focus on photography of the second half of the 20th century and contemporary artistic positions of the 21st century.\n\nIn addition to showcasing internationally established artists, Bildhalle's ambitious program also provides space for innovative young and upcoming artists who are pushing the boundaries of the medium of photography by creating a crossover to other visual art forms and are thereby bringing new perspectives to the discourse.",
         address: "Singel 272h",
         link: "https://www.bildhalle.ch",
@@ -522,7 +522,7 @@
     {
       id: "borzo-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Borzo Gallery",
         image: "borzo.jpg",
@@ -545,7 +545,7 @@
     {
       id: "de-witte-voet",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "De Witte Voet",
         image: "dewittevoet.jpg",
@@ -563,11 +563,11 @@
     {
       id: "depth-of-field",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Depth Of Field (DOF)",
         image: "depthoffield.jpg",
-        extra: 
+        extra:
           "Depth Of Field (DOF) is an Amsterdam based gallery dealing in nineteenth and early twentieth century photographs. The gallery is founded by Wendela Hubrecht and Joris Jansen. They studied arts and art-history focused on photography.\n\n DOF is specialised in authentic historical and fine art photography. We offer remarkable - and exclusively verified original - prints in genres that vary from the beginning of photography, to family albums, and from landscapes to advertising.",
         link: "https://www.dof.amsterdam",
         address: "Hazenstraat 28",
@@ -581,7 +581,7 @@
     {
       id: "galerie-bart",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Galerie Bart",
         image: "bart.jpg",
@@ -601,7 +601,7 @@
     {
       id: "gallery-delaive",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Gallery Delaive",
         image: "delaive.jpg",
@@ -626,7 +626,7 @@
     {
       id: "galerie-mokum",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Galerie Mokum",
         image: "mokum.jpg",
@@ -650,7 +650,7 @@
     {
       id: "go-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "GO Gallery",
         image: "go.jpg",
@@ -668,7 +668,7 @@
     {
       id: "jaski-art-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Jaski Art Gallery",
         image: "jaski.jpg",
@@ -693,7 +693,7 @@
     {
       id: "kersgallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Kers gallery",
         image: "kers.jpg",
@@ -711,7 +711,7 @@
     {
       id: "martin-van-zomeren",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Martin van Zomeren",
         image: "vanzomeren.png",
@@ -733,7 +733,7 @@
     {
       id: "reflex-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Reflex Modern Art Gallery",
         image: "reflex.jpg",
@@ -750,7 +750,7 @@
     {
       id: "torch-gallery",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Torch Gallery",
         image: "torch.jpg",
@@ -772,7 +772,7 @@
     {
       id: "ron-mandos",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Ron Mandos",
         image: "ronmandos.jpg",
@@ -796,7 +796,7 @@
     {
       id: "upstream",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Upstream Gallery",
         image: "upstream.jpg",
@@ -819,7 +819,7 @@
     {
       id: "annet-gelink",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Annet Gelink",
         image: "annetgelink.jpg",
@@ -843,7 +843,7 @@
     {
       id: "lumen-travo",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Lumen Travo",
         image: "lumentravo.jpg",
@@ -866,7 +866,7 @@
     {
       id: "m-simons",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "M.Simons",
         image: "msimons.jpg",
@@ -888,7 +888,7 @@
     {
       id: "stigter-vandoesburg",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Stigter van Doesburg",
         image: "stigtervandoesburg.jpg",
@@ -911,7 +911,7 @@
     {
       id: "andriesse-eyck",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Andriesse-Eyck Gallery",
         image: "andriesseeyck.jpg",
@@ -933,7 +933,7 @@
     {
       id: "ellen-de-Bruijne",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Ellen de Bruijne Projects",
         image: "ellendebruijne.jpg",
@@ -956,7 +956,7 @@
     {
       id: "gerhard-hofland",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Gerhard Hofland",
         image: "gerhardhofland.jpg",
@@ -978,7 +978,7 @@
     {
       id: "wouter-van-leeuwen",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Wouter van Leeuwen",
         image: "woutervanleeuwen.jpg",
@@ -1000,7 +1000,7 @@
     {
       id: "lang",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Lang gallery",
         image: "lang.jpg",
@@ -1023,7 +1023,7 @@
     {
       id: "tegenboschvanvreden",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Tegenboschvanvreden",
         image: "tegenboschvanvreden.jpg",
@@ -1046,7 +1046,7 @@
     {
       id: "fontana",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Galerie Fontana",
         image: "fontana.jpg",
@@ -1069,7 +1069,7 @@
     {
       id: "madevankrimpen",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Made van Krimpen",
         image: "madevankrimpen.jpg",
@@ -1091,7 +1091,7 @@
     {
       id: "Millen House",
       type: "Feature",
-      cat: "gallery",
+      category: "gallery",
       properties: {
         name: "Millen House",
         image: "millenhouse.jpg",
@@ -1116,7 +1116,7 @@
     {
       id: "rijksmuseum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Rijks Museum",
         image: "rijks.png",
@@ -1142,10 +1142,9 @@
     {
       id: "vangogh-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Van Gogh Museum",
-        bgImg: "vGbg.jpg",
         image: "vangoghmuseum.jpg",
         extra:
           "Museum dedicated to the dutch painter Vincent van Gogh. It accomodates the biggest collection of his paintings in the world.It is one of the many art museums in the Netherlands dedicated to the works of Vincent van Gogh and his contemporaries",
@@ -1167,7 +1166,7 @@
     {
       id: "stedelijk-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Stedelijk Museum",
         image: "stedelijkmuseum.jpg",
@@ -1193,7 +1192,7 @@
     {
       id: "h-art",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "H'ART Museum",
         image: "hart.jpg",
@@ -1219,7 +1218,7 @@
     {
       id: "moco-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Moco Museum",
         image: "mocomuseum.jpg",
@@ -1245,7 +1244,7 @@
     {
       id: "rembrandt-house",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Rembrandt House",
         image: "rembrandthuis.jpg",
@@ -1270,7 +1269,7 @@
     {
       id: "eye-film-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "EYE Film Museum",
         image: "eye.jpg",
@@ -1295,7 +1294,7 @@
     {
       id: "foam",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "FOAM",
         image: "foam2.jpg",
@@ -1321,7 +1320,7 @@
     {
       id: "street-art-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Street Art Museum",
         image: "streetart.jpg",
@@ -1337,7 +1336,7 @@
     {
       id: "cobra-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Cobra Museum",
         title: "",
@@ -1364,7 +1363,7 @@
     {
       id: "greenbox-museum",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Greenbox Museum",
         title: "",
@@ -1385,7 +1384,7 @@
     {
       id: "nxt",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Nxt Museum",
         image: "nxt.jpg",
@@ -1409,7 +1408,7 @@
     {
       id: "fabrique-lumieres",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Fabrique des Lumieres ",
         image: "fdl.jpg",
@@ -1429,7 +1428,7 @@
     {
       id: "oude-kerk",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "De Oude Kerk",
         image: "oudekerk.jpg",
@@ -1455,7 +1454,7 @@
     {
       id: "museumvandegeest",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Museum Van De Geest",
         image: "museumvandegeest.jpg",
@@ -1480,7 +1479,7 @@
     {
       id: "buro-stedelijk",
       type: "Feature",
-      cat: "museum",
+      category: "museum",
       properties: {
         name: "Buro Stedelijk",
         image: "burostedelijk.jpg",
@@ -1507,7 +1506,7 @@
     {
       id: "noudvandun",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Noud van Dun",
         image: "ufo.jpg",
@@ -1523,7 +1522,7 @@
     {
       id: "pablo-picasso",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Pablo Picasso",
         title: "L'oiseau",
@@ -1540,7 +1539,7 @@
     {
       id: "frank-mandersloot",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Frank Mandersloot",
         title: "For the Bees",
@@ -1557,7 +1556,7 @@
     {
       id: "mblok-blugthorst",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "M.Blok en B.Lugthorst",
         title: "Mens van Water",
@@ -1573,7 +1572,7 @@
     {
       id: "jan-fabre",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Jan Fabre",
         image: "janfabre.jpg",
@@ -1590,7 +1589,7 @@
     {
       id: "roland-schimmel",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Roland Schimmel",
         image: "rolandschimmel.jpg",
@@ -1607,7 +1606,7 @@
     {
       id: "thom-puckey",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Thom Puckey",
         image: "thompuckey.jpg",
@@ -1623,7 +1622,7 @@
     {
       id: "irma-boom",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Irma Boom",
         image: "tunnel.jpg",
@@ -1641,7 +1640,7 @@
     {
       id: "marjan-laaper",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Marjan Laaper",
         image: "ramses.jpg",
@@ -1658,7 +1657,7 @@
     {
       id: "nicolas-dings",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Nicolas Dings",
         title: "Baruch de Spinoza",
@@ -1675,7 +1674,7 @@
     {
       id: "merijn-bolink",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Merijn Bolink",
         title: "Man en Schaap",
@@ -1692,7 +1691,7 @@
     {
       id: "piet-parra",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Piet Parra",
         title: "Angstig Konijn (Anxiety Rabbit)",
@@ -1709,7 +1708,7 @@
     {
       id: "mark-manders",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Mark Manders",
         title: "Rokin Fountain",
@@ -1724,7 +1723,7 @@
     {
       id: "keith-haring",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Keith Haring Mural",
         title: "Seamonster",
@@ -1742,7 +1741,7 @@
     {
       id: "london-police_2",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "The London Police",
         image: "londonpolice_2.jpg",
@@ -1759,7 +1758,7 @@
     {
       id: "london-police_1",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "The London Police",
         image: "londonpolice.jpg",
@@ -1776,7 +1775,7 @@
     {
       id: "arjen-lancel",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Arjen Lancel",
         title: "Morgenster",
@@ -1794,7 +1793,7 @@
     {
       id: "vendel-en-de-wolf",
       type: "Feature",
-      cat: "public",
+      category: "public",
       properties: {
         name: "Vendel en de Wolf",
         title: "No",
@@ -1808,6 +1807,6 @@
         type: "Point",
         coordinates: [4.869366, 52.384411],
       },
-    }
+    },
   ],
 };
