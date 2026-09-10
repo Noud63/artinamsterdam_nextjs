@@ -9,7 +9,7 @@ const AdminMenu = () => {
     { href: "/", label: "Home" },
     { href: "/admin/addVenue", label: "Add Venue" },
     { href: "/admin/deleteVenue", label: "Delete Venue" },
-    { href: "/admin/submitWarning", label: "Submit Warning" },
+    { href: "/admin/submitWarning", label: "Warning" },
     { href: "/admin/userEmails", label: "User Emails" },
     { href: "/admin/userInfo", label: "User Info" },
   ];
@@ -21,7 +21,7 @@ const AdminMenu = () => {
           <Link
             key={item?.href}
             href={item?.href}
-            className="rounded-full w-[200px] py-3 px-2 flex justify-center border-t border-b border-t-yellow-200 border-b-yellow-900 
+            className="rounded-full max-w-[200px] min-w-[160px] py-3 px-2 flex justify-center border-t border-b border-t-yellow-200 border-b-yellow-900 
       bg-[linear-gradient(to_top,rgb(120,69,21,1),rgb(249,189,98,.8)),url(/images/sunflowers.jpg)] bg-no-repeat bg-cover bg-center tracking-widest"
           >
             {item.label}
