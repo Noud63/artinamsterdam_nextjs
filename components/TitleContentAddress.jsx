@@ -3,7 +3,7 @@ import React from 'react'
 const TitleContentAddress = ({featureProps}) => {
   return (
     <div> {featureProps.title ? (
-          <div className="puTitle">&quot;{featureProps.title}&quot;</div>
+          <div className="puTitle mt-2">&quot;{featureProps.title}&quot;</div>
         ) : null}
         {featureProps.extra ? (
           <div className="extra3">{featureProps.extra}</div>

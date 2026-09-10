@@ -1778,7 +1778,8 @@
       type: "Feature",
       cat: "public",
       properties: {
-        name: "Morgenster",
+        name: "Arjen Lancel",
+        title: "Morgenster",
         image: "arjenlancel.jpg",
         extra:
           "The artistic practice of Arjen Lancel consists of making sculptures and installations, often for the public space (commissions). At the same time, he curates exhibitions and art events like the Amsterdam Museum night art manifestation.Themes in his work are also the basis for contriving art events and ultimately influence each other again.",
@@ -1788,6 +1789,24 @@
       geometry: {
         type: "Point",
         coordinates: [4.859438, 52.384829],
+      },
+    },
+    {
+      id: "vendel-en-de-wolf",
+      type: "Feature",
+      cat: "public",
+      properties: {
+        name: "Vendel en de Wolf",
+        title: "No",
+        image: "vendelendewolf.jpg",
+        extra:
+          "On the ceiling of a new gateway building at the former water terrein are 34 polyester heads that give light in the evening. Copper pipes connect the heads.",
+        link: "https://www.vendelendewolf.nl",
+        address: "Waterspiegelplein",
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [4.869366, 52.384411],
       },
     }
   ],

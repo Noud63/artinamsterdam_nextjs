@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const UserInfo = ({ userInfo }) => {
+  
   const router = useRouter();
   const [users, setUsers] = useState(userInfo || []);
   const [name, setName] = useState("");

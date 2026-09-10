@@ -8,7 +8,9 @@ import Image from "next/image";
 import Spinner from "./Spinner";
 
 const Profile = () => {
-  const { data: session } = useSession();
+  const { data: session, update } = useSession();
+
+  console.log(session?.user?.avatar)
 
   const avatarRef = useRef();
 
@@ -44,7 +46,7 @@ const Profile = () => {
     }
 
     try {
-      const res = await fetch("/api/editprofile", {
+      const res = await fetch("/api/editProfile", {
         method: "POST",
         body: formData,
         headers: {
@@ -55,6 +57,7 @@ const Profile = () => {
       const result = await res.json();
 
       if (res.status === 200) {
+        await update({ avatar: result.avatar });
         setLoading(false);
         setTimeout(() => {
           router.push("/");
@@ -113,7 +116,7 @@ const Profile = () => {
         </div>
         <div className="flex">
           <span className="font-bold w-[100px] flex">Avatar:</span>{" "}
-          {session?.user?.avatar ? session?.user?.avatar : "No avatar"}
+          {session?.user?.avatar ? "Yes" : "No avatar"}
         </div>
       </div>
 
@@ -140,7 +143,7 @@ const Profile = () => {
                   </label>
                 </div>
 
-                <div className="flex items-center justify-center pt-5">
+                <div className="flex items-center justify-center w-[58px] h-[58px] border-1 rounded-full mt-3 mr-1">
                   <Image
                     src={
                       session?.user?.avatar
@@ -181,7 +184,7 @@ const Profile = () => {
 
             <div className="flex w-full mt-8 gap-2">
               <button
-                disabled
+                disabled={loading}
                 type="submit"
                 className="flex justify-center w-full rounded-full py-3 border-t border-b border-t-yellow-300 border-b-yellow-900 
                     tracking-wider text-white bg-[linear-gradient(to_top,rgba(73,39,0,0.9),rgba(211,142,64,0.8)),url(/images/sunflowers.jpg)] bg-no-repeat bg-cover bg-center p-1 cursor-pointer"
