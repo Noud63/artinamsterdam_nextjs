@@ -77,7 +77,7 @@ const LoginForm = () => {
               Email:
             </label>
             <input
-              className="focus:shadow-outline w-full appearance-none rounded border-2 px-3 py-3 leading-tight shadow focus:outline-none"
+              className="loginInputForm focus:shadow-outline w-full appearance-none rounded border-2 px-3 py-3 leading-tight shadow focus:outline-none"
               id="email"
               type="email"
               placeholder="Enter your email"
@@ -91,7 +91,7 @@ const LoginForm = () => {
               Password:
             </label>
             <input
-              className="focus:shadow-outline w-full appearance-none rounded border-2 px-3 py-3 leading-tight shadow focus:outline-none"
+              className="loginInputForm focus:shadow-outline w-full appearance-none rounded border-2 px-3 py-3 leading-tight shadow focus:outline-none"
               id="password"
               type="password"
               placeholder="Enter password"

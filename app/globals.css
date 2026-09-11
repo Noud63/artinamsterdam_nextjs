@@ -20,6 +20,7 @@ body {
   scrollbar-width: none; /*hide scrollbar in firefox */
 }
 
+.loginInputForm,
 .adminSearchInput:-webkit-autofill,
 .adminSearchInput:-webkit-autofill:hover,
 .adminSearchInput:-webkit-autofill:focus {
