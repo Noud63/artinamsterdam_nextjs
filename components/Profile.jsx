@@ -47,7 +47,7 @@ const Profile = () => {
 
     try {
       const res = await fetch("/api/editProfile", {
-        method: "POST",
+        method: "PATCH",
         body: formData,
         headers: {
           enctype: "multipart/form-data",

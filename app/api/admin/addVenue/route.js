@@ -13,7 +13,7 @@ export async function POST(request) {
     const body = await request.json();
     const {
       id,
-      cat,
+      category,
       name,
       title,
       image,
@@ -26,10 +26,10 @@ export async function POST(request) {
 
     if (
       typeof id !== "string" ||
-      typeof cat !== "string" ||
+      typeof category !== "string" ||
       typeof name !== "string" ||
       !id.trim() ||
-      !cat.trim() ||
+      !category.trim() ||
       !name.trim()
     ) {
       return Response.json(
@@ -56,7 +56,7 @@ export async function POST(request) {
 
     const venue = await Venue.create({
       legacyId: id.trim(),
-      category: cat.trim(),
+      category: category.trim(),
       name: name.trim(),
       title: title?.trim() || "",
       image: image?.trim() || "",

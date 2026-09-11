@@ -108,7 +108,7 @@ const UserInfo = ({ userInfo }) => {
 
         <div className="relative w-full max-w-[650px] mt-4">
           <input
-            className="adminSearchInput focus:shadow-outline w-full border px-3 py-3 leading-tight focus:outline-none"
+            className="adminSearchInput focus:shadow-outline w-full border px-3 py-3 leading-tight focus:outline-none rounded-lg"
             id="search-db"
             type="search"
             placeholder="Enter name user"
@@ -151,7 +151,7 @@ const UserInfo = ({ userInfo }) => {
         User Info
       </h1>
 
-      <div className="w-full max-w-[650px] flex flex-col w-full text-lg mb-2 border border-white text-white py-1 pl-4">
+      <div className="w-full max-w-[650px] flex flex-col w-full text-lg mb-2 border border-white text-white py-1 pl-4 rounded-lg">
         <div>
           <span className="font-semibold">Users total: </span>
           {filteredUsers.length}
@@ -176,8 +176,8 @@ const UserInfo = ({ userInfo }) => {
         const userReviews = user.reviews || [];
 
         return (
-          <div key={user._id.toString()} className="w-full max-w-[650px] ">
-            <div className="w-full text-md border pb-2">
+          <div key={user._id.toString()} className="w-full max-w-[650px]">
+            <div className="w-full text-md border pb-2 rounded-lg">
               <div className="flex flex-col">
                 <div className="pl-4 mt-2">
                   <span className="font-semibold">UserId:</span>
@@ -203,7 +203,7 @@ const UserInfo = ({ userInfo }) => {
                   {userReviews.map((review, index) => (
                     <div
                       key={review._id}
-                      className="flex flex-col border-b border px-2 pt-2 pb-3 justify-between"
+                      className="flex flex-col border-b border px-2 pt-2 pb-3 justify-between rounded-lg"
                     >
                       <div className="flex flex-col">
                         <span>

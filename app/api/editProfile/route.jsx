@@ -4,9 +4,8 @@ import User from "@/models/user";
 import mongoose from "mongoose";
 import { auth } from "@/auth";
 
-export const POST = async (request) => {
+export const PATCH = async (request) => {
   try {
-    await dbConnect()
 
     const formData = await request.formData();
 
@@ -47,6 +46,8 @@ export const POST = async (request) => {
 
     //Add uploaded images to the post
     profile.image = result.secure_url;
+
+    await dbConnect()
 
     const user = await User.findOne({ _id: userId });
 

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const initialForm = {
   id: "",
-  cat: "gallery",
+  category: "",
   name: "",
   title: "",
   image: "",
@@ -52,10 +52,11 @@ const AddVenueForm = () => {
           open: form.open
             .split("\n")
             .map((entry) => entry.trim())
-            .filter(Boolean),
+            .filter(Boolean), //removes empty lines (falsy)
           coordinates,
         }),
       });
+
       const data = await response.json();
 
       if (!response.ok) {
@@ -123,6 +124,7 @@ const AddVenueForm = () => {
           id="extra"
           name="extra"
           rows="5"
+          placeholder="What's all about"
           value={form.extra}
           onChange={handleChange}
         />

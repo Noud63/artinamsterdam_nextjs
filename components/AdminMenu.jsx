@@ -6,7 +6,7 @@ const AdminMenu = () => {
   const pathname = usePathname();
 
   const menuItems = [
-    { href: "/", label: "Home" },
+    { href: "/", label: "Map" },
     { href: "/admin/addVenue", label: "Add Venue" },
     { href: "/admin/deleteVenue", label: "Delete Venue" },
     { href: "/admin/submitWarning", label: "Warning" },
