@@ -288,9 +288,9 @@ export default function MapApp({ venues }) {
 
       {session?.user && (
         <div
-          className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] items-center justify-center rounded-full max-1xl:right-0 max-xlg:right-10"
+          className="group absolute top-[3px] right-20 z-12 flex text-shadow-sm mt-[8px] mr-[20px] w-[24px] h-[24px] border-2 border-white items-center justify-center rounded-full max-1xl:right-0 max-xlg:right-10"
           onClick={() => setShowUserTooltip(!showUserTooltip)}
-        >
+          >
           <Image
             src={avatar || "/images/profilepic.png"}
             alt=""
@@ -301,7 +301,7 @@ export default function MapApp({ venues }) {
               width: "24px",
               height: "auto",
               borderRadius: "50%",
-              cursor: "pointer",
+              cursor: "pointer"
             }}
           />
           <div
