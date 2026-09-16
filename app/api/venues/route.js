@@ -9,6 +9,8 @@ export async function GET() {
     const venues = await Venue.find({})
       .lean();
 
+      console.log(venues)
+
     return NextResponse.json(venues);
   } catch (error) {
     console.error(error);

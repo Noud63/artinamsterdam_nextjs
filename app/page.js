@@ -7,6 +7,8 @@ export default async function Home() {
 
   const data = await Venue.find({}).lean();
 
+  console.log(data)
+
   //Convert data to GeoJSON
   const venues = {
     type: "FeatureCollection",
