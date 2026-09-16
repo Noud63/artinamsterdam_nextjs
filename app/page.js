@@ -2,6 +2,8 @@ import MapLoader from "@/components/MapLoader";
 import dbConnect from "@/lib/dbConnect";
 import Venue from "@/models/venue";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   await dbConnect();
 
