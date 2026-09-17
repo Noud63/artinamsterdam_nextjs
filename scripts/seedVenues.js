@@ -46,3 +46,6 @@ seed().catch((err) => {
   console.error(err);
   process.exit(1);
 });
+
+
+//RUN: node scripts/seedVenues.js

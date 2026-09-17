@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "seed:venues": "node scripts/seedVenues.js"
+    "lint": "eslint"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.11.2",

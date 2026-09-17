@@ -25,3 +25,7 @@ exportVenues().catch((error) => {
   console.error("Venue export failed:", error);
   process.exit(1);
 });
+
+
+
+//RUN: node scripts/exportVenues.js
