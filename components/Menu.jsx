@@ -111,7 +111,7 @@ export default function Menu({
         />
       </div>
 
-      <div className={`menubar${mobileMenuOpen ? " active" : ""}`}>
+      <div className={`menubar${mobileMenuOpen ? "active" : ""}`}>
         <MenuButtons
           onCategorySelect={onCategorySelect}
           onInfoClick={onInfoClick}
