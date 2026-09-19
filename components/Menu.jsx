@@ -18,7 +18,6 @@ function MenuButtons({
   locating,
   onCloseMobileMenu,
 }) {
-  
   const { data: session, status } = useSession();
 
   // console.log("Avatar:", session?.user?.avatar)
@@ -110,8 +109,8 @@ export default function Menu({
           locating={locating}
         />
       </div>
-
-      <div className={`menubar${mobileMenuOpen ? "active" : ""}`}>
+       {/* keep the space " active"  =>  "menubar active" instead of "menubaractive" */}
+      <div className={`menubar${mobileMenuOpen ? " active" : ""}`}>
         <MenuButtons
           onCategorySelect={onCategorySelect}
           onInfoClick={onInfoClick}
