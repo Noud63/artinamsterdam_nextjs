@@ -18,7 +18,7 @@ Interactive map highlights 80 art-locations across Amsterdam, including art gall
 
 Demo: https://artinamsterdam-nextjs.vercel.app<br/><br />
 
-<div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/eb00fc11-f68d-490a-a7e9-1d7e96ac33fd" /></div><br />
+<div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/27d7e456-fd85-4cd4-abcd-bac2511a760c" /></div><br />
 
 <div><img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/7024d3f6-12be-475f-b629-3769d0652314" /></div><br />
 
