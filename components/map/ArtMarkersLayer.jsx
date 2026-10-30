@@ -9,10 +9,7 @@ export default function ArtMarkersLayer({
   markersRef,
   geoJsonKey,
 }) {
-  // useEffect(() => {
-  //   markersRef.current = {};
-  // }, [features, markersRef]);
-
+  
   const geoJsonData = {
     type: "FeatureCollection",
     features,
