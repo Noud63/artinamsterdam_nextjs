@@ -4,7 +4,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import { L, AMSTERDAM_CENTER, DEFAULT_ZOOM } from "@/lib/leaflet-setup";
+import { isMobileViewport } from "@/lib/media";
 import { filterFeatures, sortFeaturesByCategory } from "@/lib/venue";
+import AmsterdamLogo from "@/components/AmsterdamLogo";
 import ArtMarkersLayer from "@/components/map/ArtMarkersLayer";
 import UserLocationLayer from "@/components/map/UserLocationLayer";
 import RouteLayer from "@/components/map/RouteLayer";
@@ -55,11 +57,15 @@ export default function MapApp({ venues }) {
     setSelectedFeature(null);
   }, []);
 
-  useEffect(() => {
-    closePopup();
+  const clearRoute = useCallback(() => {
     setRouteLatLngs(null);
     setRouteBounds(null);
-  }, [category, closePopup]);
+  }, []);
+
+  useEffect(() => {
+    closePopup();
+    clearRoute();
+  }, [category, clearRoute, closePopup]);
 
   const closeInfo = useCallback(() => {
     setInfoOpen(false);
@@ -110,7 +116,7 @@ export default function MapApp({ venues }) {
         setOpenUserPopup(openPopup);
         setLocating(false);
 
-        if (window.matchMedia("(max-width: 430px)").matches) {
+        if (isMobileViewport()) {
           setInfoOpen(false);
           setSidebarHidden(true);
           setMobileMenuOpen(false);
@@ -193,14 +199,13 @@ export default function MapApp({ venues }) {
 
   const handleReset = useCallback(() => {
     setCategory(null);
-    setRouteLatLngs(null);
-    setRouteBounds(null);
+    clearRoute();
     closePopup();
     closeInfo();
     setMobileMenuOpen(false);
     setResetToken((value) => value + 1);
     markersRef.current = {};
-  }, [closePopup, closeInfo]);
+  }, [clearRoute, closePopup, closeInfo]);
 
   const handleInfoClick = useCallback(() => {
     if (infoOpen) {
@@ -211,7 +216,7 @@ export default function MapApp({ venues }) {
     setInfoOpen(true);
     setMobileMenuOpen(false);
 
-    if (window.matchMedia("(max-width: 430px)").matches) {
+    if (isMobileViewport()) {
       setSidebarHidden(true);
     }
   }, [infoOpen, closeInfo]);
@@ -264,27 +269,8 @@ export default function MapApp({ venues }) {
 
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <div className="amsterdam_logo max-1xl:hidden">
-        <Image
-          src="/images/amsterdam_logo_wit.png"
-          alt=""
-          width={70}
-          height={18}
-          aria-hidden="true"
-          style={{ width: "70px", height: "auto" }}
-        />
-      </div>
-
-      <div className="amsterdam_logo_right max-1xl:hidden">
-        <Image
-          src="/images/amsterdam_logo_wit.png"
-          alt=""
-          width={70}
-          height={18}
-          aria-hidden="true"
-          style={{ width: "70px", height: "auto" }}
-        />
-      </div>
+      <AmsterdamLogo className="amsterdam_logo max-1xl:hidden" />
+      <AmsterdamLogo className="amsterdam_logo_right max-1xl:hidden" />
 
       {session?.user && (
         <div

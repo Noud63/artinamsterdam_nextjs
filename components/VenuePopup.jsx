@@ -5,7 +5,11 @@ import {
   estimateWalkingTime,
   getDistanceToVenue,
 } from "@/lib/distance";
-import { formatCategoryLabel, isVenueOpen } from "@/lib/venue";
+import {
+  formatCategoryLabel,
+  getVenueImageSrc,
+  isVenueOpen,
+} from "@/lib/venue";
 import Image from "next/image";
 import StarRating from "./StarRating";
 import ReviewForm from "./ReviewForm";
@@ -114,7 +118,7 @@ export default function VenuePopup({
     >
       <div className="pic">
         <Image
-          src={`/images/${feature.properties.image}`}
+          src={getVenueImageSrc(feature)}
           alt={feature.properties.name}
           width={350}
           height={200}

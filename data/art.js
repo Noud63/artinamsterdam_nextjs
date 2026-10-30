@@ -1410,7 +1410,7 @@ export const art = {
       type: "Feature",
       category: "museum",
       properties: {
-        name: "Fabrique des Lumieres ",
+        name: "Fabrique des Lumieres",
         image: "fdl.jpg",
         extra:
           "Noem het een modern museum, of een meeslepende, zinnenprikkelende, audiovisuele totaalervaring. Maar hoe je het ook noemt: Fabrique des LumiÃ¨res is een belevenis die draait om kunst. Bedoeld om te prikkelen, te raken en overdonderen. Toegankelijk voor iedereen en uniek in z'n soort.",
