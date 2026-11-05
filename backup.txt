@@ -1,9 +1,0 @@
-mongodump
-run: mongodump --uri mongodb+srv://Noud63:noudvd63@noudvandun.uj74y.mongodb.net
-
-mongorestore
-run: mongorestore --uri mongodb+srv://Noud63:noudvd63@noudvandun.uj74y.mongodb.net
-
-MONGODB_URI=mongodb+srv://Noud63:noudvd63@noudvandun.uj74y.mongodb.net/artinamsterdam?retryWrites=true&w=majority
-
-mongorestore --uri="mongodb+srv://noudvandun_db_user:noudvd63@art.w8zof7s.mongodb.net" --db=artinamsterdam ./dump/artinamsterdam
